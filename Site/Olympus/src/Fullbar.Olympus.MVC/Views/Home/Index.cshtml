@@ -1,0 +1,242 @@
+﻿@using Fullbar.Olympus.MVC.Helpers
+@using Fullbar.Olympus.Dominio.Entidade;
+
+@model List<Fullbar.Olympus.MVC.Models.TreinamentoHomeViewModel>
+
+
+@{
+    ViewBag.Title = @Fullbar.Olympus.MVC.Resource.Titulo;
+    var caminhoImg = System.Web.Configuration.WebConfigurationManager.AppSettings["caminhoImg"];
+}
+
+
+<div class="col-md-9 pad-top-40 conteudo">
+    <!--  Conteúdo -->
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide hidden-xs" data-ride="carousel">
+
+        <div class="carousel-inner" role="listbox">            
+
+            @if (ViewBag.Banner != null)
+            {
+                var listBanner = (List<Banner>)ViewBag.Banner;
+
+                int i = 1;
+                var classe = string.Empty;
+                var slide = string.Empty;
+
+                foreach (var item in listBanner)
+                {
+                    if (i == 1)
+                    {
+                        classe = "first-slide center-block";
+                        slide = "First slide";
+                    }
+                    else if (i == 2)
+                    {
+                        classe = "second-slide center-block";
+                        slide = "Second slide";
+                    }
+                    else if (i == 3)
+                    {
+                        classe = "third-slide center-block";
+                        slide = "Third slide";
+                    }
+                    
+                    if (i == 1)
+                    {
+                        <div class="item active">
+                            <a href="@item.dsLink">
+                                <img class="@classe" src=@Url.Content(@caminhoImg + "/assets/img/banner/" + item.dsImagem.Replace(" ", "%20")) alt="@slide">
+                            </a>
+                            <div class="container">
+                                <div class="carousel-caption">
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    { 
+                        <div class="item">
+                            <a href="@item.dsLink">
+                                <img class="@classe" src=@Url.Content(@caminhoImg + "/assets/img/banner/" + item.dsImagem.Replace(" ", "%20")) alt="@slide">
+                            </a>                            
+                            <div class="container">
+                                <div class="carousel-caption">
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    i++;
+                }
+            }
+        </div>
+
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <div style="position:absolute; right:32px; bottom:-10px;">@Fullbar.Olympus.MVC.Resource.AvisoPublicidade</div>
+    
+    </div><!-- /.carousel -->
+
+    <div class="col-md-12">
+        <hr>
+    </div>
+
+    <div class="col-md-12 title-geral">
+        <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.HomeTituloTreinamento</p>
+    </div>
+
+    <div class="col-md-12">
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @id = "frmDropIdioma" }))
+            {
+                @Html.DropDownListFor(x => x.FirstOrDefault().dsPais, (IEnumerable<SelectListItem>)@ViewBag.Pais, new { @class = "form-control inp-contato" })
+            }
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        @if (Model != null)
+        {
+
+            if (Model.Count > 0)
+            {
+                foreach (var item in Model)
+                {   
+                    @item
+                    var textoBotao = string.Empty;
+                    var strClasse = "btn-verde";
+                    if (item.inUsuarioStatus == 2) { textoBotao = Fullbar.Olympus.MVC.Resource.HomeBotaoPresencaConfirmada; }
+                    else if (item.inUsuarioStatus == 3 || item.inUsuarioStatus == 4) { textoBotao = Fullbar.Olympus.MVC.Resource.HomeBotaoAguardandoFila; strClasse = "btn-laranja"; }
+
+                    <div class="col-md-6 col-sm-6 col-xs-12 pad-top-20">
+                        <div class="col-md-12 zera-pad quad-treinamentos">
+                            <div>
+                                <div class="cuadro_intro_hover ">
+                                    <p>
+                                        @if (@item.dsImagem != "")
+                                        {
+                                            <img src=@Html.Raw(Url.Content(caminhoImg + "/assets/img/treinamento/" + item.dsImagem.Replace(" ", "%20"))) alt="" class="img-responsive center-block">
+                                        }
+                                        else
+                                        {
+                                            <img src=@Url.Content("~/assets/img/banner-treinamentos.png") alt="" class="img-responsive center-block">
+                                        }
+                                    </p>
+
+                                    <div class="title-tambs">
+
+                                        <h3>
+                                            @Html.DisplayFor(modelItem => item.dsDataPorExtenso) - @Html.DisplayFor(modelItem => item.dsCidade)                                    
+                                        </h3>
+                                        <p>
+                                            @Html.DisplayFor(modelItem => item.dsNome)
+                                        </p>
+                                    </div>
+                                    <div class="caption">
+                                        @*<div class="blur"></div>*@
+                                        <div class="caption-text">
+                                        
+                                            <div class="clique-aqui">
+                                                <div class="text-right ico-mais">
+                                                    <a class="" href="@Url.Action(Fullbar.Olympus.MVC.Resource.PaginaTreinamentoActionDetalhe, @Fullbar.Olympus.MVC.Resource.PaginaTreinamentoController, new { id = item.idTreinamento })"><img src=@Url.Content("~/assets/img/ico-mais.png") alt=""></a>
+                                                </div>
+                                                <p>@Html.ActionLink(@Fullbar.Olympus.MVC.Resource.HomeBotaoMaisInformcaoCalendario, @Fullbar.Olympus.MVC.Resource.PaginaTreinamentoActionDetalhe, @Fullbar.Olympus.MVC.Resource.PaginaTreinamentoController, new { id = item.idTreinamento }, new { @class = " " })</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pad-top-20 text-center">
+                                                        
+                                @if (item.idStatus == 2)
+                                {
+                                    if (item.inUsuarioStatus == 0) { textoBotao = Fullbar.Olympus.MVC.Resource.HomeBotaoFilaEsperaTreinamento; strClasse = "btn-laranja"; }
+                                    
+                                    <!--TREINAMENTO EM LISTA DE ESPERA-->
+                                    <p>
+                                        @Html.ActionLink(@textoBotao, @Fullbar.Olympus.MVC.Resource.PaginaTreinamentoActionDetalhe, @Fullbar.Olympus.MVC.Resource.PaginaTreinamentoController, new { id = item.idTreinamento }, new { @class = "btn btn-lg btn-primary " + strClasse, @role = "button" })
+                                    </p>
+                                }
+                                else if (item.idStatus == 4)
+                                {
+                                    <!--TREINAMENTO EM BREVE
+                                    <p>
+                                        <a class="btn btn-lg btn-primary bt-cinza" href="@Fullbar.Olympus.MVC.Resource.PaginaTreinamentoController/@Fullbar.Olympus.MVC.Resource.PaginaTreinamentoActionDetalhe/@item.idTreinamento" role="button">@Fullbar.Olympus.MVC.Resource.PaginaTreinamentoDetalhesInscrevaseEmBreve</a>
+                                    </p>-->
+                                    if (item.inUsuarioStatus == 0) { textoBotao = Fullbar.Olympus.MVC.Resource.HomeBotaoInscrevaseTreinamento; strClasse = ""; }
+                                    <!--TREINAMENTO EM INSCREVA-SE -->
+                                    <p>
+                                        @Html.ActionLink(@textoBotao, @Fullbar.Olympus.MVC.Resource.PaginaTreinamentoActionDetalhe, @Fullbar.Olympus.MVC.Resource.PaginaTreinamentoController, new { id = item.idTreinamento }, new { @class = "btn btn-lg btn-primary " + strClasse, @role = "button" })
+                                    </p>
+
+                                }
+                                else
+                                {
+                                    if (item.inUsuarioStatus == 0) { textoBotao = Fullbar.Olympus.MVC.Resource.HomeBotaoInscrevaseTreinamento; strClasse = ""; }
+                                    <!--TREINAMENTO EM INSCREVA-SE -->
+                                    <p>
+                                        @Html.ActionLink(@textoBotao, @Fullbar.Olympus.MVC.Resource.PaginaTreinamentoActionDetalhe, @Fullbar.Olympus.MVC.Resource.PaginaTreinamentoController, new { id = item.idTreinamento }, new { @class = "btn btn-lg btn-primary " + strClasse, @role = "button" })
+                                    </p>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                
+                }
+
+            }
+            else
+            {
+                <div class="col-md-12 col-sm-12 col-xs-12 pad-top-20">
+                    <p style="text-align:center">
+                        <br />
+                        @Fullbar.Olympus.MVC.Resource.TreinamentosNovosEmBreve
+                    </p>
+                </div>
+            }
+            
+            
+
+        }
+    </div>
+    <div style="clear:both"></div>
+</div><!--  /Conteúdo -->
+@section Scripts{
+
+    <script>
+
+        $(function () {
+
+
+            $('#ulMenu > li').each(function () {
+
+                $(this).removeClass('active');
+
+            });
+
+            $('#liHome').addClass('active')
+
+
+            $("#dsPais").change(function () {
+                
+                $("#frmDropIdioma").submit();
+
+            });
+
+
+        });
+        
+    </script>
+}

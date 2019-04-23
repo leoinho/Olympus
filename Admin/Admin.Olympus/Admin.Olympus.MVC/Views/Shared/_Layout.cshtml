@@ -1,0 +1,439 @@
+﻿@using Admin.Olympus.Dominio.Entidade
+
+@{
+    /* RESOURCE */
+    
+    //Arquivo de Resource
+    string resource  = (string)Session["ArquivoResource"];
+
+    //Idioma
+    string idioma = (string)Session["CultureIdioma"];
+    System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo(idioma);
+}
+
+<!doctype html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@HttpContext.GetGlobalResourceObject(@resource, "Titulo", @ci) </title>
+
+    <!-- Core CSS - Include with every page -->
+    <link href="/assets/css/vendor/bootstrap.css" rel="stylesheet">
+    <link href="/assets/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <script src="/assets/js/vendor/jquery-1.11.3.min.js"></script>
+
+
+    <!-- Page-Level Plugin CSS - Dashboard -->
+    <link href="/assets/css/vendor/morris-0.4.3.min.css" rel="stylesheet">
+    <link href="/assets/css/vendor/timeline.css" rel="stylesheet">
+
+    <!-- SB Admin CSS - Include with every page -->
+    <link href="/assets/css/vendor/sb-admin.css" rel="stylesheet">
+
+    <!-- Custom -->
+    <link href="/assets/css/main.css" rel="stylesheet">
+    <script src="/assets/js/main.js?20181113"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    
+</head>
+<body>
+
+    @{
+        if (Session["Administrador"] != null)
+        {
+            var usuario = (Administrador)Session["Administrador"];
+
+            <div id="wrapper">
+                <nav class="navbar navbar-default navbar-fixed-top navbar-default-color" role="navigation" style="margin-bottom: 0;">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/Dashboard/">ADMIN 
+                            <strong> 
+                                @if (usuario.idTipo == 1)
+                                {
+                                    @HttpContext.GetGlobalResourceObject(@resource, "TituloOBL", @ci)                                    
+                                }
+                                else if (usuario.idTipo == 2)
+                                {
+                                    @HttpContext.GetGlobalResourceObject(@resource, "TituloOLA", @ci)                                    
+                                }
+                                else if (usuario.idTipo == 3)
+                                {
+                                    @HttpContext.GetGlobalResourceObject(@resource, "TituloOMS", @ci)                                    
+                                }
+                            </strong>
+                        </a>
+                    </div>
+                    <!-- /.navbar-header -->
+
+                    <ul class="nav navbar-top-links navbar-right">
+                        <!-- /.dropdown -->
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-user fa-fw"></i>
+                                <i class="fa fa-caret-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                @*<li><a href="/Home/MeuCadastro/" class="em-breve"><i class="fa fa-user fa-fw"></i> Meus Dados</a></li>*@
+                                <li><a href="/Login/Logout/"><i class="fa fa-sign-out fa-fw"></i> Sair</a></li>
+                            </ul>
+                            <!-- /.dropdown-user -->
+                        </li>
+                        <!-- /.dropdown -->
+                    </ul>
+                    <!-- /.navbar-top-links -->
+
+                    <div class="navbar-default navbar-static-side" role="navigation">
+                        <div class="sidebar-collapse">
+                            <img src="/assets/img/logo.png" id="logo-admin" />
+                            <ul class="nav" id="side-menu">
+                                @if (usuario.idTipo == 1)
+                                {
+                                    <!--OBL-->
+                                    
+                                    if (usuario.idPerfil == 1)
+                                    { 
+                                        <!--MASTER-->
+                                        <li>
+                                            <a href="/Dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard </a>
+                                        </li>
+                                        <li>
+                                            <a href="/Banner"><i class="fa fa-picture-o fa-fw"></i> Banner</a>
+                                        </li>
+                                        <li>
+                                            <a href=""><i class="fa fa-users fa-fw"></i> @HttpContext.GetGlobalResourceObject(@resource, "MenuRelatorios", @ci) </a>
+                                            <ul class="nav nav-second-level">
+                                                <li>
+                                                    <a href="/Relatorio/Cadastro/">@HttpContext.GetGlobalResourceObject(@resource, "MenuRelatoriosCadastros", @ci)</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href=""><i class="fa fa-list fa-fw"></i> @HttpContext.GetGlobalResourceObject(@resource, "MenuTreinamentos", @ci) </a>
+                                            <ul class="nav nav-second-level">
+                                                <li>
+                                                    <a href="/Treinamento">@HttpContext.GetGlobalResourceObject(@resource, "MenuTreinamentosEventos", @ci)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/Treinamento/Cadastrar">@HttpContext.GetGlobalResourceObject(@resource, "MenuTreinamentosCadastrarBrasil", @ci)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/Treinamento/CadastrarInternacional">@HttpContext.GetGlobalResourceObject(@resource, "MenuTreinamentosCadastrarInternacional", @ci)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/Treinamento/Detalhe">@HttpContext.GetGlobalResourceObject(@resource, "MenuTreinamentosDetalheDoEvento", @ci)</a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><i class="fa fa-paperclip fa-fw"></i> @HttpContext.GetGlobalResourceObject(@resource, "MenuTreinamentosPesquisa", @ci) </a>
+                                                    <ul class="nav nav-third-level">
+                                                        <li>
+                                                            <a href="/Pesquisa">@HttpContext.GetGlobalResourceObject(@resource, "MenuTreinamentosPesquisaListar", @ci)</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/Pesquisa/Cadastrar">@HttpContext.GetGlobalResourceObject(@resource, "MenuTreinamentosPesquisaCadastrar", @ci)</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href=""><i class="fa fa-user fa-fw"></i> @HttpContext.GetGlobalResourceObject(@resource, "MenuParticipacao", @ci) </a>
+                                            <ul class="nav nav-second-level">
+                                                <li>
+                                                    <a href="/Participacao/Inscricoes">@HttpContext.GetGlobalResourceObject(@resource, "MenuParticipacaoInscricoes", @ci)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/Participacao/ListaEspera">@HttpContext.GetGlobalResourceObject(@resource, "MenuParticipacaoListaDeEspera", @ci)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/Participacao/ListaPresenca">@HttpContext.GetGlobalResourceObject(@resource, "MenuParticipacaoListarPresenca", @ci)</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="/Pesquisa/Resultado"><i class="fa fa-briefcase fa-fw"></i> @HttpContext.GetGlobalResourceObject(@resource, "MenuPesquisaResultado", @ci)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/FaleConosco"><i class="fa fa-mail-reply-all fa-fw"></i> @HttpContext.GetGlobalResourceObject(@resource, "MenuSAC", @ci)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/ConteudoEducacional"><i class="fa fa-folder fa-fw"></i> @HttpContext.GetGlobalResourceObject(@resource, "MenuConteudoEducacional", @ci)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/Analytics"><i class="fa fa-google-plus fa-fw"></i> Analytics</a>
+                                        </li>
+                                        <!-- FIM MASTER-->
+                                    }
+                                    else if (usuario.idPerfil == 2)
+                                    { 
+                                        <!--EQUIPE TREINAMENTO-->
+                                        <li>
+                                            <a href="/Dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard </a>
+                                        </li>
+                                        <li>
+                                            <a href=""><i class="fa fa-users fa-fw"></i> @HttpContext.GetGlobalResourceObject(@resource, "MenuRelatorios", @ci) </a>
+                                            <ul class="nav nav-second-level">
+                                                <li>
+                                                    <a href="/Relatorio/Cadastro/">@HttpContext.GetGlobalResourceObject(@resource, "MenuRelatoriosCadastros", @ci)</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href=""><i class="fa fa-user fa-fw"></i> @HttpContext.GetGlobalResourceObject(@resource, "MenuParticipacao", @ci) </a>
+                                            <ul class="nav nav-second-level">
+                                                <li>
+                                                    <a href="/Participacao/Inscricoes">@HttpContext.GetGlobalResourceObject(@resource, "MenuParticipacaoInscricoes", @ci)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/Participacao/ListaEspera">@HttpContext.GetGlobalResourceObject(@resource, "MenuParticipacaoListaDeEspera", @ci)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/Participacao/ListaPresenca">@HttpContext.GetGlobalResourceObject(@resource, "MenuParticipacaoListarPresenca", @ci)</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <!-- FIM EQUIPE TREINAMENTO-->
+                                    }
+                                }
+                                else
+                                {
+                                    <!-- OLA / OMS -->
+                                    <li>
+                                        <a href="/Dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard </a>
+                                    </li>
+                                    <li>
+                                        <a href="/Banner"><i class="fa fa-picture-o fa-fw"></i> Banner</a>
+                                    </li>
+                                    <li>
+                                        <a href=""><i class="fa fa-users fa-fw"></i> @HttpContext.GetGlobalResourceObject(@resource, "MenuRelatorios", @ci) </a>
+                                        <ul class="nav nav-second-level">
+                                            <li>
+                                                <a href="/Relatorio/Cadastro/">@HttpContext.GetGlobalResourceObject(@resource, "MenuRelatoriosCadastros", @ci)</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href=""><i class="fa fa-list fa-fw"></i> @HttpContext.GetGlobalResourceObject(@resource, "MenuTreinamentos", @ci) </a>
+                                        <ul class="nav nav-second-level">
+                                            <li>
+                                                <a href="/Treinamento">@HttpContext.GetGlobalResourceObject(@resource, "MenuTreinamentosEventos", @ci)</a>
+                                            </li>
+                                            <li>
+                                                <a href="/Treinamento/CadastrarInternacional">@HttpContext.GetGlobalResourceObject(@resource, "MenuTreinamentosCadastrarInternacional", @ci)</a>
+                                            </li>
+                                            <li>
+                                                <a href="/Treinamento/Detalhe">@HttpContext.GetGlobalResourceObject(@resource, "MenuTreinamentosDetalheDoEvento", @ci)</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="/FaleConosco"><i class="fa fa-reply-all fa-fw"></i> @HttpContext.GetGlobalResourceObject(@resource, "MenuSAC", @ci)</a>
+                                    </li>
+                                    <li>
+                                        <a href="/ConteudoEducacional"><i class="fa fa-folder fa-fw"></i> @HttpContext.GetGlobalResourceObject(@resource, "MenuConteudoEducacional", @ci)</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Analytics"><i class="fa fa-google-plus fa-fw"></i> Analytics</a>
+                                    </li>
+                                }
+                                
+                            </ul>
+                            <!-- /#side-menu -->
+                        </div>
+                        <!-- /.sidebar-collapse -->
+                    </div>
+                    <!-- /.navbar-static-side -->
+                </nav>
+
+                <div id="page-wrapper" class="resumoAcessos">
+
+                    <div class="row">
+                        <div class="col-xs-6" style="text-align: right">
+                            <h1>
+                                @if (usuario.idTipo == 1)
+                                {
+                                    @HttpContext.GetGlobalResourceObject(@resource, "TituloOBL", @ci)
+                                }
+                                else if (usuario.idTipo == 2)
+                                {
+                                    @HttpContext.GetGlobalResourceObject(@resource, "TituloOLA", @ci)
+                                }
+                                else if (usuario.idTipo == 3)
+                                {
+                                    @HttpContext.GetGlobalResourceObject(@resource, "TituloOMS", @ci)
+                                }
+                            </h1>
+                        </div>
+                        <div class="col-xs-2">
+                            
+                        </div>
+                        <div class="col-xs-3">
+                            <br />
+                            <div class="btn-toolbar" role="toolbar" aria-label="...">
+                                <div class="btn-group" role="group" aria-label="ESP">
+                                    <form action="/Home/Index/" method="post">
+                                        <input type="hidden" name="idIdiomaSite" id="idIdiomaSite" value="2" />
+                                        <input type="submit" value="ESP" class="btn btn-default btn-lg" />
+                                    </form>
+                                </div>
+                                <div class="btn-group" role="group" aria-label="POR">
+                                    <form action="/Home/Index/" method="post">
+                                        <input type="hidden" name="idIdiomaSite" id="idIdiomaSite" value="1" />
+                                        <input type="submit" value="POR" class="btn btn-default btn-lg" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    @RenderBody()
+
+                </div>
+
+                <br /><br />
+                <nav class="navbar navbar-default navbar-fixed-bottom navbar-default-color text-center" role="navigation" style="margin-bottom: 0; height: 50px;">
+                    <img src="/assets/img/logoFullbarFooter.png" style="padding: 5px;" />
+                    <!-- /.navbar-static-side -->
+                </nav>
+            </div>
+
+        }
+    }
+
+    <!--<form id="form1">-->
+    <!-- /#wrapper -->
+    <!--</form>-->
+
+    <div id="loading"></div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:350px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close fechar" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel"></h4>
+                </div>
+                <div class="modal-body" id="myModalTexto">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default fechar" data-dismiss="modal">@HttpContext.GetGlobalResourceObject(@resource, "ModalBotaoFechar", @ci)</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <!-- Modal Confirm -->
+    <div class="modal fade" id="myModalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalConfirmLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:350px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close fechar" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalConfirmLabel"></h4>
+                </div>
+                <div class="modal-body" id="myModalConfirmTexto">
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" id="idMissao" />
+                    <a id="btnSimModal" href="#" class="btn btn-default">@HttpContext.GetGlobalResourceObject(@resource, "BotaoSim", @ci)</a>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@HttpContext.GetGlobalResourceObject(@resource, "BotaoNao", @ci)</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+            
+
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
+
+
+    <!-- Modal Confirm GENERICO -->
+    <div class="modal fade" id="myModalConfirmGeral" tabindex="-1" role="dialog" aria-labelledby="myModalConfirmLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:350px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close fechar" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalConfirmLabelGeral"></h4>
+                </div>
+                <div class="modal-body" id="myModalConfirmTextoGeral">
+                </div>
+                <div class="modal-footer">
+                    <a id="btnSimGeral" href="#" class="btn btn-default">@HttpContext.GetGlobalResourceObject(@resource, "BotaoSim", @ci)</a>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@HttpContext.GetGlobalResourceObject(@resource, "BotaoNao", @ci)</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+
+
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
+    <!-- Core Scripts - Include with every page -->
+    <script src="/assets/js/vendor/bootstrap.min.js"></script>
+    <script src="/assets/js/vendor/jquery.metisMenu.js"></script>
+
+    <script>
+        var _idioma = "@HttpContext.GetGlobalResourceObject(@resource, "SiglaIdioma", @ci)";
+    </script>
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <script src="/assets/js/vendor/sb-admin.js"></script>
+
+    <!-- Page-Level Plugin Scripts - Tables -->
+    <script src="/assets/js/vendor/jquery.dataTables.js"></script>
+    <script src="/assets/js/vendor/dataTables.bootstrap.js"></script>
+    <script src="/assets/js/vendor/jquery.maskedinput.min.js"></script>
+    <script src="/assets/js/vendor/jquery.mask.js"></script>
+    <script src="/assets/js/vendor/jquery-ui.js"></script>
+    <script src="/assets/js/vendor/jquery.customSelect.min.js"></script>
+    
+    <script src="/Scripts/moment.min.js"></script>
+    <script src="/Scripts/datetime-moment.js"></script>
+
+    @if (@ViewBag.Alerta != null)
+    {
+        var msg = (Admin.Olympus.Dominio.Entidade.ModalMensagem)@ViewBag.Alerta;
+
+        <script type="text/javascript">
+
+            alerta('@Html.Raw(msg.Titulo)', '@Html.Raw(msg.Mensagem)');
+
+        </script>
+    }
+    
+   
+    
+    @RenderSection("scripts", required: false)
+    
+    @*@if (Session["Confirm"] != null)
+    {
+        <input type="hidden" id="id" value="@HttpContext.Current.Session["Confirm"].ToString()" />
+        Session.Remove("Confirm");
+
+        <script type="text/javascript">
+
+            confirma("Exclusão", "Tem certeza que deseja excluir a missão?", $("#id").val());
+
+        </script>
+    }*@
+
+</body>
+</html>

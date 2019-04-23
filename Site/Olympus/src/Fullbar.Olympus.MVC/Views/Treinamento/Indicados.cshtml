@@ -1,0 +1,232 @@
+﻿@using Fullbar.Olympus.Dominio.Entidade;
+
+@{
+    ViewBag.Title = "Indicados";
+}
+
+<div class="col-md-9 pad-top-40 conteudo conteudo-mob">
+    <div class="col-md-12 pad-top-10 title-geral-cadastro">
+        <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.TreinamentoConvidadoTitulo</p>
+    </div>
+
+    <div class="col-md-12 pad-top-20">
+        @Html.Raw(ViewBag.SubTitulo)
+    </div>
+
+    @if (ViewBag.Indicados != null)
+    {
+        var listIndicados = (List<TreinamentoConvite>)ViewBag.Indicados;
+
+        <!-- CONFIRMADOS -->
+        
+        if (listIndicados.Where(x => x.idStatus == 2).Any())
+        { 
+            <div class="col-md-12 pad-top-10 title-geral-cadastro">
+                <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.TreinamentoConvidadoInscricaoConfirmada</p>
+            </div>
+        
+            foreach (TreinamentoConvite item in listIndicados.Where(x => x.idStatus == 2))
+            {
+                <div class="col-md-12 zera-pad pad-top-20">
+                    <div class="col-md-6">
+                        <div>
+                            @Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoNome
+                        </div>
+                        <div class="">
+                            <input type="text" name="Nome" value="@item.dsNome" class="form-control inp-contato" id="Nome_@item.idUsuarioConvidado" disabled />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            E-mail
+                        </div>
+                        <div>
+                            <input type="text" name="" value="@item.dsEmail" class="form-control inp-contato" disabled >
+
+                        </div>
+                    </div>
+        
+                </div>
+
+                <div class="col-md-12 zera-pad pad-top-10">
+                    <div class="col-md-6">
+                        <div>
+                            CPF:
+                        </div>
+                        <div>
+                            <input type="text" name="CPF" value="@item.dsCPF" class="form-control inp-contato" disabled>
+                        </div>
+                    </div>
+        
+
+                    <div class="col-md-6">
+                        <div>
+                            @Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoCelular
+                        </div>
+                        <div class="">
+                            <input type="text" name="Celular" value="@item.dsCelular" class="form-control inp-contato" disabled />
+                        </div>
+                    </div>
+      
+                    <div class="col-md-12 pad-top-30 text-right">
+                        <p><input type="button" name="finalizar" value="@Fullbar.Olympus.MVC.Resource.TreinamentoConvidadoBotaoCancelar" class="btn btn-lg btn-primary btn-amarelo btCancelar" role="button" id="@item.idUsuarioConvidado" data-idtreinamento="@item.idTreinamento" /></p>
+                    </div>
+                </div>
+
+            }
+        }
+        
+        
+        <!--LISTA DE ESPERA-->
+        
+        if (listIndicados.Where(x => x.idStatus == 3).Any() || listIndicados.Where(x => x.idStatus == 4).Any())
+        { 
+            
+            <div class="col-md-12">
+                <hr />
+            </div>
+        
+            <div class="col-md-12 pad-top-10 title-geral-cadastro">
+                <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.TreinamentoConvidadoInscricaoListaEspera</p>
+            </div>
+        
+            foreach (TreinamentoConvite item in listIndicados.Where(x => x.idStatus == 3 || x.idStatus == 4))
+            {
+                <div class="col-md-12 zera-pad pad-top-20">
+                    <div class="col-md-6">
+                        <div>
+                            @Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoNome
+                        </div>
+                        <div class="">
+                            <input type="text" name="Nome" value="@item.dsNome" class="form-control inp-contato" id="Nome_@item.idUsuarioConvidado" disabled />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            E-mail
+                        </div>
+                        <div>
+                            <input type="text" name="" value="@item.dsEmail" class="form-control inp-contato" disabled >
+
+                        </div>
+                    </div>
+        
+                </div>
+
+                <div class="col-md-12 zera-pad pad-top-10">
+                    <div class="col-md-6">
+                        <div>
+                            CPF:
+                        </div>
+                        <div>
+                            <input type="text" name="CPF" value="@item.dsCPF" class="form-control inp-contato" disabled>
+                        </div>
+                    </div>
+        
+
+                    <div class="col-md-6">
+                        <div>
+                            @Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoCelular
+                        </div>
+                        <div class="">
+                            <input type="text" name="Celular" value="@item.dsCelular" class="form-control inp-contato" disabled />
+                        </div>
+                    </div>
+      
+                    <div class="col-md-12 pad-top-30 text-right">
+                        <p><input type="button" name="finalizar" value="@Fullbar.Olympus.MVC.Resource.TreinamentoConvidadoBotaoCancelar" class="btn btn-lg btn-primary btn-amarelo btCancelar" role="button" id="@item.idUsuarioConvidado" data-idtreinamento="@item.idTreinamento" /></p>
+                    </div>
+                </div>
+            }
+        }
+        
+        <div class="col-md-12">
+            <hr />
+        </div>
+        <div class="col-md-8 pad-top-10">
+            <p> 
+                @Html.Raw(Fullbar.Olympus.MVC.Resource.InscreveuAlguem)
+            </p>
+        </div>
+
+         <div class="col-md-4 pad-top-10 text-right">
+             <p>
+                 <input type="button" name="finalizar" onclick="location.href='@("/" + Fullbar.Olympus.MVC.Resource.PaginaTreinamentoController + "/" + Fullbar.Olympus.MVC.Resource.PaginaTreinamentoActionMeusTreinamentos)'" value="@Fullbar.Olympus.MVC.Resource.TreinamentoVoltarMeusTreinamentos" class="btn btn-lg btn-primary bt-cinza" role="button" id="">
+
+             
+            </p>
+        </div>
+
+
+    @*<form action="/Treinamento/CancelarInscricaoUsuarioConvidado" method="post" id="frmCancelar">
+        <input type="hidden" name="idUsuarioConvidado" id="idUsuarioConvidado" value="" />
+        <input type="hidden" name="idTreinamento" id="idTreinamento" value="" />
+    </form>*@
+        
+        @*<input type="hidden" id="mensagemInscricao" value="@ViewBag.mensagem" />
+        <input type="hidden" id="mensagemTitulo" value="@ViewBag.mensagemTitulo" />*@
+    }
+    
+</div>
+
+@section scripts
+{
+    <script>
+
+        $(function () {
+
+            $("body").on('click', '.btCancelar', function (event) {
+
+                var idUsuarioConvidado = $(this).attr('id');
+                var idTreinamento = $(this).attr('data-idtreinamento');                
+                var nome = $("#Nome_" + idUsuarioConvidado).val();
+                ConfirmaCancelamento(idTreinamento, idUsuarioConvidado, nome)
+               
+            });
+
+
+        });
+
+        
+
+        function ConfirmaCancelamento(id, usuario, nome) {
+            confirma("@Fullbar.Olympus.MVC.Resource.HomeMeusTreinamentos", "@Fullbar.Olympus.MVC.Resource.CancelamentoInscricaoTexto <br /> - " + nome);
+            $("#btnSimModal").on("click", function () {
+                CancelaInscricao(id, usuario);
+            });
+        }
+
+        function CancelaInscricao(id, usuario) {
+
+            var url = "/Treinamento/CancelarInscricaoUsuarioConvidado/";
+
+            $("#carregando").fadeIn();
+
+            $.post(url, {
+                idTreinamento: '' + id + '', idUsuario: '' + usuario + ''
+            }, function (data) {
+
+
+                if (data.id > 0) {
+                    $("#carregando").fadeOut();
+                   
+                    if (data.idReferencia > 0)
+                        alerta(data.dsMensagem, "@Fullbar.Olympus.MVC.Resource.HomeMeusTreinamentos", false, "/Treinamento/Indicados?idTreinamento=" + id);
+                    else
+                        alerta(data.dsMensagem, "@Fullbar.Olympus.MVC.Resource.HomeMeusTreinamentos", false, "@("/" + Fullbar.Olympus.MVC.Resource.PaginaTreinamentoController + "/" + Fullbar.Olympus.MVC.Resource.PaginaTreinamentoActionMeusTreinamentos)");
+
+                    return false;
+                } else {
+                    $("#carregando").fadeOut();
+                    alerta(data.dsMensagem, "@Fullbar.Olympus.MVC.Resource.TreinamentoConvidadoBotaoCancelar");
+                    return false;
+                }
+
+            });
+
+        }
+
+    
+
+    </script>
+}

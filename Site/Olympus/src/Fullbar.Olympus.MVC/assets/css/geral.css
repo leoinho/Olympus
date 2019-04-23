@@ -1,0 +1,1592 @@
+﻿html, body {
+	height: 100%;
+}
+
+body
+{
+	background-color:#E9E9E9;	
+	/*padding-top:77px;*/
+	font-family: 'Titillium-Regular'; 
+	color:#6E7276;
+}
+
+.container
+{
+	max-width:1230px;
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding: 0;
+    }
+
+    .col-md-9 {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+
+
+.bg-footer
+{	
+	height:45px;
+	background-color:#002A61;
+}
+
+
+.wrapper {
+	min-height: 100%;
+	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+	height: 100%;
+	margin: 0 auto -45px; /* the bottom margin is the negative value of the footer's height */
+    padding-bottom: 47px;;
+}
+.footer, .push {
+	 /* .push must be the same height as .footer */
+}
+
+
+.zera-pad{padding-left:0px; padding-right:0px;}
+.pad-l{padding-left:0px;}
+.pad-r{padding-right:0px;}
+
+.pad-top-80{padding-top:80px;}
+.pad-top-50{padding-top:50px;}
+.pad-top-40{padding-top:40px;}
+.pad-top-20{padding-top:20px;}
+.pad-top-30{padding-top:30px;}
+.pad-top-17{padding-top:17px;}
+.pad-top-15{padding-top:15px;}
+.pad-top-10{padding-top:10px;}
+.pad-top-5{padding-top:5px;}
+
+.pad-bot-50{padding-bottom:50px;}
+.pad-bot-20{padding-bottom:20px;}
+
+.pad-30{padding-left:30px; padding-right:30px;}
+
+.marg-r{margin-right:15px;}
+.marg-top-10{margin-top:10px;}
+
+
+select
+{
+    text-transform:uppercase !important;
+}
+option
+{
+    text-transform:uppercase !important;
+}
+
+.wid-100
+{
+	width:100%;
+}
+
+.bd-cinza
+{
+    border:solid 1px #D4D4D4;
+}
+
+/*---------------- Menu -------------- */
+.bg-menu
+{
+    background-color:#FFFFFF;
+    height:77px;
+    border-bottom:solid 1px #D1D1D1;
+}
+
+
+
+.menu-desk ul
+{
+    padding:0px;
+    margin:0px;
+    padding-top:25px;
+}
+    .menu-desk ul li
+    {
+        display:inline;
+        color:#757779;
+        
+    }
+        .menu-desk ul li:hover
+        {
+            
+        
+        }
+        .menu-desk ul li a
+        {
+            text-decoration:none;
+            color:#757779;
+            font-size:15px;
+            padding-right:8px;
+        }
+
+        .menu-desk ul li a:hover
+        {
+            color: #555;
+            /*background-color: #FFFFFF;
+	        border-bottom:solid 2px #0497D2;
+	        background-image:url(../img/ico-menu.png);
+	        background-repeat:no-repeat;
+	        background-position:center bottom;
+            padding-bottom:28px;*/
+        }
+        .active>a
+        {
+            color: #555;
+            background-color: #FFFFFF;
+	        border-bottom:solid 2px #0497D2;
+	        background-image:url(../img/ico-menu.png);
+	        background-repeat:no-repeat;
+	        background-position:center bottom;
+            padding-bottom:28px;
+        }
+
+.show-on-hover:hover > ul.dropdown-menu {
+    display: block;   
+}
+.show-on-hover {    
+    cursor: pointer;
+}
+
+
+.dropdown-menu {
+    border-radius: 0px;
+    background-color: #F7F9F8;
+    margin: -1px 0 0;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    min-width: 172px;
+}
+
+.navbar-header
+{
+    background-color:#FFFFFF;
+}   
+
+.navbar-default {
+    background-color: #FFFFFF;
+    border-color: #e7e7e7;
+} 
+
+/* IDIOMA*/
+.idioma ul
+{
+    padding:0px;
+    margin:0px;
+    padding-top:25px;
+}
+.idioma ul li
+{
+    display:inline;
+}
+
+.idioma li 
+{
+	-webkit-box-shadow: -1px 3px 3px 0px rgba(50, 50, 50, 0.10);
+	-moz-box-shadow:    -1px 3px 3px 0px rgba(50, 50, 50, 0.10);
+	box-shadow:         -1px 3px 3px 0px rgba(50, 50, 50, 0.10);
+	border-bottom:solid 1px #D8D8D8;
+	padding:10px;
+	padding-top: 10px;
+    padding-bottom: 10px;
+	font-size:20px;
+	margin-right:6px;
+	margin-top:15px;
+    text-decoration:none;
+}
+
+.idioma li a
+{	
+    text-decoration:none;
+    color:#757779;
+}
+
+.idioma li:hover
+{
+	background-color:#CAE2F4;
+}
+
+.risc-menu
+	{
+		padding-top: 23px;
+        padding-right:8px;
+    	
+	}
+
+
+
+.menu-treinamentos
+{
+    padding-bottom:32px;
+}
+
+
+.sub-menu {
+    position: absolute;
+    /*top: 74px;*/
+    top: 48px;
+    left: 155px;
+    z-index: 1000;
+    display: none;
+    float: left;
+    width: 310px;
+    padding: 13px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    height: auto;
+    background-color: #F7F9F8;
+    color: #5C656A;
+}
+    .sub-menu a 
+    {
+        color:#5C656A !important;
+    }
+    .sub-menu .bd-bot
+    {
+        border-bottom:solid 1px #DCD8D9;        
+    }
+
+    .sub-menu div
+    {       
+        padding-bottom:7px;     
+    }
+
+.menu-treinamentos:hover > .sub-menu
+{
+    display:block;
+}
+
+
+.menu-treinamentos02
+{
+    padding-bottom:32px;
+}
+
+.btnDownloadResultado
+{
+    text-decoration:none !important;
+    color:#FFFFFF !important;
+}
+
+.sub-menu02
+{    
+    position: absolute;
+    top: 31px;
+    left: -1px;
+    z-index: 1000;
+    display: none;
+    float: left;
+    width: 880px;
+    padding: 13px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    height: 50px;
+    background-color:#FFFFFF;
+    color:#8D8D8D;     
+}
+    .sub-menu02 a 
+    {
+        color:#8D8D8D !important;
+    }
+
+.menu-treinamentos02:hover > .sub-menu02
+{
+    display:block;
+}
+
+/*.menu-ativo:hover
+{
+    background: url(../../assets/img/ico-sub-menu.png) no-repeat center bottom;
+    padding-bottom:14px;
+}
+
+.sub-menu02:hover > .menu-ativo 
+{
+    background: url(../../assets/img/ico-sub-menu.png) no-repeat center bottom;
+    padding-bottom:14px;
+}*/
+
+.menu-treinamentos02:hover {
+       background: url(../../assets/img/ico-sub-menu.png) no-repeat center bottom;
+    padding-bottom:14px;
+}
+.menu-codigo-conduta
+{
+    padding-bottom:32px;
+}
+
+
+.sub-menu-codigo-conduta
+{
+    position: absolute;
+    top: 74px;
+    left: 431px;
+    z-index: 1000;
+    display: none;
+    float: left;
+    width: 273px;
+    padding: 13px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);    
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    height: auto;
+    background-color: #F7F9F8;
+    color: #5C656A;         
+}
+    .sub-menu-codigo-conduta a 
+    {
+        color:#5C656A !important;
+    }
+
+    .sub-menu-codigo-conduta .bd-bot
+    {
+        border-bottom:solid 1px #DCD8D9;   
+        padding-bottom:7px;
+             
+    }
+
+.menu-codigo-conduta:hover > .sub-menu-codigo-conduta
+{
+    display:block;
+}
+
+
+
+.dropdown-olympus 
+{
+    position: absolute;
+    top: 46px;
+    left: -169px;
+    z-index: 1000;
+    display: none;
+    float: left;
+    width: 880px;
+    padding: 13px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    height: 50px;
+    background-color:#4193D2;
+    color:#FFFFFF;
+}
+
+.dropdown-olympus a
+{
+    color:#FFFFFF !important;
+}
+
+
+.dropdown-submenu {
+    position: absolute;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    position: absolute;
+    top: 32px;
+    left: -455px;
+    z-index: 1000;
+    display: none;
+    float: left;
+    width: 880px;
+    padding: 13px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    height: 50px;
+    background-color:#4193D2;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+
+.pd-sub
+{
+    padding-bottom:21px;
+}
+
+
+/*--------------------- LOGIN --------------------------*/
+.logo
+{
+    padding-bottom:50px;
+}
+.esqueci-minha-senha p
+{
+    text-decoration:none !important;
+    color:#848587 !important;
+}
+.bar-lateral 
+{
+    background-color: #F7F9F8;
+    border-left: solid 1px #DDD7D9;
+    border-right: solid 1px #DDD7D9;
+}
+.quadro-login
+    {
+        border-bottom:solid 1px #D2D4D3;
+    
+        padding-bottom:30px;
+        padding-top:50px;
+    }
+    .quadro-login p
+    {
+        color:#324997;
+        text-decoration:underline;
+        line-height: 13px;
+    }
+        .quadro-login p a
+        {
+            color:#324997;
+            text-decoration:underline;
+        }
+
+	.usuario-logado h4
+    {
+        color:#324997;
+        font-family: 'Titillium-Bold';
+	}
+    .lateral-calendario
+    {
+        padding-top:15px;
+    }
+        .lateral-calendario p
+        {        
+            font-family: 'Titillium-Bold';
+            font-size:16px;
+            color:#848587;
+            padding-left:15px;
+            padding-right:10px;
+            padding-bottom:15px;
+            border-bottom:solid 1px #EDEEED;
+        }
+
+            .lateral-calendario p span
+            {
+                padding-right:15px;
+        
+            }
+
+/* ---- CALENDARIO ----*/
+
+        .calendario-date-pick
+        {
+            padding:15px;            
+        }
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: none;
+    background: #e6e6e6/*{bgColorDefault}*/ url(images/ui-bg_glass_75_e6e6e6_1x400.png)/*{bgImgUrlDefault}*/ 50%/*{bgDefaultXPos}*/ 50%/*{bgDefaultYPos}*/ repeat-x/*{bgDefaultRepeat}*/;
+    background-color:transparent;
+    font-weight: normal/*{fwDefault}*/;
+    color: #555555/*{fcDefault}*/;
+}
+
+
+.ui-datepicker table {
+    width: 100%;
+    font-size: .8em;
+    border-collapse: collapse;
+    margin: 0 0 .4em;
+    border:solid 1px #D3D3D3;
+    background-color: #FFFFFF;
+}
+
+.ui-widget-content {
+    border: none;  
+    background-color:transparent; 
+}
+
+.ui-datepicker-calendar thead
+{
+    border-bottom:solid 1px #D3D3D3;
+}
+
+.dp-highlight .ui-state-default {
+    background: #FF8C00;
+    color: #FFF;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.ui-datepicker td span, .ui-datepicker td a {
+    display: block;
+    padding: .2em;
+    text-align: center;
+    text-decoration: none;
+}
+
+.ui-datepicker td {
+    border: 0;
+    padding: 3px;
+}
+
+.dp-highlight1  .ui-state-default {
+    background: #FF8C00;
+    color: #FFF;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.dp-highlight2   .ui-state-default {
+    background: #FF8C00;
+    color: #FFF;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.dp-highlight3   .ui-state-default {
+    background: #FF8C00;
+    color: #FFF;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+
+
+/*-- MES --*/
+.ui-widget-header {
+    border: none;
+    background: transparent/*{bgColorHeader}*/ url(images/ui-bg_highlight-soft_75_cccccc_1x100.png)/*{bgImgUrlHeader}*/ 50%/*{bgHeaderXPos}*/ 50%/*{bgHeaderYPos}*/ repeat-x/*{bgHeaderRepeat}*/;
+    color: #222222/*{fcHeader}*/;
+    font-weight: bold;
+}
+
+.ui-datepicker .ui-datepicker-header {
+    position: relative;
+    padding: .2em 0;
+    padding-bottom: 20px;
+}
+
+.ui-datepicker .ui-datepicker-title {
+    margin: 0 2.9em;
+    line-height: 1.8em;
+    text-align: center;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    border:solid 1px #D3D3D3;
+    color:#0048A5;
+    font-size:15px;
+    font-weight:normal;
+    background-color:#FFFFFF;
+}
+
+.ui-state-hover
+{
+    /*border:none !important;
+    background-color:transparent !important;*/
+}
+
+.lateral-calendario .ui-datepicker .ui-datepicker-prev {
+    display:none;
+}
+.lateral-calendario .ui-datepicker .ui-datepicker-next {
+    display:none;
+}
+
+
+/* ----------------- Conteudo ----------------------- */
+
+.conteudo-mob
+    {
+        min-height:850px;
+    }
+
+.title-geral p
+{
+	font-size:21px;
+	font-family: 'Titillium-Bold';
+	color:#0048A5;
+}
+	.title-geral p span
+	{
+		padding-right:10px;
+	}
+
+.subtitle-geral h1
+{
+	font-size:16px;	
+	color:#C87941;
+}
+.subtitle-geral p
+{
+	font-size:16px;	
+	color:#6E7276;
+}
+
+.subtitle-geral p span
+{
+	padding-right:5px;
+    color:#114DA2;
+    font-weight:bold;
+}
+
+
+
+.conteudo
+{
+	background-color:#FFFFFF;
+	/*padding:15px;*/
+	
+}
+
+	.carousel-indicators li {    
+		border: 1px solid #E9E9E9;   
+	}
+	
+	.carousel-indicators .active {    
+		background-color: transparent;
+	}
+
+    .carousel-inner .carousel-indicators .active {    
+		background-color: #0C4DA2 !important;
+	}
+	
+	.carousel-indicators {
+		position: relative;
+		bottom: 0px;
+		margin-top:10px;
+	
+		text-align: center;
+		list-style: none;
+	}
+	
+	.quad-treinamentos
+	{
+		border:solid 1px #DDD7D9;
+	}
+	
+	.btn-primary 
+	{
+		color: #fff;
+		background-color: #5FAEDD;
+		border-color: #5FAEDD;
+		border-radius:0px;
+		-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		font-size:14px;
+	}
+	
+.btn-entrar
+	{
+		color: #fff;
+		background-color: #F3B900;
+		border-color: #F3B900;
+		border-radius:0px;
+		-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+        width:100%;
+	}
+		.btn-laranja:hover 
+		{
+			color: #fff;
+			background-color: #D9A300;
+			border-color: #D9A300;
+		}
+
+
+.btn-laranja
+	{
+		color: #fff;
+		background-color: #E8732F;
+		border-color: #E8732F;
+		border-radius:0px;
+		-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+	}
+		.btn-laranja:hover 
+		{
+			color: #fff;
+			background-color: #CE5C17;
+			border-color: #CE5C17;
+		}
+
+
+.btn-verde
+	{
+		color: #fff;
+		background-color: #6D9229;
+		border-color: #6D9229;
+		border-radius:0px;
+		-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+	}
+		.btn-verde:hover 
+		{
+			color: #fff;
+			background-color: #8FBF36;
+			border-color: #8FBF36;
+		}
+   
+		
+	.btn-amarelo
+	{
+		color: #fff;
+		background-color: #F3B900;
+		border-color: #F3B900;
+		border-radius:0px;
+		-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		padding:15px 50px 15px 50px;
+		
+	}
+		.btn-amarelo:hover 
+		{
+			color: #fff;
+			background-color: #D9A300;
+			border-color: #D9A300;
+		}
+
+
+/* --------------- Treinamentos ---------- */
+.banner-treinamentos
+{
+	border:solid 1px #D7D7D7;
+}
+
+.treinamento-data
+{
+	border:solid 1px #D7D7D7;
+	background-color:#97BEE6;
+	color:#FFFFFF;
+	text-align:center;
+    height:130px;
+}
+	.treinamento-data-div
+	{
+		font-size:50px;
+        font-family: 'Titillium-Bold';
+        padding-top:5px;
+		
+	}
+	.treinamento-data hr
+	{		
+		border-top:solid 1px #86A4C5;
+		margin-top: 5px;
+    	margin-bottom: 10px
+	}
+	.treinamento-data p
+	{
+		font-size:14px;
+	}
+
+.treinamento-tipo
+{
+	border:solid 1px #D7D7D7;
+	background-color:#97BEE6;
+	color:#FFFFFF;
+	text-align:center;
+	padding-top: 16px;
+    height:130px;
+}
+
+
+.treinamento-endereco
+{
+	border:solid 1px #D7D7D7;
+	background-color:#97BEE6;
+	color:#FFFFFF;
+	padding-top: 19px;    
+	min-height:130px;	
+    padding-bottom:10px;
+    padding-right:10px;
+}
+
+.treinamentos-tab-title
+{
+	color:#343F84;
+	font-family: 'Titillium-Bold';
+}
+
+.numero-vagas-disponiveis
+{
+    height:189px;
+    width:187px;
+    background-image:url(../../assets/img/numero-vagas.png);
+    background-repeat:no-repeat;
+    margin: 0 auto;
+    padding:20px;
+}
+    .numero-vagas-disponiveis h1
+    {
+        font-family: 'Titillium-Bold';
+        font-size: 85px;
+        line-height: 53px;
+        color:#939398;
+    }
+    .numero-vagas-disponiveis p
+    {
+        font-family: 'Titillium-Bold';
+        font-size: 18px;
+        line-height:20px;
+        text-transform:uppercase;
+        padding-top:7px;
+        color:#939398;
+    }
+
+.btn-add
+	{
+		color: #fff;
+		background-color: #F3B900;
+		border-color: #F3B900;
+		border-radius:0px;
+		-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		padding:4px 15px 6px 15px;
+        font-size:18px;
+        font-weight:bold;
+		
+	}
+		.btn-add:hover 
+		{
+			color: #fff;
+			background-color: #D9A300;
+			border-color: #D9A300;
+		}
+
+.btn-del
+	{
+		color: #fff;
+		background-color: #F16101;
+		border-color: #F16101;
+		border-radius:0px;
+		-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		padding:4px 15px 6px 15px;
+        font-size:18px;
+        font-weight:bold;
+		
+	}
+		.btn-del:hover 
+		{
+			color: #fff;
+			background-color: #FE8D43;
+			border-color: #FE8D43;
+		}
+.qd-inscricao
+{
+    margin-top:30px;
+    padding:20px;
+    font-size:16px;
+    background-color:#D3D4D6;
+}
+
+.result-inscri p
+{
+    font-family: 'Titillium-Regular';
+}
+
+.result-inscri-title p
+{
+    font-family: 'Titillium-Regular';
+}
+.texto-inscricao
+{
+    font-size:16px;    
+}
+    .texto-inscricao a
+    {
+        text-decoration:underline;
+        color:#6E7276;
+    }
+
+
+
+
+ /*  Meus Treinamentos */
+
+.ico-enderec img
+{
+    padding-top: 14px;    
+    width: 22px;
+}
+.ico-data
+{
+    padding-right:20px;
+}
+
+.c-cinza
+{
+    color:#6E7276;
+    padding-top: 10px;
+    font-family: 'Titillium-Bold';
+}
+.mold-treinamentos {
+    border-left: solid 1px #B1DBCF;
+    padding-bottom: 40px;
+}
+    .mt-title-ativo span
+    {
+        /*padding-right:22px;*/
+    }
+    .tit-meus-treinamentos
+    {
+        margin-left:-32px;
+    }
+    .mt-title-ativo
+    {
+        margin-left:-27px;
+        font-size:18px;
+        font-family: 'Titillium-Bold';
+        color:#DE7243;
+    }
+
+    .ico-mt-tipo
+    {
+        border:solid 1px #D4D4D4;
+        margin-top:5px;
+        height:32px;
+        padding-top:2px;
+        text-align:center;
+        color:#59ACDD;
+        font-family: 'Titillium-Bold';
+        font-size:17px;
+    }
+.btn-mtrenamentos-azul
+{
+    width:186px;
+    height:56px;
+    white-space: inherit;
+    font-size:13px;
+    background-color:#60AEDE;
+    border-color:#60AEDE;    
+}
+    .btn-mtrenamentos-azul:hover
+    {
+       background-color:#3E9DD7;
+       border-color:#3E9DD7;
+    }
+
+.btn-mtrenamentos-verde
+{
+    width:186px;
+    height:56px;
+    padding-top: 17px;
+    white-space: inherit;
+    font-size:13px;
+    background-color:#86BD3B;
+    border-color:#86BD3B;
+}
+    .btn-mtrenamentos-verde:hover
+    {
+       background-color:#6F9B31;
+       border-color:#86BD3B;
+    }
+.btn-mtrenamentos-cinza
+{
+    width:186px;
+    height:56px;
+    white-space: inherit;
+    font-size:13px;
+    background-color:#949599;
+    border-color:#949599;
+}
+    .btn-mtrenamentos-cinza:hover
+    {
+       background-color:#76777C;
+       border-color:#76777C;
+    }
+
+
+
+.carousel-indicators {
+    
+    left: 44%;
+    
+    width: 72%;
+    
+    margin-left: -30%;
+    
+}
+
+.titulo-treinamentos2 h1
+{
+    font-size:23px;
+}
+
+/* Calendario Filtro*/
+.calendario-filtro p span
+{
+    padding-left:20px;
+}
+
+/* SCROLL*/
+.mCustomScrollbar
+{
+    max-height:650px;
+}
+
+.mCS-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+    background-color: rgba(94,164,211,0.70);
+}
+
+.mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    background-color: #5EA4D3;
+    background-color: rgba(94,164,211,0.9);
+}
+
+.legenda-calendarios p span
+{
+    padding:10px;
+}
+
+.demo h1
+{
+    /*position: absolute;
+    left: 47%;*/
+}
+    .demo h1 .vagas-disp-01
+    {
+        position: absolute;
+        margin-left: -150px;
+        padding-top: 26px;        
+        font-family: 'Titillium-Bold';
+        font-size: 85px;
+        text-transform: uppercase;
+        color: #939398;
+    }
+    .vagas-disp-01-umCaracter
+    {
+        margin-left: -126px !important;
+    }
+    .vagas-disp-01-tresCaracter
+    {
+        
+        margin-left: -175px !important;
+    }
+    
+    .demo h1 .vagas-disp-02
+    {
+        position: absolute;
+        margin-left: -150px;
+        padding-top: 114px;        
+        font-family: 'Titillium-Bold';
+        font-size: 18px;
+        text-transform: uppercase;
+        color: #939398;
+    }
+
+.demo p
+{   
+    padding-top: 150px;
+    padding-bottom: 40px;
+}
+
+.knob
+{
+    font-family: 'Titillium-Bold' !important;
+    font-size: 85px !important;
+    margin-top: 11px !important;   
+    color: #939398;
+    height: auto !important; 
+    display:none;
+}
+
+.VagasDisponiveisEn
+{
+    position: absolute;    
+    padding-top: 114px;
+    font-family: 'Titillium-Bold';
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #939398;
+    margin-left: -145px !important;
+}
+
+.n-quantidade-vagas
+{
+    color:#939398;
+    background-color:#FFFFFF;
+    font-size:85px;
+    font-weight:bold;
+    position:absolute;
+    text-align:center;
+    padding-left:15px;
+    padding-right:15px;
+    margin-left:40%;
+    z-index:999;
+
+}
+
+/* --------------- CONTATO --------------- */
+.inp-contato
+{
+	border-radius:0px;
+}
+.wid-bt
+{
+	min-width:250px;
+}
+
+.email-contato span
+{
+	padding-right:20px;
+}
+.email-contato p a
+{
+	color:#6E7276;
+}
+
+.bt-cinza
+{
+    background-color: #949599;
+    border-color: #949599;
+}
+
+    .bt-cinza:hover 
+    {
+        color: #fff;
+        background-color: #727378;
+        border-color: #727378;
+    }
+
+/* --------------- CADASTRO --------------- */
+.pad-radio
+{
+   
+   margin-left:30px !important;
+}
+
+.qd-cadastrp-regulamento
+{
+    margin-top:30px;
+    padding:20px;
+    
+    background-color:#D3D4D6;
+}
+.title-cadastro p
+{
+    color:#464F59;
+}
+
+.title-geral-cadastro p {
+    font-size: 21px;    
+    color: #0048A5;
+}
+
+.title-geral-cadastro p span
+	{
+		padding-right:10px;
+	}
+
+.resp-errada {
+    background-color: #FFB3B3;
+}
+/* ----------------- Questionário ----------- */
+.sub-tit-questionario {
+    font-size: 16px;
+    color: #697A8B;
+}
+
+.heid-questionario
+{
+    max-height:730px;
+}
+
+.option-questionario
+{
+    font-size:16px;
+    color:#697A8B;
+}
+
+.option-questionario label
+{
+    font-weight:normal;
+    margin-bottom: 0px;
+}
+
+.option-questionario input[type=checkbox]:not(old),
+.option-questionario input[type=radio   ]:not(old){
+  width     : 2em;
+  margin    : 0;
+  padding   : 0;
+  font-size : 1em;
+  opacity   : 0;
+}
+
+.option-questionario input[type=checkbox]:not(old) + label,
+.option-questionario input[type=radio   ]:not(old) + label{
+  display      : inline-block;
+  margin-left  : -2em;
+  line-height  : 1.5em;
+}
+
+.option-questionario input[type=checkbox]:not(old) + label > span,
+.option-questionario input[type=radio   ]:not(old) + label > span{
+  display          : inline-block;
+  width            : 0.875em;
+  height           : 0.875em;
+  margin           : 0.25em 0.5em 0.25em 0.25em;
+  border           : 0.0625em solid rgb(192,192,192);
+  border-radius    : 0.10em;
+  background       : rgb(224,224,224);
+  background-image :    -moz-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :     -ms-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :      -o-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image : -webkit-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :         linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  vertical-align   : bottom;
+}
+
+.option-questionario input[type=checkbox]:not(old):checked + label > span,
+.option-questionario input[type=radio   ]:not(old):checked + label > span{
+  background-image :    -moz-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :     -ms-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :      -o-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image : -webkit-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :         linear-gradient(rgb(224,224,224),rgb(240,240,240));
+}
+
+.option-questionario input[type=checkbox]:not(old):checked + label > span:before{
+  content     : '✓';
+  display     : block;
+  width       : 1em;
+ 
+  line-height : 1em;
+  text-align  : center;
+  text-shadow : 0 0 0.0714em rgb(115,153,77);
+  
+}
+
+.option-questionario input[type=radio]:not(old):checked +  label > span > span{
+  display          : block;
+  width            : 0.5em;
+  height           : 0.5em;
+  margin           : 0.125em;
+  border           : 0.0625em solid rgb(115,153,77);
+  border-radius    : 0.10em;
+  background-color : #0094D5;
+  
+}
+
+/* --------------- FOOTER ---------------- */
+.text-footer
+{
+	padding-top:12px;
+	padding-left:30px;
+	color:#FFFFFF;
+}
+
+.deslize {
+    position: absolute;
+    top: 65vh;
+    right:20px;
+}
+    .deslize-aviso
+    {
+        height:104px;
+    }
+
+/* ------------- MODAL --------------------  */
+.modal-header
+{
+    background-color:#E8E8E8;
+    border-bottom:solid 1px #CECFD0;
+}
+    .modal-header h4
+    {
+        color:#8C8D8F;
+    }
+
+.modal-content 
+{    
+    border-radius: 0px;    
+}
+
+#carregando {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(4,20,71,0.8);
+    background-image: url(../img/loader2.gif);    
+    background-position: center center;
+    background-size: 50px auto;
+    background-repeat: no-repeat;
+    z-index: 999999999;
+}
+
+
+/* --------------------------------- - _Home  ------------------------------------- */
+.geral-animate3
+{
+    position:absolute;
+    top:40%;
+}
+
+
+/* ----------- Ajustes 28-06-2017 -------------------- */
+
+.inscri-data {
+    font-weight: bold;
+    color: #0048A5;
+    font-size: 16px;
+    padding: 0 15px;
+}
+
+.inscri-title-data {
+    font-size: 16px;    
+}
+
+.qd-inscricao {
+    background-color: #F6F6F6;
+    border-top: solid 10px #74C2E8;
+}
+
+.btn-azul {
+    background-color: #0A4DA0;
+}
+
+.btn-azul-2 {
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+    background-color: #0A4DA0;
+    padding: 15px 30px 15px 30px;
+    font-size: 14px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.inscr-confirma-text {
+    font-size: 16px;
+}
+
+.title-geral-cadastro-laranja p {
+    color: #E8722F;
+}
+
+.c-laranja
+{
+    color:#E8722F !important;
+}
+
+.btn-amarelo-add {
+    padding: 5px 12px 5px 12px;
+}
+
+.inscri-data-02
+{
+        font-family: 'Titillium-Bold' !important;
+        padding: 0;
+}
+/* --------- Ajustes Mobile ---------------- */
+@media (max-width: 1200px) {
+    .space-menu01
+        {
+            display:none;
+        }	
+
+        .space-menu
+        {
+            width:75%;  
+        }
+        .space-idioma
+        {
+            width:25%;  
+            padding:0px;
+        }
+        .lateral-calendario
+        {
+            display:none;
+        }
+}
+
+
+@media (max-width: 990px){		
+		
+	.esconde-menu
+    {
+        display:none;
+	}
+    body
+    {
+        padding-top:50px;
+    }
+    .pad-mobile
+    {
+        padding-right:15px;
+        padding-left:15px;
+    }
+    .pad-top-mobile
+    {
+        padding-top:20px;
+    }
+
+    .conteudo-mob
+    {
+        min-height:200px;
+    }
+    .tit-meus-treinamentos
+    {
+        margin-left:0px;
+    }
+
+    .inscri-data
+    {
+        text-align:center;
+    }
+    .mtop-10
+    {
+        padding-top:10px;
+    }
+    .c-cinza
+    {
+        text-align:center;
+    }
+
+    .ico-enderec img
+    {
+        float:none !important;
+        margin:0 auto;
+    }
+
+    .ico-data img
+    {
+        float:none !important;
+        margin:0 auto;
+    }
+
+    .inscri-title-data
+    {
+        text-align:center;
+
+    }
+    .inscri-data
+    {
+        text-align:center;
+    }
+}
+
+
+@media screen and (max-width: 1366px) and (max-height: 800px) { 
+		
+		
+}
+
+
+
+object[type="application/gas-events-uni"]
+{
+	position:fixed;
+	top:0;
+	left:0;
+	
+}
+
+/* Fila de Espera (10/08) */
+
+.fila-espera .mt-title-ativo {
+    color: #fbb731;
+}
+
+/*.fila-espera:before {
+    content: "";
+   width: 30%;
+   position: absolute;
+   left: 100%;
+   top: 0;
+   height: 300px;
+   background: #ccc;
+}*/
+
+.conteudo-mob {
+    padding-bottom: 0;
+}
+
+.fila-espera .mold-treinamentos {
+    background: #f7f9f8;
+    padding-top: 20px;
+}

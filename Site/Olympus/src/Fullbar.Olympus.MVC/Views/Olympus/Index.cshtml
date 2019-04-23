@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Olympus";
+}
+
+<div class="col-md-9 pad-30 pad-top-40 conteudo">
+    <!--  Conteúdo -->
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img class="first-slide center-block" src=@Url.Content("~/assets/img/banner-olympus.png") alt="First slide">
+                <div class="container">
+                    <div class="carousel-caption">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div><!-- /.carousel -->
+
+    <div class="col-md-12">
+        <hr>
+    </div>
+
+    <div class="col-md-12 title-geral">
+        <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.PaginaOlympusTitulo</p>
+    </div>
+
+    @Html.Raw(@Fullbar.Olympus.MVC.Resource.PaginaOlympusConteudo)
+
+    
+
+</div><!--  /Conteúdo -->
+@section Scripts{
+
+    <script>
+
+        $(function () {
+
+
+            $('#ulMenu > li').each(function () {
+
+                $(this).removeClass('active');
+
+            });
+
+            $('#liOlympus').addClass('active')
+
+        });
+
+    </script>
+
+
+}

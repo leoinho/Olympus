@@ -1,0 +1,612 @@
+﻿@using Fullbar.Olympus.MVC.Helpers
+
+@{
+    var idIdioma = System.Web.Configuration.WebConfigurationManager.AppSettings["idIdioma"];
+    var analytics = System.Web.Configuration.WebConfigurationManager.AppSettings["analytics"];
+
+    var usuario = (Fullbar.Olympus.Dominio.Entidade.Usuario)Session["USUARIO"]; 
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>OLYMPUS</title>
+
+    <link href=@Url.Content("~/Content/themes/base/jquery-ui.css") rel="stylesheet">
+    <link href=@Url.Content("~/assets/css/bootstrap.min.css") rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href=@Url.Content("~/assets/css/ie10-viewport-bug-workaround.css") rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <link href=@Url.Content("~/assets/css/fonts.css") rel="stylesheet">
+    <link href=@Url.Content("~/assets/css/jquery.mCustomScrollbar.css") rel="stylesheet">
+    <link href=@Url.Content("~/assets/css/galeria.css") rel="stylesheet">
+    <link href=@Url.Content("~/assets/css/geral.css") rel="stylesheet">
+
+    <link rel="apple-touch-icon" sizes="57x57" href=@Url.Content("~/assets/img/icon/apple-icon-57x57.png")>
+    <link rel="apple-touch-icon" sizes="60x60" href=@Url.Content("~/assets/img/icon/apple-icon-60x60.png")>
+    <link rel="apple-touch-icon" sizes="72x72" href=@Url.Content("~/assets/img/icon/apple-icon-72x72.png")>
+    <link rel="apple-touch-icon" sizes="76x76" href=@Url.Content("~/assets/img/icon/apple-icon-76x76.png")>
+    <link rel="apple-touch-icon" sizes="114x114" href=@Url.Content("~/assets/img/icon/apple-icon-114x114.png")>
+    <link rel="apple-touch-icon" sizes="120x120" href=@Url.Content("~/assets/img/icon/apple-icon-120x120.png")>
+    <link rel="apple-touch-icon" sizes="144x144" href=@Url.Content("~/assets/img/icon/apple-icon-144x144.png")>
+    <link rel="apple-touch-icon" sizes="152x152" href=@Url.Content("~/assets/img/icon/apple-icon-152x152.png")>
+    <link rel="apple-touch-icon" sizes="180x180" href=@Url.Content("~/assets/img/icon/apple-icon-180x180.png")>
+    <link rel="icon" type="image/png" sizes="192x192"  href=@Url.Content("~/assets/img/icon/android-icon-192x192.png")>
+    <link rel="icon" type="image/png" sizes="32x32" href=@Url.Content("~/assets/img/icon/favicon-32x32.png")>
+    <link rel="icon" type="image/png" sizes="96x96" href=@Url.Content("~/assets/img/icon/favicon-96x96.png")>
+    <link rel="icon" type="image/png" sizes="16x16" href=@Url.Content("~/assets/img/icon/favicon-16x16.png")>
+    <link rel="manifest" href=@Url.Content("~/assets/img/icon/manifest.json")>
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content=@Url.Content("~/assets/img/icon/ms-icon-144x144.png")>
+    <meta name="theme-color" content="#ffffff">
+
+    
+    <style>
+
+        .dp-highlight .ui-state-default {
+            background: #70B0B6;
+            color: #FFF;
+        }
+
+        .dp-highlight1 .ui-state-default {
+            background: #8FBF36;
+            color: #FFF;
+        }
+
+        .dp-highlight2 .ui-state-default {
+            background: #228B22;
+            color: #FFF;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+        }
+        
+
+        .dp-highlight3 .ui-state-default {
+            background: #FF6347;
+            color: #FFF;
+        }
+
+        .listaEspera .ui-state-default {
+            background: #FDB813;
+            color: #FFF;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+        }
+
+        .btn-default {
+            margin: 3px 0;
+        }
+
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <!-- Menu Desktop -->
+        <div class="bg-menu hidden-sm hidden-xs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 space-menu01">
+
+                    </div>
+                    <div class="col-md-7 menu-desk space-menu">
+                        <ul>
+                            <li id="liHome"><a href="/Home" class="home">Home</a></li>
+                            <li class="risc-menu"><img src=@Url.Content("~/assets/img/risco-menu.png") class=""></li>
+                            <li id="liOlympus"><a href="/Olympus">@Fullbar.Olympus.MVC.Resource.MenuOlympus</a></li>
+                            <li class="risc-menu"><img src=@Url.Content("~/assets/img/risco-menu.png") class=""></li>
+                            <li id="liTreinamento" class="menu-treinamentos">
+                                <a href="/Treinamento">@Fullbar.Olympus.MVC.Resource.MenuTreinamentos</a>
+
+                                <div class="sub-menu">
+                                    <div class="col-md-12 bd-bot">
+                                        <a href="#" class="">@Fullbar.Olympus.MVC.Resource.TreinamentoDivisao3</a>
+                                        <div class="col-md-12 pad-top-5">
+                                            <a href="/Treinamento/Categoria/5">@Fullbar.Olympus.MVC.Resource.TreinamentoDivisao3Sub2</a>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <a href="/Treinamento/Categoria/7">@Fullbar.Olympus.MVC.Resource.TreinamentoDivisao3Sub1</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 pad-top-5">
+                                        <a href="/Treinamento/Categoria/0">@Fullbar.Olympus.MVC.Resource.TreinamentoDivisao4</a>
+                                    </div>
+                                    @*<div class="menu-treinamentos02">
+                                        <a href="#" class="">@Fullbar.Olympus.MVC.Resource.TreinamentoDivisao3</a>
+
+                                        <div class="sub-menu02">
+
+                                            <div class="col-sm-6 text-center">
+                                                <a href="/Treinamento/Categoria/5">@Fullbar.Olympus.MVC.Resource.TreinamentoDivisao3Sub2</a>
+                                            </div>
+                                            <div class="col-sm-6 text-center">
+                                                <a href="/Treinamento/Categoria/7">@Fullbar.Olympus.MVC.Resource.TreinamentoDivisao3Sub1</a>
+                                            </div>
+
+                                        </div>
+                                    </div>*@
+
+                                    @*<div class="col-sm-4 text-center">
+                                        <a href="">Clinical Mentorship e Proctorship</a>
+                                    </div>*@
+
+
+
+                                </div>
+                            </li>
+
+                            @if (idIdioma != "3" || (idIdioma == "3" && usuario != null))
+                            {
+                                <li class="risc-menu"><img src=@Url.Content("~/assets/img/risco-menu.png") class=""></li>
+                                <li id="liEducacional"><a href="/Educacional">@Fullbar.Olympus.MVC.Resource.MenuConteudoEducacional</a></li>
+                            }
+                            else
+                            {
+                                <li class="risc-menu"><img src=@Url.Content("~/assets/img/risco-menu.png") class=""></li>
+                                <li id="liEducacional"><a style="color:#dedede;">@Fullbar.Olympus.MVC.Resource.MenuConteudoEducacional</a></li>
+                            }
+
+                            <li class="risc-menu"><img src=@Url.Content("~/assets/img/risco-menu.png") class=""></li>
+
+
+                            <li class="btn-group show-on-hover" id="liCodigoConduta">
+                                <a class="dropdown-toggle" data-toggle="dropdown">@Fullbar.Olympus.MVC.Resource.MenuCodigoConduta</a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/BolsasEstudo">@Fullbar.Olympus.MVC.Resource.PaginaCodigoCondutoMenu1</a></li>
+                                    <li><a href="/CodigoEtica">@Fullbar.Olympus.MVC.Resource.PaginaCodigoCondutoMenu2</a></li>
+                                    <li><a href="/DeclaracaoPrivacidade">@Fullbar.Olympus.MVC.Resource.PaginaCodigoCondutoMenu3</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="risc-menu"><img src=@Url.Content("~/assets/img/risco-menu.png") class=""></li>
+                            <li id="liContato"><a href="/@Fullbar.Olympus.MVC.Resource.PaginaContato">@Fullbar.Olympus.MVC.Resource.MenuContato</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 idioma space-idioma">
+                        @{
+                            var ingles = System.Web.Configuration.WebConfigurationManager.AppSettings["siteEn"];
+                            var espanhol = System.Web.Configuration.WebConfigurationManager.AppSettings["siteEs"];
+                            var portugues = System.Web.Configuration.WebConfigurationManager.AppSettings["sitePt"];
+                        }
+
+                        <ul>
+                            <li><a href="@ingles">EN</a></li>
+                            <li><a href="@espanhol">ES</a></li>
+                            <li><a href="@portugues">PT</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Menu Mobile-->
+        <nav class="navbar navbar-default navbar-fixed-top hidden-lg hidden-md">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/Home"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav" id="ulMenu">
+                        <li id="liHome"><a href="/Home" class="home">Home</a></li>
+
+                        <li id="liOlympus"><a href="/Olympus">@Fullbar.Olympus.MVC.Resource.MenuOlympus</a></li>
+
+                        <li id="liTreinamento"><a href="/Treinamento">@Fullbar.Olympus.MVC.Resource.MenuTreinamentos</a></li>
+                        @*<li id="liTreinamento" class="dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@Fullbar.Olympus.MVC.Resource.MenuTreinamentos <span class="caret"></span></a>
+                            <div class="dropdown-menu dropdown-olympus">
+
+
+                                <div class="col-sm-6">
+                                    <a href="#">Limpeza, Desinfecção e Esterilização</a>
+                                </div>
+
+                                <div class="col-sm-6">
+
+                                    <div id="drop-submenu" class="dropdown-submenu">
+
+                                        <a tabindex="-1" href="#">Educação Profissional</a>
+
+                                        <div class="dropdown-menu">
+
+                                            <div class="col-sm-6">
+                                                <a tabindex="-1" href="#">Endoscopia</a>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <a tabindex="-1" href="#">Cirurgia</a>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>*@
+
+                        <li id="liEducacional"><a href="/Educacional">@Fullbar.Olympus.MVC.Resource.MenuConteudoEducacional</a></li>
+                        <li><a href="#">@Fullbar.Olympus.MVC.Resource.MenuCodigoConduta</a></li>
+                        <li id="liContato"><a href="/@Fullbar.Olympus.MVC.Resource.PaginaContato">@Fullbar.Olympus.MVC.Resource.MenuContato</a></li>
+
+                    </ul>
+
+
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+
+
+
+
+        <div class="container">
+            <div class="row">
+
+                @using (@Html.BeginForm("Login", "Home", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+
+                    <!-- Menu Lateral Desktop-->
+                    <div class="col-md-3 zera-pad bar-lateral">
+
+                        <div class="col-md-12 quadro-login" style="display:none" id="divEsqueciSenha">
+
+                            <div class="col-md-12 zera-pad logo">
+                                <a class="" href="/Home"><img src=@Url.Content("~/assets/img/logo.png") class="img-responsive center-block"></a>
+                            </div>
+
+                            <div class="col-md-12 zera-pad esqueci-minha-senha">
+                                <div>
+                                    <p>@Fullbar.Olympus.MVC.Resource.EnviaSenhaTitulo</p>
+                                </div>
+                                <input type="text" name="EmailSenha" id="EmailSenha" class="form-control inp-contato" placeholder="@Fullbar.Olympus.MVC.Resource.EnviaSenhaPlaceholder" value="">
+                                <div class="pad-top-20">
+                                    <input type="button" value="@Fullbar.Olympus.MVC.Resource.BotaoEnviarSenha" role="button" class="btn btn-lg btn-primary btn-entrar" id="enviarSenha">
+                                </div>
+                                <div class="pad-top-20">
+                                    <input type="button" value="@Fullbar.Olympus.MVC.Resource.BotaoEnviarSenhaVoltar" role="button" class="btn btn-lg btn-primary btn-entrar" id="enviarSenhaVoltar">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-12 quadro-login" id="divLogin">
+
+                            <div class="col-md-12 zera-pad logo">
+                                <a class="" href="/Home"><img src=@Url.Content("~/assets/img/logo.png") class="img-responsive center-block"></a>
+                            </div>
+
+                            @Html.BoxLogin()
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="col-md-12 zera-pad lateral-calendario">
+                            <p><span><img src=@Url.Content("~/assets/img/ico-mes.png") class=""></span>@Fullbar.Olympus.MVC.Resource.HomeCalendarioTitulo</p>
+
+                            <div class="calendario-date-pick" id="datepicker"></div>
+                        </div>
+
+                        <div class="col-md-12 zera-pad pad-bot-20 pad-top-10 legenda-calendarios">
+                            <div class="col-md-12">
+                                <p><span><img class="" src="/assets/img/ico-leg-cinza.png" alt=""></span>@Fullbar.Olympus.MVC.Resource.TreinamentoDisponivel </p>
+                            </div>
+                            <div class="col-md-12">
+                                <p><span><img class="" src="/assets/img/ico-leg-verde.png" alt=""></span>@Fullbar.Olympus.MVC.Resource.TreinamentoConfirmado </p>
+                            </div>
+                            <div class="col-md-12">
+                                <p><span><img class="" src="/assets/img/ico-leg-amarelo.png" alt=""></span>@Fullbar.Olympus.MVC.Resource.TreinamentoFilaEspera </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- --------------------- Barra Lateral Mobile ------------------ -->
+                    @*<div class="col-md-12 hidden-lg hidden-md">
+                        <div class="col-md-12 quadro-login" style="display:none" id="divEsqueciSenha">
+
+                            <div class="col-md-12 zera-pad logo">
+                                <a class="" href="/Home"><img src=@Url.Content("~/assets/img/logo.png") class="img-responsive center-block"></a>
+                            </div>
+
+                            <div class="col-md-12 zera-pad esqueci-minha-senha">
+                                <div>
+                                    <p>@Fullbar.Olympus.MVC.Resource.EnviaSenhaTitulo</p>
+                                </div>
+                                <input type="text" name="EmailSenha" id="EmailSenha" class="form-control inp-contato" placeholder="@Fullbar.Olympus.MVC.Resource.EnviaSenhaPlaceholder" value="">
+                                <div class="pad-top-20">
+                                    <input type="button" value="@Fullbar.Olympus.MVC.Resource.BotaoEnviarSenha" role="button" class="btn btn-lg btn-primary btn-entrar" id="enviarSenha">
+                                </div>
+                                <div class="pad-top-20">
+                                    <input type="button" value="@Fullbar.Olympus.MVC.Resource.BotaoEnviarSenhaVoltar" role="button" class="btn btn-lg btn-primary btn-entrar" id="enviarSenhaVoltar">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-12 quadro-login" id="divLogin">
+
+                            <div class="col-md-12 zera-pad logo">
+                                <a class="" href="/Home"><img src=@Url.Content("~/assets/img/logo.png") class="img-responsive center-block"></a>
+                            </div>
+
+                            @Html.BoxLogin()
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="col-md-12 zera-pad lateral-calendario">
+                            <p><span><img src=@Url.Content("~/assets/img/ico-mes.png") class=""></span>@Fullbar.Olympus.MVC.Resource.HomeCalendarioTitulo</p>
+
+                            <div class="calendario-date-pick" id="datepicker"></div>
+                        </div>
+                    </div>*@
+                    <!-- --------------------- /Barra Lateral Mobile ------------------ -->
+
+
+                    <input type="hidden" id="erroLogin" value="@ViewBag.ErroLogin" />
+                    <input type="hidden" id="erroTitulo" value="@ViewBag.ErroTitulo" />
+
+
+                    <input type="hidden" id="email" value="@ViewBag.Email" />
+                    <input type="hidden" id="senha" value="@ViewBag.Senha" />
+                }
+
+                @RenderBody()
+
+            </div>
+        </div>
+
+
+        @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".modal">Botão de Teste</button>*@
+
+
+        <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title titleModal"></h4>
+                    </div>
+                    <div class="modal-body contentModal">
+                        <p></p>
+                    </div>
+
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <!-- Modal Confirm -->
+        <div class="modal fade" id="myModalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalConfirmLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close fechar" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalConfirmLabel"></h4>
+                    </div>
+                    <div class="modal-body" id="myModalConfirmTexto">
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" id="idMissao" />
+                        <a id="btnSimModal" href="#" class="btn btn-default" data-dismiss="modal">@Fullbar.Olympus.MVC.Resource.Sim</a>
+                        <button id="btnNaoModal" type="button" class="btn btn-default" data-dismiss="modal">@Fullbar.Olympus.MVC.Resource.Nao</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+
+            </div>
+        </div>
+
+        <!-- Modal Confirm -->
+        <div class="modal fade" id="myModalCadastro" tabindex="-1" role="dialog" aria-labelledby="myModalConfirmLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width: 100%; max-width: 440px;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close fechar" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalCadastroLabel"></h4>
+                    </div>
+                    <div class="modal-body" id="myModalCadastroTexto">
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" id="idMissao" />
+                        <a id="btnNaoInscrever" href="#" class="btn btn-default" data-dismiss="modal" style="margin: 3px 0;">@Fullbar.Olympus.MVC.Resource.CadastroSemInscreverTreinamento</a>
+                        <button id="btnInscrever" type="button" class="btn btn-default" data-dismiss="modal">@Fullbar.Olympus.MVC.Resource.CadastroInscreverTreinamento</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+
+            </div>
+        </div>
+
+
+        <div id="carregando" class="text-center">
+
+        </div>
+
+        <div class="push"></div>
+    </div>
+    <div class="deslize">
+        <div class="deslize-aviso">
+            <img src="@Fullbar.Olympus.MVC.Resource.ImgDeslize" class="" />
+        </div>
+        <div class="deslize-seta">
+            <img src="/assets/img/deslize-seta.png" class="pull-right" />            
+        </div>
+    </div>
+    <footer class="footer bg-footer">
+        <div class="container ">
+            <div class="row">
+                <div class="text-footer">
+                    <p>© Olympus 2017</p>                    
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src=@Url.Content("~/assets/js/bootstrap.min.js")></script>
+    <script src=@Url.Content("~/assets/js/ie10-viewport-bug-workaround.js")></script>
+
+    <script src=@Url.Content("~/assets/js/app.js")></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+
+
+
+
+    <script src="http://mrrio.github.io/jsPDF/dist/jspdf.debug.js"></script>
+    <script src=@Url.Content("~/assets/js/Calendario.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/assets/js/jquery.mCustomScrollbar.concat.min.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/assets/js/jquery.knob.js") type="text/javascript"></script>
+    
+
+    <script>
+        $(window).scroll(function () {
+
+            if ($(this).scrollTop() > 20) {
+                $('.deslize').fadeOut();
+                //$(".deslize-aviso img").hide();
+            }
+            else {
+                $('.deslize').fadeIn();
+            }
+        });
+    </script>
+
+    <script>
+
+        $(function () {
+
+            $('input[name="Email"]').val($('#email').val());
+            $('input[name="Senha"]').val($('#senha').val());
+
+            $("#EmailSenha").mask("999.999.999-99");
+            
+
+            if ($('#erroLogin').val() != '') {
+
+                var titulo = $('#erroTitulo').val();
+                var texto = $('#erroLogin').val();
+
+                alerta(texto, titulo);
+
+            }
+
+            $('#aEsqueciSenha').on('click', function () {
+
+                $('#divLogin').hide();
+                $('#divEsqueciSenha').show();
+
+            });
+
+            $('#enviarSenhaVoltar').on('click', function () {
+
+                $('#divLogin').show();
+                $('#divEsqueciSenha').hide();
+            });
+
+            $('#enviarSenha').on('click', function () {
+
+                $("#carregando").show();
+
+                $.post('/Home/EnviarSenha', { Login: $('#EmailSenha').val() }, function (result) {
+
+                    $("#carregando").hide();
+
+                    alerta(result.dsMensagem, result.dsTitulo);
+
+                    if (result.id > 0) {
+                        $('#EmailSenha').val('');
+                    }
+
+
+
+                });
+
+            });
+
+
+            $('#entrar').on('click', function () {
+
+                $("#carregando").show();
+
+            });
+
+        });
+    </script>
+
+    @if (analytics == "prod")
+    { 
+        if (idIdioma == "1")
+        { 
+            <!-- ---------------------------------------- OLYMPUS EDUCAÇÃO------------------------------------------ -->
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-76172847-2', 'auto');
+              ga('send', 'pageview');
+            </script>
+        }
+        else if (idIdioma == "3")
+        { 
+            <!-- ---------------------------------------- OLYMPUS MX ------------------------------------------ -->
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-76172847-3', 'auto');
+              ga('send', 'pageview');
+            </script>
+        }
+        else if (idIdioma == "2")
+        {
+            <!-- ---------------------------------------- OLYMPUS EUA ------------------------------------------ -->
+             <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-76172847-4', 'auto');
+              ga('send', 'pageview');
+            </script>         
+        }
+    }
+
+</body>
+</html>

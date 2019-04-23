@@ -1,0 +1,1162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btLogar" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="EmailInvalido" xml:space="preserve">
+    <value>E-mail inválido</value>
+  </data>
+  <data name="EmailObrigatorio" xml:space="preserve">
+    <value>E-mail obrigatório</value>
+  </data>
+  <data name="Senha" xml:space="preserve">
+    <value>Senha</value>
+  </data>
+  <data name="SenhaObrigatoria" xml:space="preserve">
+    <value>Senha obrigátoria</value>
+  </data>
+  <data name="Titulo" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="loginValida" xml:space="preserve">
+    <value>E-mail  ou senha inválido</value>
+  </data>
+  <data name="PaginaHome" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="CnpjCadastroObrigatorio" xml:space="preserve">
+    <value>CNPJ</value>
+  </data>
+  <data name="ConfirmaCadastroObrigatorio" xml:space="preserve">
+    <value>Senha e confirma senha não conferem</value>
+  </data>
+  <data name="InformacaoVerdadeiraCadastroObrigatorio" xml:space="preserve">
+    <value>Declaro que as informações são verdadeiras e autorizo a Olympus a verificá-las.</value>
+  </data>
+  <data name="InstituicaoCadastroObrigatorio" xml:space="preserve">
+    <value>Nome da Instituição</value>
+  </data>
+  <data name="NomeCadastroObrigatorio" xml:space="preserve">
+    <value>Nome Completo</value>
+  </data>
+  <data name="NumeroPassaporte" xml:space="preserve">
+    <value>Número Passaporte</value>
+  </data>
+  <data name="NumeroPassaporteCadastroObrigatorio" xml:space="preserve">
+    <value>Número Passaporte</value>
+  </data>
+  <data name="RegulamentoCadastroObrigatorio" xml:space="preserve">
+    <value>Regulamento</value>
+  </data>
+  <data name="SenhaCadastroObrigatorio" xml:space="preserve">
+    <value>Senha</value>
+  </data>
+  <data name="SenhaValorMaximoCadastroObrigatorio" xml:space="preserve">
+    <value>Senha </value>
+  </data>
+  <data name="TituloProfissionalCadastroObrigatorio" xml:space="preserve">
+    <value>Titulo profissional</value>
+  </data>
+  <data name="ValorMinimoSenhaCadastroObrigatorio" xml:space="preserve">
+    <value>Senha deve conter mínimo 6 caracteres</value>
+  </data>
+  <data name="Cep" xml:space="preserve">
+    <value>Cep</value>
+  </data>
+  <data name="Cidade" xml:space="preserve">
+    <value>Cidade</value>
+  </data>
+  <data name="CNPJ" xml:space="preserve">
+    <value>CNPJ</value>
+  </data>
+  <data name="ConfirmaSenha" xml:space="preserve">
+    <value>Confirma Senha</value>
+  </data>
+  <data name="EmailCadastroObrigatorio" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="Endereco" xml:space="preserve">
+    <value>Endereco</value>
+  </data>
+  <data name="Especialidade" xml:space="preserve">
+    <value>Especialidade</value>
+  </data>
+  <data name="Nacionalidade" xml:space="preserve">
+    <value>Qual sua nacionalidade ?</value>
+  </data>
+  <data name="NacionalidadeBrasileiro" xml:space="preserve">
+    <value>Brasileira</value>
+  </data>
+  <data name="NacionalidadeOutros" xml:space="preserve">
+    <value>Outras</value>
+  </data>
+  <data name="Nome" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="NomeInstituicao" xml:space="preserve">
+    <value>Nome da Instituição</value>
+  </data>
+  <data name="NumeroConselho" xml:space="preserve">
+    <value>Nº do conselho</value>
+  </data>
+  <data name="NumeroEstado" xml:space="preserve">
+    <value>Nº/Estado</value>
+  </data>
+  <data name="Passaporte" xml:space="preserve">
+    <value>Nº de passaporte</value>
+  </data>
+  <data name="Regulamento" xml:space="preserve">
+    <value>Regulamento</value>
+  </data>
+  <data name="Telefone" xml:space="preserve">
+    <value>Telefone</value>
+  </data>
+  <data name="TituloProfissional" xml:space="preserve">
+    <value>Titulo Profissional</value>
+  </data>
+  <data name="UF" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="UsuarioCadastroErro" xml:space="preserve">
+    <value>Não foi possivel realizar cadastro</value>
+  </data>
+  <data name="Numero" xml:space="preserve">
+    <value>Número</value>
+  </data>
+  <data name="MensagemRetornoCNPJ" xml:space="preserve">
+    <value>CNPJ não consta na base de treinamentos da Olympus</value>
+  </data>
+  <data name="MensagemRetornoCPF" xml:space="preserve">
+    <value>CPF já cadastrado</value>
+  </data>
+  <data name="MensagemRetornoEmail" xml:space="preserve">
+    <value>E-mail já esta sendo utilizado</value>
+  </data>
+  <data name="MensagemRetornoGenerico" xml:space="preserve">
+    <value>Ocorreu um erro ao tentar realizar o cadastro , tente novamente mais tarde.</value>
+  </data>
+  <data name="MensagemRetornoPassaporte" xml:space="preserve">
+    <value>Passaporte já cadastrado</value>
+  </data>
+  <data name="labelMeuPerfil" xml:space="preserve">
+    <value>Meu Perfil</value>
+  </data>
+  <data name="lblSair" xml:space="preserve">
+    <value>Sair</value>
+  </data>
+  <data name="PaginaEditar" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="CNPJNaoEncontrado" xml:space="preserve">
+    <value>CNPJ não encontrado. Verifique se o número foi digitado corretamente ou preencha todos os campos da instituição profissional.</value>
+  </data>
+  <data name="CPFInvalido" xml:space="preserve">
+    <value>CPF inválido</value>
+  </data>
+  <data name="PaginaCadastro" xml:space="preserve">
+    <value>Cadastro</value>
+  </data>
+  <data name="BotaoEnviarContato" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="MensagemCadastroContato" xml:space="preserve">
+    <value>Ocorreu um erro na tentativa de cadastro</value>
+  </data>
+  <data name="MensagemEnvioContato" xml:space="preserve">
+    <value>Ocorreu um problema no envio do e-mail</value>
+  </data>
+  <data name="PaginaContato" xml:space="preserve">
+    <value>Contato</value>
+  </data>
+  <data name="PaginaContatoAction" xml:space="preserve">
+    <value>Cadastrar</value>
+  </data>
+  <data name="PaginaTreinamentoDetalhe" xml:space="preserve">
+    <value>Detalhes</value>
+  </data>
+  <data name="PaginaTreinamentoDetalheTitulo" xml:space="preserve">
+    <value>Treinamento Detalhes</value>
+  </data>
+  <data name="PaginaMeusTreinamentos" xml:space="preserve">
+    <value>MeusTreinamentos</value>
+  </data>
+  <data name="HomeAindaNaoSouCadastrado" xml:space="preserve">
+    <value>Ainda não sou cadastrado</value>
+  </data>
+  <data name="HomeBotaoFilaEsperaTreinamento" xml:space="preserve">
+    <value>Entrar em fila de espera</value>
+  </data>
+  <data name="HomeBotaoInscrevaseTreinamento" xml:space="preserve">
+    <value>Inscreva-se</value>
+  </data>
+  <data name="HomeBotaoMaisInformcaoCalendario" xml:space="preserve">
+    <value>Clique para ver mais</value>
+  </data>
+  <data name="HomeCalendarioTitulo" xml:space="preserve">
+    <value>Treinamentos do mês</value>
+  </data>
+  <data name="HomeEsqueciSenha" xml:space="preserve">
+    <value>Esqueci minha senha</value>
+  </data>
+  <data name="HomeMeusTreinamentos" xml:space="preserve">
+    <value>Meus Treinamentos</value>
+  </data>
+  <data name="HomeTituloTreinamento" xml:space="preserve">
+    <value>Treinamentos</value>
+  </data>
+  <data name="MenuCodigoConduta" xml:space="preserve">
+    <value>Código de Ética</value>
+  </data>
+  <data name="MenuContato" xml:space="preserve">
+    <value>Contato</value>
+  </data>
+  <data name="MenuConteudoEducacional" xml:space="preserve">
+    <value>Conteúdo Educacional</value>
+  </data>
+  <data name="MenuOlympus" xml:space="preserve">
+    <value>A Olympus</value>
+  </data>
+  <data name="MenuTreinamentos" xml:space="preserve">
+    <value>Treinamentos</value>
+  </data>
+  <data name="PaginaCadastroBairro" xml:space="preserve">
+    <value>Bairro</value>
+  </data>
+  <data name="PaginaCadastroBotaoFinalizar" xml:space="preserve">
+    <value>Finalizar</value>
+  </data>
+  <data name="PaginaCadastroCepInstituicao" xml:space="preserve">
+    <value>CEP da Instituição</value>
+  </data>
+  <data name="PaginaCadastroCidade" xml:space="preserve">
+    <value>Cidade</value>
+  </data>
+  <data name="PaginaCadastroConfirmaEmail" xml:space="preserve">
+    <value>Confirmar e-mail</value>
+  </data>
+  <data name="PaginaCadastroConfirmaSenha" xml:space="preserve">
+    <value>Confirmar senha</value>
+  </data>
+  <data name="PaginaCadastroEndereco" xml:space="preserve">
+    <value>Endereço</value>
+  </data>
+  <data name="PaginaCadastroEspecialidade" xml:space="preserve">
+    <value>Especialidade</value>
+  </data>
+  <data name="PaginaCadastroInformacaoPessoal" xml:space="preserve">
+    <value>Informações Pessoais</value>
+  </data>
+  <data name="PaginaCadastroInformacaoProfissional" xml:space="preserve">
+    <value>Informações Profissionais</value>
+  </data>
+  <data name="PaginaCadastroInformacaoVerdadeira" xml:space="preserve">
+    <value>Declaro que as informações são verdadeiras e autorizo a Olympus a verificá-las.</value>
+  </data>
+  <data name="PaginaCadastroLicencaMedicaEUA" xml:space="preserve">
+    <value>Você é um profissional de saúde com licença médica no Estados Unidos?</value>
+  </data>
+  <data name="PaginaCadastroLicencaMedicaEUAEstado" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="PaginaCadastroLicencaMedicaEUANAO" xml:space="preserve">
+    <value>NÃO</value>
+  </data>
+  <data name="PaginaCadastroLicencaMedicaEUANumero" xml:space="preserve">
+    <value>Nº</value>
+  </data>
+  <data name="PaginaCadastroLicencaMedicaEUASIM" xml:space="preserve">
+    <value>SIM</value>
+  </data>
+  <data name="PaginaCadastroNacionalidade" xml:space="preserve">
+    <value>Qual a sua nacionalidade?</value>
+  </data>
+  <data name="PaginaCadastroNome" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="PaginaCadastroNomeInstituicao" xml:space="preserve">
+    <value>Nome da Instituição</value>
+  </data>
+  <data name="PaginaCadastroNumeroConselho" xml:space="preserve">
+    <value>Nº do conselho</value>
+  </data>
+  <data name="PaginaCadastroOutros" xml:space="preserve">
+    <value>OUTROS</value>
+  </data>
+  <data name="PaginaCadastroSenha" xml:space="preserve">
+    <value>Senha</value>
+  </data>
+  <data name="PaginaCadastroTelefone" xml:space="preserve">
+    <value>Telefone</value>
+  </data>
+  <data name="PaginaCadastroTituloProfissional" xml:space="preserve">
+    <value>Titulo Profissional</value>
+  </data>
+  <data name="PaginaCadastroUF" xml:space="preserve">
+    <value>UF</value>
+  </data>
+  <data name="PaginaCodigoCondutaTitulo" xml:space="preserve">
+    <value>Código Conduta</value>
+  </data>
+  <data name="PaginaContatoAssunto" xml:space="preserve">
+    <value>Assunto</value>
+  </data>
+  <data name="PaginaContatoEmail" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="PaginaContatoEnviarMensagem" xml:space="preserve">
+    <value>Envie sua mensagem</value>
+  </data>
+  <data name="PaginaContatoMensagem" xml:space="preserve">
+    <value>Mensagem</value>
+  </data>
+  <data name="PaginaContatoNomeCompleto" xml:space="preserve">
+    <value>Nome Completo</value>
+  </data>
+  <data name="PaginaContatoContato" xml:space="preserve">
+    <value>Contato Olympus</value>
+  </data>
+  <data name="PaginaContatoSelecione" xml:space="preserve">
+    <value>Selecione</value>
+  </data>
+  <data name="PaginaContatoTelefone" xml:space="preserve">
+    <value>Telefone</value>
+  </data>
+  <data name="PaginaConteudoEducacional" xml:space="preserve">
+    <value>Conteúdo Educacional</value>
+  </data>
+  <data name="PaginaConteudoEducacionaTituloEstudo" xml:space="preserve">
+    <value>Estudo Endoscopia</value>
+  </data>
+  <data name="PaginaMeusTreinamentosBotaoCancelamento" xml:space="preserve">
+    <value>Cancelar sua inscrição</value>
+  </data>
+  <data name="PaginaMeusTreinamentosBotaoCertificado" xml:space="preserve">
+    <value>Certificado</value>
+  </data>
+  <data name="PaginaMeusTreinamentosBotaoConfirmacaoInscricao" xml:space="preserve">
+    <value>Documento de confirmação de inscrição</value>
+  </data>
+  <data name="PaginaMeusTreinamentosBotaoMateraisApoio" xml:space="preserve">
+    <value>Materiais de apoio</value>
+  </data>
+  <data name="PaginaMeusTreinamentosBotaoQuestionarioPreTreinamento" xml:space="preserve">
+    <value>Questionário pré-treinamento</value>
+  </data>
+  <data name="PaginaMeusTreinamentosCalendario" xml:space="preserve">
+    <value>Calendário</value>
+  </data>
+  <data name="PaginaMeusTreinamentosTitulo" xml:space="preserve">
+    <value>Meus treinamentos</value>
+  </data>
+  <data name="PaginaOlympusTitulo" xml:space="preserve">
+    <value>Olympus Educação Profissional "ProfEd"</value>
+  </data>
+  <data name="PaginaTreinamentoDetalhesAtividades" xml:space="preserve">
+    <value>Atividades</value>
+  </data>
+  <data name="PaginaTreinamentoDetalhesDescricao" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="PaginaTreinamentoDetalhesHorario" xml:space="preserve">
+    <value>Horários</value>
+  </data>
+  <data name="PaginaTreinamentoDetalhesInscrevase" xml:space="preserve">
+    <value>Inscreva-se</value>
+  </data>
+  <data name="PaginaTreinamentoDetalhesPalestrantes" xml:space="preserve">
+    <value>Palestrantes</value>
+  </data>
+  <data name="PaginaTreinamentoDetalhesVagasDisponivel" xml:space="preserve">
+    <value>Vagas &lt;br /&gt; Disponíveis</value>
+  </data>
+  <data name="btSair" xml:space="preserve">
+    <value>Sair</value>
+  </data>
+  <data name="MensagemRetornoInscricaoEfetuada" xml:space="preserve">
+    <value>Inscrição já efetuada</value>
+  </data>
+  <data name="MensagemRetornoInscricaoEncerradas" xml:space="preserve">
+    <value>Inscrições encerradas</value>
+  </data>
+  <data name="MensagemRetornoInscricaoNaoIniciadas" xml:space="preserve">
+    <value>Inscrições não iniciada</value>
+  </data>
+  <data name="PaginaCadastroEmailConfirmaEmail" xml:space="preserve">
+    <value>E-mail e confirma e-mail não conferem</value>
+  </data>
+  <data name="PaginaResultado" xml:space="preserve">
+    <value>Resultado</value>
+  </data>
+  <data name="PaginaTreinamentoActionCadastrarInscricao" xml:space="preserve">
+    <value>CadastrarInscricao</value>
+  </data>
+  <data name="PaginaTreinamentoActionDetalhe" xml:space="preserve">
+    <value>Detalhes</value>
+  </data>
+  <data name="PaginaTreinamentoActionFinaliza" xml:space="preserve">
+    <value>Finaliza</value>
+  </data>
+  <data name="PaginaTreinamentoActionInscricao" xml:space="preserve">
+    <value>Inscricao</value>
+  </data>
+  <data name="PaginaTreinamentoActionMeusTreinamentos" xml:space="preserve">
+    <value>MeusTreinamento</value>
+  </data>
+  <data name="PaginaTreinamentoActionResultado" xml:space="preserve">
+    <value>Resultado</value>
+  </data>
+  <data name="PaginaTreinamentoController" xml:space="preserve">
+    <value>Treinamento</value>
+  </data>
+  <data name="TreinamentoCadastrarInscricaoCPF" xml:space="preserve">
+    <value>CPF já inserido</value>
+  </data>
+  <data name="TreinamentoCadastrarInscricaoEmail" xml:space="preserve">
+    <value>E-mail já inserido</value>
+  </data>
+  <data name="TreinamentoCadastrarInscricaoNome" xml:space="preserve">
+    <value>Nome já inserido</value>
+  </data>
+  <data name="TreinamentoInscricaoBotaoExcluir" xml:space="preserve">
+    <value>Excluir</value>
+  </data>
+  <data name="TreinamentoInscricaoBotaoFinalizarInscricao" xml:space="preserve">
+    <value>Finalizar inscrição</value>
+  </data>
+  <data name="TreinamentoInscricaoCNPJ" xml:space="preserve">
+    <value>CNPJ</value>
+  </data>
+  <data name="TreinamentoInscricaoHospedagem" xml:space="preserve">
+    <value>Precisa de hospedagem e passagem?</value>
+  </data>
+  <data name="TreinamentoInscricaoInstituicao" xml:space="preserve">
+    <value>Instituição</value>
+  </data>
+  <data name="TreinamentoInscricaoNome" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="TreinamentoInscricaoTexto" xml:space="preserve">
+    <value>Os participantes terão suas inscrições confirmadas desde que estejam dentro das regras:
+&lt;br /&gt;&lt;br /&gt;
+
+                        - Não ter realizado o mesmo treinamento nos últimos 12 meses.</value>
+  </data>
+  <data name="TreinamentoInscricaoTitulo" xml:space="preserve">
+    <value>Inscreva outros participantes da sua instituição.</value>
+  </data>
+  <data name="TreinamentoResultadoInscricaoConfirmada" xml:space="preserve">
+    <value>Inscrição Confirmada</value>
+  </data>
+  <data name="TreinamentoResultadoListaEsperaInscricao" xml:space="preserve">
+    <value>Outras inscrições em lista de espera</value>
+  </data>
+  <data name="TreinamentoResultadoOutrasInformacao" xml:space="preserve">
+    <value>Outras Inscrições Confirmadas</value>
+  </data>
+  <data name="TreinamentoResultadoOutrasInscricaoListaEspera" xml:space="preserve">
+    <value>Inscrição em lista de espera</value>
+  </data>
+  <data name="TreinamentoResultadoOutrasListaEsperaInscricao" xml:space="preserve">
+    <value>Outras inscrições em lista de espera</value>
+  </data>
+  <data name="TreinamentoResultadoTexto" xml:space="preserve">
+    <value>Sua presença foi confirmada. Dentro de Instantes você receberá um e-mail com sua ficha de inscrição.&#x3; &lt;br /&gt;
+            Essa ficha deverá ser apresentada no dia do treinamento.</value>
+  </data>
+  <data name="TreinamentoResultadoTexto2" xml:space="preserve">
+    <value>Acesse também a página  &lt;a href="/Treinamento/MeusTreinamentos"&gt;“Meus Treinamentos”&lt;/a&gt; e verifique o material de apoio disponível.</value>
+  </data>
+  <data name="TreinamentoResultadoTexto3" xml:space="preserve">
+    <value>Sua inscrição encontra-se em &lt;a href="#"&gt;“Fila de Espera”&lt;/a&gt;. Caso tenha dúvidas, envie sua mensagem na página &lt;a href="/Contato"&gt;&#x3;“Contato”&lt;/a&gt;.</value>
+  </data>
+  <data name="EnviarSenhaMensagemErroEnviarEmail" xml:space="preserve">
+    <value>Seu cadastro não foi localizado. Verifique o CPF digitado. &lt;br /&gt; Em caso de dúvida nos enviei uma mensagem pela seção “Contato”.</value>
+  </data>
+  <data name="EnviarSenhaMensgaemSucesso" xml:space="preserve">
+    <value>Sua senha será enviada para o e-mail [EMAIL] cadastrado. &lt;br /&gt; Em caso de dúvida nos enviei uma mensagem pela seção “Contato”.</value>
+  </data>
+  <data name="BotaoEnviarSenha" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="BotaoEnviarSenhaVoltar" xml:space="preserve">
+    <value>Voltar</value>
+  </data>
+  <data name="EnviarSenhaValidaCampo" xml:space="preserve">
+    <value>Preencha o campo CPF</value>
+  </data>
+  <data name="PaginaCadastroAceiteTermo" xml:space="preserve">
+    <value>Li e concordo</value>
+  </data>
+  <data name="PaginaCadastroTermosCondicao" xml:space="preserve">
+    <value>Os treinamentos ministrados pela Olympus enquadram-se na modalidade de educação não-formal de duração variável (também chamado “livre”) e não caracterizam-se por ser uma educação continuada, não devendo, portanto, serem usados para computo de horas de capacitação e consequente credito em avaliação de performance, progresão de carreira e/ ou revisão de proventos. As vagas são limitadas, exclusivas para clientes Olympus e estando a inscrição , portanto, subordinadas à previa validação pela OBL.&lt;br /&gt;&lt;br /&gt;
+
+Estou de acordo com os Termos e Condições Gerais da Olympus.</value>
+  </data>
+  <data name="LoginTextoErro" xml:space="preserve">
+    <value>Verifique se todos os campos foram digitados corretamente.</value>
+  </data>
+  <data name="LoginTtituloErro" xml:space="preserve">
+    <value>Atenção!</value>
+  </data>
+  <data name="EnviaSenhaPlaceholder" xml:space="preserve">
+    <value>Digite seu CPF</value>
+  </data>
+  <data name="EnviaSenhaTitulo" xml:space="preserve">
+    <value>Digite seu CPF para receber sua senha.</value>
+  </data>
+  <data name="EnviaSenhaValidaCampo" xml:space="preserve">
+    <value>Preencha o campo CPF</value>
+  </data>
+  <data name="PaginaTreinamento" xml:space="preserve">
+    <value>Treinamento</value>
+  </data>
+  <data name="PaginaTreinamentoActionCategoria" xml:space="preserve">
+    <value>Categoria</value>
+  </data>
+  <data name="ContatoTituloErro" xml:space="preserve">
+    <value>Atenção!</value>
+  </data>
+  <data name="PaginaContatoCadastrar" xml:space="preserve">
+    <value>Cadastrar</value>
+  </data>
+  <data name="PaginaContatoEmailEnvio" xml:space="preserve">
+    <value>obl.educacao@olympus.com</value>
+  </data>
+  <data name="PaginaContatoTextoErro" xml:space="preserve">
+    <value>Preencha todos os campos corretamente</value>
+  </data>
+  <data name="PaginaContatoTextoSucesso" xml:space="preserve">
+    <value>Mensagem enviada com sucesso</value>
+  </data>
+  <data name="PaginaOlympusConteudo" xml:space="preserve">
+    <value>&lt;div class="col-md-12 subtitle-geral"&gt;
+ 	&lt;h1&gt;&lt;/h1&gt;
+	&lt;p&gt;A Olympus oferece treinamentos e programas educacionais para Profissionais da Saúde em toda a região da América Latina.&lt;/p&gt;
+	&lt;p&gt;Nossa Missão: Prover treinamentos e educação de alta qualidade aos Profissionais da Saúde, usuários da tecnologia Olympus, de forma Ética e Transparente, a fim de facilitar o uso e o reprocessamento seguro e efetivo de nossa tecnologia para benefício dos pacientes. Incluindo, mas não se limitando a:&lt;/p&gt;
+
+	&lt;p&gt;
+	&lt;span&gt;•&lt;/span&gt; Treinamento sobre como usar os produtos Olympus de maneira segura e efetiva, de acordo com seu manual; &lt;br /&gt;
+	&lt;span&gt;•&lt;/span&gt; Treinamentos sobre as indicações ou terapias apropriadas para o uso de um produto Olympus de acordo com seu manual;&lt;br /&gt;
+	&lt;span&gt;•&lt;/span&gt; Educação sobre o uso apropriado dos produtos Olympus no tratamento contínuo, incluindo o estagiamento de doenças específicas;&lt;br /&gt;
+	&lt;span&gt;•&lt;/span&gt; Treinamento sobre como reprocessar os produtos Olympus de maneira segura e efetiva, de acordo com seu manual.&lt;br /&gt;
+	&lt;/p&gt;
+
+	&lt;p&gt;
+	Os programas educacionais oferecem treinamentos para os Profissionais da Saúde nos campos da gastroenterologia, cirurgia geral, broncoscopia, urologia, ginecologia e cirurgia bariátrica.
+	&lt;/p&gt;
+&lt;/div&gt;</value>
+  </data>
+  <data name="TreinamentoCadastrarInscricaoCPFUsuario" xml:space="preserve">
+    <value>CPF não pode ser do usuário logado</value>
+  </data>
+  <data name="TreinamentoCadastroInscricaoTextoErro" xml:space="preserve">
+    <value>Verifique se todos os campos foram digitados corretamente</value>
+  </data>
+  <data name="PaginaMeusTreinamentosCanceladoSucesso" xml:space="preserve">
+    <value>Treinamento cancelado com sucesso</value>
+  </data>
+  <data name="TreinamentoTituloErro" xml:space="preserve">
+    <value>Atenção!</value>
+  </data>
+  <data name="PaginaMeusTreinamentosExportarInscricaoTexto1" xml:space="preserve">
+    <value>Olá</value>
+  </data>
+  <data name="PaginaMeusTreinamentosExportarInscricaoTexto10" xml:space="preserve">
+    <value>contato</value>
+  </data>
+  <data name="PaginaMeusTreinamentosExportarInscricaoTexto2" xml:space="preserve">
+    <value>Você se inscreveu para um treinamento organizado pela &lt;br /&gt; &lt;strong&gt;Olympus.&lt;/strong&gt;</value>
+  </data>
+  <data name="PaginaMeusTreinamentosExportarInscricaoTexto3" xml:space="preserve">
+    <value>&lt;p&gt;Seguem dados de inscrição: &lt;br /&gt;&lt;br /&gt;&lt;/p&gt;</value>
+  </data>
+  <data name="PaginaMeusTreinamentosExportarInscricaoTexto4" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="PaginaMeusTreinamentosExportarInscricaoTexto5" xml:space="preserve">
+    <value>O Treinamento será no dia</value>
+  </data>
+  <data name="PaginaMeusTreinamentosExportarInscricaoTexto6" xml:space="preserve">
+    <value>na</value>
+  </data>
+  <data name="PaginaMeusTreinamentosExportarInscricaoTexto7" xml:space="preserve">
+    <value>Aguardamos sua presença</value>
+  </data>
+  <data name="PaginaMeusTreinamentosExportarInscricaoTexto8" xml:space="preserve">
+    <value>Olympus</value>
+  </data>
+  <data name="PaginaMeusTreinamentosExportarInscricaoTexto9" xml:space="preserve">
+    <value>Este documento é sua confirmação de inscrição.&lt;br /&gt;
+                                Ele poderá ser solicitado no dia treinamento</value>
+  </data>
+  <data name="PaginaContatoAssunto1" xml:space="preserve">
+    <value>Educação Profissional</value>
+  </data>
+  <data name="PaginaContatoAssunto2" xml:space="preserve">
+    <value>Reprocessamento</value>
+  </data>
+  <data name="PaginaContatoAssunto3" xml:space="preserve">
+    <value>Solicitação de Treinamento</value>
+  </data>
+  <data name="PaginaContatoAssunto4" xml:space="preserve">
+    <value>Dúvida Técnica</value>
+  </data>
+  <data name="PaginaContatoAssunto5" xml:space="preserve">
+    <value>Sugestões</value>
+  </data>
+  <data name="PaginaContatoAssunto6" xml:space="preserve">
+    <value>Outros</value>
+  </data>
+  <data name="PaginaBolsaEstudoTexto" xml:space="preserve">
+    <value>&lt;p&gt;
+            O Programa de Subvenções para o Serviço de Saúde e Microscopia da Olympus se concentra em atividades com uma verdadeira função de educação médica relativa a estados de doenças,
+            condições e/ou tratamentos para os quais os produtos da Olympus são utilizados.
+        &lt;/p&gt;
+        &lt;p&gt;
+            A Olympus considera propostas de subvenções para conferências, simpósios e workshops médicos educacionais organizados e operados através de Sociedades Médicas Sem Fins Lucrativos, Provedor de
+            Formação Médica Continuada Credenciado, Centros Médicos Acadêmicos Credenciados, ou Core Facilities. Todos esses eventos devem estar abertos a profissionais qualificados de cuidados de saúde de várias
+            unidades de saúde ou microscopistas de varios core facilities.
+        &lt;/p&gt;
+        &lt;p&gt;
+            Os pedidos de subvenção são aceitos exclusivamente através de um processo de candidatura on-line. Se estiver interessado, leia com atenção o nosso site do programa. Ele contém informações
+            sobre as categorias de apoio ao programa, prazos de candidatura e outras orientações.
+        &lt;/p&gt;
+        &lt;p&gt;
+            &lt;a href="https://www.olympusconnect.com/GrantApplication.asp"&gt;www.olympusconnect.com/GrantApplication.asp&lt;/a&gt;
+        &lt;/p&gt;</value>
+  </data>
+  <data name="PaginaBolsaEstudoTextoTitulo" xml:space="preserve">
+    <value>Subvenções</value>
+  </data>
+  <data name="PaginaCodigoCondutaTexto" xml:space="preserve">
+    <value>&lt;p&gt;
+            A Olympus está comprometida com o cumprimento das leis e regulamentos que regem nossas interações com Profissionais da Saúde. Isso demonstra o nosso compromisso com a integridade em
+            nossas operações e gera confiança por parte dos pacientes, HCPs, instituições e governos. O Código de Conduta para Compliance no Atendimento à Saúde da Olympus (“Código de Compliance") é
+            regido pelo Código de Ética da Olympus, que determina que atuemos dentro dos mais elevados níveis de integridade corporativa. A finalidade do nosso Código de Compliance é definir os
+            princípios que regem nossas interações com HCPs a fim de assegurar que as interações da Olympus com esses indivíduos estejam em conformidade com as leis, regulamentos e diretrizes
+            aplicáveis do setor, bem como com nossas próprias políticas e procedimentos.
+        &lt;/p&gt;
+        &lt;p&gt;
+            A Olympus poderá oferecer aos HCPs treinamento sobre o uso seguro e eficaz dos Produtos Olympus (por exemplo, sessões práticas de treinamento (hands-on)), bem como programas
+            de qualificação que incluam informações relativas aos Produtos Olympus (por exemplo, apresentações de estágios de doenças, grand rounds etc.).
+        &lt;/p&gt;
+        &lt;p&gt;
+            Os treinamentos ministrados pela Olympus Optical do Brasil Ltda. ("OBL") enquadram-se na modalidade de educação não-formal de duração variável (também chamado "livre") e
+            não caracterizam-se por educação continuada, não devendo, portanto, serem usados para computo de horas de capacitação e consequente crédito em avaliação de performance,
+            progressão de carreira e/ou revisão de proventos.
+        &lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;strong&gt;&lt;a href='../assets/pdf/CodigoEtica.pdf' download&gt;Clique aqui&lt;/a&gt; para fazer o download do nosso Código de Ética.&lt;/strong&gt;
+&lt;/p&gt;</value>
+  </data>
+  <data name="PaginaCodigoCondutaTextoTitulo" xml:space="preserve">
+    <value>Bolsa de Estudo</value>
+  </data>
+  <data name="MenuTreinamentoCategoria" xml:space="preserve">
+    <value>Educação Profissional</value>
+  </data>
+  <data name="MenuTreinamentoCategoria2" xml:space="preserve">
+    <value>Limpeza, Desinfecção e Esterilização</value>
+  </data>
+  <data name="PaginaBolsaDeEstudo" xml:space="preserve">
+    <value>BolsasEstudo</value>
+  </data>
+  <data name="PaginaCodigoConduta" xml:space="preserve">
+    <value>CodigoConduta</value>
+  </data>
+  <data name="PaginaCodigoCondutaTextoTitulo2" xml:space="preserve">
+    <value>Código de Conduta</value>
+  </data>
+  <data name="PaginaCodigoCondutoMenu1" xml:space="preserve">
+    <value>Subvenções</value>
+  </data>
+  <data name="PaginaCodigoCondutoMenu2" xml:space="preserve">
+    <value>Código Conduta</value>
+  </data>
+  <data name="SubMenuTreinamentoCategoria" xml:space="preserve">
+    <value>Cirurgia</value>
+  </data>
+  <data name="SubMenuTreinamentoCategoria2" xml:space="preserve">
+    <value>Endoscopia</value>
+  </data>
+  <data name="PaginaEidtarCadastroMensagem" xml:space="preserve">
+    <value>Cadastro atualizado com sucesso</value>
+  </data>
+  <data name="PaginaMeusTreinamentosConfirmado" xml:space="preserve">
+    <value>Treinamento confirmado</value>
+  </data>
+  <data name="PaginaMeusTreinamentosDisponivel" xml:space="preserve">
+    <value>Treinamento disponível</value>
+  </data>
+  <data name="PaginaMeusTreinamentosFilaEspera" xml:space="preserve">
+    <value>Treinamento em fila de espera</value>
+  </data>
+  <data name="MeusTreinamentosNenhumCadastro" xml:space="preserve">
+    <value>&lt;span&gt;Você não está cadastrado em nenhum treinamento.  Clique na aba &lt;strong&gt;“Treinamentos”&lt;/strong&gt; e inscreva-se.&lt;/span&gt;</value>
+  </data>
+  <data name="TreinamentoInscricaoBotaoAdicionar" xml:space="preserve">
+    <value>+ Adicionar</value>
+  </data>
+  <data name="PaginaTreinamentoInscricaoCadastro" xml:space="preserve">
+    <value>CPF já possui inscrição no treinamento</value>
+  </data>
+  <data name="HomeTextoEducacao" xml:space="preserve">
+    <value>Educação</value>
+  </data>
+  <data name="HomeTextoEntrarNoSite" xml:space="preserve">
+    <value>Escolha seu idioma para acessar o site</value>
+  </data>
+  <data name="HomeTextoNoDNA" xml:space="preserve">
+    <value>está em nosso DNA</value>
+  </data>
+  <data name="TreinamentoDivisao3" xml:space="preserve">
+    <value>Educação Profissional</value>
+  </data>
+  <data name="TreinamentoDivisao3Sub1" xml:space="preserve">
+    <value>Cirurgia</value>
+  </data>
+  <data name="TreinamentoDivisao3Sub2" xml:space="preserve">
+    <value>Endoscopia</value>
+  </data>
+  <data name="TreinamentoDivisao4" xml:space="preserve">
+    <value>Limpeza, Desinfecção e Esterilização</value>
+  </data>
+  <data name="TreinamentoDia" xml:space="preserve">
+    <value>Dia</value>
+  </data>
+  <data name="CadastroPais" xml:space="preserve">
+    <value>País</value>
+  </data>
+  <data name="PaginaCadastroPais" xml:space="preserve">
+    <value>País</value>
+  </data>
+  <data name="Bairro" xml:space="preserve">
+    <value>Bairro</value>
+  </data>
+  <data name="MensagemQuestionarioAlerta" xml:space="preserve">
+    <value>Verifique se todos os campos foram digitados corretamente.</value>
+  </data>
+  <data name="MensagemQuestionarioAlertaTitulo" xml:space="preserve">
+    <value>Atenção</value>
+  </data>
+  <data name="MensagemQuestionarioRespondido" xml:space="preserve">
+    <value>A pesquisa foi respondida com sucesso.</value>
+  </data>
+  <data name="MensagemQuestionarioRespondidoTitulo" xml:space="preserve">
+    <value>Sucesso</value>
+  </data>
+  <data name="PaginaTreinamentoDetalhesInscrevaseEmBreve" xml:space="preserve">
+    <value>Em breve</value>
+  </data>
+  <data name="PaginaCadastroTelefoneCelular" xml:space="preserve">
+    <value>Celular</value>
+  </data>
+  <data name="TreinamentoInscricaoCelular" xml:space="preserve">
+    <value>Celular</value>
+  </data>
+  <data name="TreinamentoCadastrarInscricaoCelular" xml:space="preserve">
+    <value>Celular já inserido</value>
+  </data>
+  <data name="TreinamentoResultadoOutrasInscricaoConfirmada" xml:space="preserve">
+    <value>Outras Inscrições Confirmadas</value>
+  </data>
+  <data name="PaginaMeusTreinamentosBotaoIndicados" xml:space="preserve">
+    <value>Ver os outros profissionais que eu Inscrevi</value>
+  </data>
+  <data name="TreinamentoConvidadoInscricaoConfirmada" xml:space="preserve">
+    <value>Confirmados</value>
+  </data>
+  <data name="TreinamentoConvidadoInscricaoListaEspera" xml:space="preserve">
+    <value>Lista de Espera</value>
+  </data>
+  <data name="TreinamentoConvidadoSubTitulo" xml:space="preserve">
+    <value>&lt;p&gt;Olá, #NOME#. Estas são as pessoas que você inscreveu no treinamento:&lt;/p&gt;</value>
+  </data>
+  <data name="TreinamentoConvidadoTitulo" xml:space="preserve">
+    <value>Lista de indicados</value>
+  </data>
+  <data name="TreinamentoConvidadoBotaoCancelar" xml:space="preserve">
+    <value>Cancelar inscrição</value>
+  </data>
+  <data name="TreinamentoConvidadoModalMensagem" xml:space="preserve">
+    <value>Inscrição cancelada com sucesso</value>
+  </data>
+  <data name="PaginaMeusTreinamentosBotaoQuestionarioPosTreinamento" xml:space="preserve">
+    <value>Questionário pós-treinamento</value>
+  </data>
+  <data name="TreinamentoResultadoTexto4" xml:space="preserve">
+    <value>Sua inscrição encontra-se em &lt;a href="#"&gt;“Fila de Espera”&lt;/a&gt;. Para concluí-la, complete o questionário disponível no botão &lt;a href="#"&gt;“Download”&lt;/a&gt; abaixo.</value>
+  </data>
+  <data name="TreinamentoResultadoPendente" xml:space="preserve">
+    <value>&lt;p&gt; Sua inscrição encontra-se &lt;strong&gt;"Pendente"&lt;/strong&gt;. Para concluí-la, complete o questionário disponível no botão &lt;strong&gt;"Download"&lt;/strong&gt; abaixo.            
+        &lt;/p&gt;
+        &lt;p&gt;
+            Em caso de dúvidas, por favor envie sua mensagem para &lt;a href="mailto:obl.educacao@olympus.com"&gt;obl.educacao@olympus.com&lt;/a&gt;
+        &lt;/p&gt;</value>
+  </data>
+  <data name="CancelamentoInscricaoTexto" xml:space="preserve">
+    <value>Confirma o cancelamento dessa inscrição?</value>
+  </data>
+  <data name="Nao" xml:space="preserve">
+    <value>Não</value>
+  </data>
+  <data name="Sim" xml:space="preserve">
+    <value>Sim</value>
+  </data>
+  <data name="CadastroAceitarRegulamento" xml:space="preserve">
+    <value>É necessário aceitar o regulamento</value>
+  </data>
+  <data name="TreinamentoCadastroVazio" xml:space="preserve">
+    <value>Nenhum treinamento cadastrado</value>
+  </data>
+  <data name="EN" xml:space="preserve">
+    <value>Inglês</value>
+  </data>
+  <data name="ES" xml:space="preserve">
+    <value>Espanhol</value>
+  </data>
+  <data name="PT" xml:space="preserve">
+    <value>Português</value>
+  </data>
+  <data name="TreinamentoInscricaoAListaDeEspera" xml:space="preserve">
+    <value>A lista de espera é válida apenas para este treinamento e nesta data, e não garante vaga em treinamentos futuros. Caso tenha dúvidas, envie uma mensagem na página “&lt;a href="/Contato"&gt;Contato&lt;/a&gt;.</value>
+  </data>
+  <data name="TreinamentoInscricaoAtencao" xml:space="preserve">
+    <value>&lt;strong&gt;Atenção:&lt;/strong&gt; sua participação neste treinamento só estará garantida se os critérios abaixo forem obedecidos:&lt;br /&gt;&lt;br /&gt;
+            - Você não deve ter participado deste mesmo treinamento nos últimos 12 meses;&lt;br /&gt;
+            - Ser cliente/usuário de equipamentos Olympus; &lt;br /&gt;
+            - O número total de inscritos da sua instituição não pode ter ultrapassado o limite permitido para este treinamento.&lt;br /&gt;</value>
+  </data>
+  <data name="TreinamentoInscricaoAtencaoOutros" xml:space="preserve">
+    <value>&lt;strong&gt;Atenção:&lt;/strong&gt; a participação dos profissionais inscritos neste treinamento estará garantida se os critérios abaixo forem obedecidos:&lt;br /&gt;&lt;br /&gt;
+
+            - Eles não podem ter participado deste mesmo treinamento nos últimos 12 meses;&lt;br /&gt;
+            - Eles devem ser clientes/usuários de equipamentos Olympus; &lt;br /&gt;
+            - O número total de inscritos da sua instituição não pode ter ultrapassado o limite permitido para este treinamento;&lt;br /&gt;
+            - Ainda devem existir vagas abertas para este treinamento.</value>
+  </data>
+  <data name="TreinamentoInscricaoCamposObrigatorio" xml:space="preserve">
+    <value>*Campos de preenchimento obrigatório.</value>
+  </data>
+  <data name="TreinamentoInscricaoConfiralista" xml:space="preserve">
+    <value>Confira a lista de profissionais inscritos por você para este treinamento:</value>
+  </data>
+  <data name="TreinamentoInscricaoConfirmar" xml:space="preserve">
+    <value>Confirmar inscrição no treinamento</value>
+  </data>
+  <data name="TreinamentoInscricaoDadosTreinamento" xml:space="preserve">
+    <value>Dados do treinamento</value>
+  </data>
+  <data name="TreinamentoInscricaoData" xml:space="preserve">
+    <value>DATA</value>
+  </data>
+  <data name="TreinamentoInscricaoDentroInstantes" xml:space="preserve">
+    <value>Dentro de instantes você receberá um e-mail com sua ficha de inscrição. Essa ficha deverá ser apresentada no dia do treinamento.&lt;br /&gt;&lt;br /&gt;
+
+        Para alterar dados cadastrais, baixar materiais de apoio, inscrever profissionais em um dos treinamentos disponíveis ou verificar datas dos próximos treinamentos,
+        acesse a página “Meus treinamentos”. Para isso, basta clicar no botão Meus Treinamentos abaixo:</value>
+  </data>
+  <data name="TreinamentoInscricaoEditarDados" xml:space="preserve">
+    <value>Editar dados</value>
+  </data>
+  <data name="TreinamentoInscricaoEndereco" xml:space="preserve">
+    <value>ENDEREÇO</value>
+  </data>
+  <data name="TreinamentoInscricaoInscreverOutros" xml:space="preserve">
+    <value>Desejo inscrever outros profissionais da minha instituição para esse treinamento</value>
+  </data>
+  <data name="TreinamentoInscricaoMeusDados" xml:space="preserve">
+    <value>Meus dados pessoais:</value>
+  </data>
+  <data name="TreinamentoInscricaoOutrasInscricoes" xml:space="preserve">
+    <value>Outras inscrições em Lista de Espera</value>
+  </data>
+  <data name="TreinamentoInscricaoParaAlterar" xml:space="preserve">
+    <value>Para alterar dados cadastrais, baixar materiais de apoio, inscrever profissionais em um dos treinamentos disponíveis ou verificar datas dos próximos treinamentos, acesse a
+        página “&lt;a href="/MeusTreinamentos"&gt;Meus treinamentos&lt;/a&gt;”. Para isso, basta clicar no botão abaixo:</value>
+  </data>
+  <data name="TreinamentoInscricaoParabens" xml:space="preserve">
+    <value>Parabéns sua inscrição foi realizada com sucesso!</value>
+  </data>
+  <data name="TreinamentoInscricaoPendente" xml:space="preserve">
+    <value>Inscrição Pendente</value>
+  </data>
+  <data name="TreinamentoInscricaoPreencha" xml:space="preserve">
+    <value>Preencha abaixo os dados dos outros profissionais da sua instituição que deseja cadastrar para este treinamento:</value>
+  </data>
+  <data name="TreinamentoInscricaoSeAlgum" xml:space="preserve">
+    <value>Se algum dos profissionais inscritos por você não está na lista acima, ele provavelmente não atende a todos os critérios de participação.&lt;br /&gt;
+        Em caso de dúvidas, envie uma mensagem na seção  “&lt;a href="/Contato"&gt;Contato&lt;/a&gt;”.</value>
+  </data>
+  <data name="TreinamentoInscricaoSegmento" xml:space="preserve">
+    <value>SEGMENTO</value>
+  </data>
+  <data name="TreinamentoInscricaoSuaInscricao" xml:space="preserve">
+    <value>Sua inscrição encontra-se “&lt;strong&gt;Pendente&lt;/strong&gt;”. Para concluí-la, basta completar o questionário disponível no botão “Download” (abaixo) e, após o 
+        preenchimento, enviar para o e-mail &lt;a href="mailto:obl.educação@olympus.com"&gt;obl.educação@olympus.com&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;
+
+        Em caso de dúvidas, fale conosco na seção &lt;a href="/Contato"&gt;Contato&lt;/a&gt;.</value>
+  </data>
+  <data name="CancelamentoInscricaoTexto2" xml:space="preserve">
+    <value>Confirma o cancelamento de sua inscrição?</value>
+  </data>
+  <data name="ContatoStyleDisplayTelefone" xml:space="preserve">
+    <value>block</value>
+  </data>
+  <data name="ImgDeslize" xml:space="preserve">
+    <value>/assets/img/deslize-pt.png</value>
+  </data>
+  <data name="InscreveuAlguem" xml:space="preserve">
+    <value>*Inscreveu alguém que não consta na listagem acima? Seu inscrito provavelmente não se adequou às regras do treinamento:&lt;br /&gt;&lt;br /&gt;
+                - Não ter realizado o mesmo treinamento nos últimos 12 meses;&lt;br /&gt;
+                - O treinamentos possui limite de inscritos de uma mesma instituição;&lt;br /&gt;
+                - Seu inscrito entrou em fila de espera devido à quantidade de vagas disponíveis para o treinamento.&lt;br /&gt;&lt;br /&gt;
+                Continua com dúvidas? Nos envie uma mensagem pela seção “&lt;a href="/Contato/"&gt;Contatos&lt;/a&gt;” do site.</value>
+  </data>
+  <data name="TreinamentoConfirmado" xml:space="preserve">
+    <value>Treinamento confirmado</value>
+  </data>
+  <data name="TreinamentoConfirmaInscricao" xml:space="preserve">
+    <value>Confirmar inscrição dos profissionais</value>
+  </data>
+  <data name="TreinamentoDisponivel" xml:space="preserve">
+    <value>Treinamento disponível</value>
+  </data>
+  <data name="TreinamentoFilaEspera" xml:space="preserve">
+    <value>Treinamento em fila de espera</value>
+  </data>
+  <data name="TreinamentosNovosEmBreve" xml:space="preserve">
+    <value>Novos treinamentos em breve</value>
+  </data>
+  <data name="TreinamentoVoltarMeusTreinamentos" xml:space="preserve">
+    <value>Voltar para Meus treinamentos</value>
+  </data>
+  <data name="PaginaCadastroQualConselho" xml:space="preserve">
+    <value>Você é um(a) profissional da saúde registrado(a) em qual dos seguintes Conselhos Regionais?&lt;br /&gt;
+* Caso não possua registro em algum dos Conselhos abaixo, marque a opção “OUTROS”.</value>
+  </data>
+  <data name="TreinamentoDesejoFinalizarInscricao" xml:space="preserve">
+    <value>Aceito e desejo finalizar a inscrição</value>
+  </data>
+  <data name="TreinamentoTextoNaoGravar" xml:space="preserve">
+    <value>Ao fazer a inscrição em um treinamento Olympus estou de acordo que o conteúdo destes documentos, treinamentos ou qualquer informação relacionada são de propriedade da Olympus Optical do Brasil Ltda. A reprodução deste conteúdo ou parte, eletronicamente ou por qualquer meio, sem o consentimento por escrito da Olympus, é proibida. &lt;br /&gt;Portanto, gravar ou fotografar os  documentos, treinamentos ou qualquer informação relacionada está proibido.&lt;br /&gt;Estou ciente que o treinamento é exclusivo para usuários e clientes Olympus.</value>
+  </data>
+  <data name="HomeBotaoAguardandoFila" xml:space="preserve">
+    <value>Aguardando em fila de espera</value>
+  </data>
+  <data name="HomeBotaoPresencaConfirmada" xml:space="preserve">
+    <value>Presença confirmada</value>
+  </data>
+  <data name="CNPJInvalido" xml:space="preserve">
+    <value>CNPJ inválido</value>
+  </data>
+  <data name="PaginaCodigoCondutoMenu3" xml:space="preserve">
+    <value>Declaração de Privacidade</value>
+  </data>
+  <data name="PaginaDeclaracaoPrivacidadeTexto" xml:space="preserve">
+    <value>&lt;p&gt;Obrigado por visitar ao OLYMPUSEDUCACAO.COM.BR, o site da Olympus dedicado a América Latina, Brasil e Caribe. No OLYMPUSEDUCACAO.COM.BR, respeitamos sua privacidade. Esta página apresenta uma visão geral de nossa política de privacidade, o tipo de informações coletadas quando você visita nosso site e como essas informações são utilizadas, como é possível entrar em contato conosco para excluir seu nome de qualquer lista de endereços em que esteja inscrito e uma declaração geral sobre o uso do conteúdo do site. Se houver qualquer pergunta que não esteja respondida aqui, não hesite em entrar em contato conosco para nos perguntar diretamente ou use como referência nossas &lt;a href="http://www.olympuslatinoamerica.com/portuguese/page_conditions_port.asp" target="_blank"&gt;Condições de Uso&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+    &lt;p&gt;
+        &lt;strong&gt;Atualização de nossa Política de Privacidade&lt;/strong&gt;&lt;br /&gt;
+        Se decidirmos modificar a política de privacidade do OLYMPUSEDUCACAO.COM.BR indicada adiante, divulgaremos aqui essas alterações, para que você conheça o tipo de informações coletadas no site e como as utilizamos. Continue visitando esta seção do site para conhecer qualquer alteração da política de privacidade. Esta política foi desenvolvida em 10 de fevereiro de 2017.
+        &lt;br /&gt;&lt;br /&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+        &lt;strong&gt;Informações gerais coletadas&lt;/strong&gt;&lt;br /&gt;
+        Quando você visita o OLYMPUSEDUCACAO.COM.BR, coletamos informações gerais sobre sua visita: o site a partir do qual é realizada a visita, as páginas ou áreas visitadas em nosso site e o tempo de permanência em qualquer parte do site. Essas informações gerais são utilizadas apenas como uma visão de conjunto, algo como pesquisas de popularidade da televisão. As informações nos ajudam a identificar áreas populares do site e também áreas que podem ser aprimoradas. Muitos aprimoramentos e atualizações do site são baseados nessas informações. Não coletamos informações pessoais que permitam identificação, exceto quando o usuário concorda, de maneira expressa e voluntária, com as circunstâncias especiais descritas adiante, por exemplo, ao participar dos treinamentos.
+        &lt;br /&gt;&lt;br /&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+        &lt;strong&gt;São utilizados Cookies?&lt;/strong&gt;&lt;br /&gt;
+        Sim, mas apenas para coletar as informações mencionadas. Os cookies são arquivos de texto retidos pelo navegador de Internet (por exemplo, o Internet Explorer) e armazenados no disco rígido do computador. Não representam risco para o computador. Conforme indicado acima, os cookies não registram informações pessoais que permitam identificação.&lt;br /&gt;
+        A maioria dos navegadores utilizados para o acesso à web aceita cookies automaticamente sem consultar o usuário, mas geralmente é possível modificar o navegador para avisar quando houver cookies, permitindo aceitá-los ou não. Você poderá usar as funções do nosso site mesmo que decida recusar nossos cookies.
+        &lt;br /&gt;&lt;br /&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Coletamos informações pessoais SOMENTE a pedido do usuário&lt;/strong&gt;&lt;br /&gt;
+        Se em algum momento de sua visita ao OLYMPUSEDUCACAO.COM.BR você decidir participar de um treinamento ou entrar em contato conosco por algum motivo, poderemos solicitar informações pessoais como seu nome, documentos, endereço físico e endereço eletrônico. Também poderemos solicitar informações pessoais (como escolaridade, área de atuação profissional, etc.) a fim de interagir melhor com você no futuro e entender suas necessidades como cliente ou usuário.
+        &lt;br /&gt;&lt;br /&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Declaração Geral&lt;/strong&gt;&lt;br /&gt;
+        As informações coletadas pelo OLYMPUSEDUCACAO.COM.BR não serão vendidas, alugadas, emprestadas nem reveladas a outras pessoas naturais ou físicas, com exceção de revendedores e distribuidores de produtos Olympus (com o propósito de continuar e/ou finalizar uma compra iniciada pelo cliente), empresas afiliadas a Olympus, incluindo a Olympus Corporation (matriz da Olympus) e subsidiárias diretas e indiretas da Olympus Optical e/ou Olympus. Todas as informações pessoais que você nos forneça serão utilizadas apenas para concluir o serviço solicitado, como tirar dúvidas ou se inscrever em um dos treinamentos oferecidos.
+        &lt;br /&gt;&lt;br /&gt;
+    &lt;/p&gt;</value>
+  </data>
+  <data name="PaginaDeclaracaoPrivacidadeTextoTitulo" xml:space="preserve">
+    <value>Política de Privacidade – Site de Treinamentos</value>
+  </data>
+  <data name="AvisoPublicidade" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PaginaMeusTreinamentosVoceCancelou" xml:space="preserve">
+    <value>Atenção! Você cancelou sua inscrição.</value>
+  </data>
+  <data name="Inscrito" xml:space="preserve">
+    <value>Inscrito</value>
+  </data>
+  <data name="AceitoProsseguir" xml:space="preserve">
+    <value>Aceito e desejo prosseguir</value>
+  </data>
+  <data name="Avancar" xml:space="preserve">
+    <value>Avançar</value>
+  </data>
+  <data name="TreinamentoValidaPesquisa" xml:space="preserve">
+    <value>Para continuar é necessário enviar o currículo e responder toda a pesquisa</value>
+  </data>
+  <data name="PaginaNaoEncontrada" xml:space="preserve">
+    <value>Página não encontrada</value>
+  </data>
+  <data name="TextoEnvioCurriculoPesquisa" xml:space="preserve">
+    <value>&lt;p&gt;
+O envio do currículo atualizado e o preenchimento da pesquisa são necessários para a avaliação de sua participação neste treinamento. 
+&lt;br /&gt;&lt;br /&gt;
+A confirmação de participação é feita por ordem de inscrição e baseia-se no cumprimento de todos os pré-requisitos necessários e envio do currículo e preenchimento da pesquisa.
+&lt;/p&gt;</value>
+  </data>
+  <data name="TreinamentoInscricaoEmAnalise" xml:space="preserve">
+    <value>Inscrição em Análise</value>
+  </data>
+  <data name="TreinamentoInscricaoEmAnaliseTexto" xml:space="preserve">
+    <value>&lt;p&gt;Obrigada pelo interesse em se inscrever em nosso treinamento. Sua inscrição encontra-se em análise pela equipe Olympus e retornaremos em breve para validar sobre sua participação.
+&lt;br /&gt;&lt;br /&gt;
+Em caso de dúvidas, fale conosco na seção &lt;a href="/Contato"&gt;Contato&lt;/a&gt;.&lt;/p&gt;</value>
+  </data>
+  <data name="MensagemPesquisaRespondida" xml:space="preserve">
+    <value>A pesquisa já foi respondida.</value>
+  </data>
+  <data name="MensagemPesquisaRespondidaTitulo" xml:space="preserve">
+    <value>Atenção</value>
+  </data>
+  <data name="CadastroInscreverTreinamento" xml:space="preserve">
+    <value>Quero me inscrever em um treinamento.</value>
+  </data>
+  <data name="CadastroSemInscreverTreinamento" xml:space="preserve">
+    <value>Não tenho interesse em me inscrever agora.</value>
+  </data>
+  <data name="MensagemRetornoCadastro" xml:space="preserve">
+    <value>Você acabou de realizar seu CADASTRO em nossa base de dados. Não se esqueça de realizar a INSCRIÇÃO no treinamento de interesse!</value>
+  </data>
+</root>

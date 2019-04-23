@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2B890C4F-40DA-47E3-8655-10693CAE0F98}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Admin.Olympus.Dominio</RootNamespace>
+    <AssemblyName>Admin.Olympus.Dominio</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.Analytics, Version=2.2.0.0, Culture=neutral, PublicKeyToken=9e229226d7996434, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Google.GData.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.Client, Version=2.2.0.0, Culture=neutral, PublicKeyToken=04a59ca9b0273830, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Google.GData.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contexto\EFDbContexto.cs" />
+    <Compile Include="Entidade\Administrador.cs" />
+    <Compile Include="Entidade\Alternativa.cs" />
+    <Compile Include="Entidade\Analytics.cs" />
+    <Compile Include="Entidade\Banner.cs" />
+    <Compile Include="Entidade\ConteudoEducacional.cs" />
+    <Compile Include="Entidade\Dashboard.cs" />
+    <Compile Include="Entidade\FaleConosco.cs" />
+    <Compile Include="Entidade\Idioma.cs" />
+    <Compile Include="Entidade\ModalMensagem.cs" />
+    <Compile Include="Entidade\Pais.cs" />
+    <Compile Include="Entidade\Perfil.cs" />
+    <Compile Include="Entidade\Participacao.cs" />
+    <Compile Include="Entidade\Pesquisa.cs" />
+    <Compile Include="Entidade\RetornoPadrao.cs" />
+    <Compile Include="Entidade\Treinamento.cs" />
+    <Compile Include="Entidade\Usuario.cs" />
+    <Compile Include="Entidade\UsuarioViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorio\RepositorioAdministrador.cs" />
+    <Compile Include="Repositorio\RepositorioAnalytics.cs" />
+    <Compile Include="Repositorio\RepositorioConteudoEducacional.cs" />
+    <Compile Include="Repositorio\RepositorioFaleConosco.cs" />
+    <Compile Include="Repositorio\RepositorioDashboard.cs" />
+    <Compile Include="Repositorio\RepositorioBanner.cs" />
+    <Compile Include="Repositorio\RepositorioPesquisa.cs" />
+    <Compile Include="Repositorio\RepositorioTreinamento.cs" />
+    <Compile Include="Repositorio\RepositorioUsuario.cs" />
+    <Compile Include="Util\Analytics.cs" />
+    <Compile Include="Util\ConsultaSQL.cs" />
+    <Compile Include="Util\Crypto.cs" />
+    <Compile Include="Util\Data.cs" />
+    <Compile Include="Util\Email.cs" />
+    <Compile Include="Util\ExcelStructure.cs" />
+    <Compile Include="Util\Geral.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

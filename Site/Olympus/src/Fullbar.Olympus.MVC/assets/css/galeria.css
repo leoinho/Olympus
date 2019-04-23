@@ -1,0 +1,338 @@
+.cuadro_intro_hover{
+    	padding: 0px;
+		position: relative;
+		overflow: hidden;
+		height: 200px;
+	}
+	.cuadro_intro_hover:hover .caption{
+		opacity: 1;
+		transform: translateY(-201px);
+		-webkit-transform:translateY(-201px);
+		-moz-transform:translateY(-201px);
+		-ms-transform:translateY(-201px);
+		-o-transform:translateY(-201px);
+	}
+	.cuadro_intro_hover img{
+		z-index: 4;
+	}
+	.cuadro_intro_hover .caption{
+		position: absolute;
+		top:201px;
+		-webkit-transition:all 0.3s ease-in-out;
+		-moz-transition:all 0.3s ease-in-out;
+		-o-transition:all 0.3s ease-in-out;
+		-ms-transition:all 0.3s ease-in-out;
+		transition:all 0.3s ease-in-out;
+		width: 100%;
+	}
+	.cuadro_intro_hover .blur{
+		background-color: rgba(0,0,0,0.4);
+		height: 300px;
+		z-index: 5;
+		position: absolute;
+		width: 100%;
+	}
+	.cuadro_intro_hover .caption-text{
+		z-index: 10;
+		color: #fff;
+		position: absolute;
+		height: 300px;
+		text-align: center;
+		top:-20px;
+		width: 100%;
+	}
+	
+	
+.caption-text h3
+{
+	padding-top:10px;
+}
+
+.clique-aqui 
+{
+    position: absolute;    
+    bottom: 70px;
+    width: 100%;
+}
+	.ico-mais
+	{
+		padding-right:20px;
+	}
+	.clique-aqui p
+	{
+		background-color: #FFFFFF;
+		color: #939598;
+		padding:10px;	
+		border-bottom:solid 1px #EDEFF0;	
+		font-weight:bold;
+	}
+	
+		.clique-aqui p a
+		{	
+			color:#939598;
+			text-decoration:none;
+		}
+
+.title-tambs
+{
+    position:absolute;
+    top:0;
+    color:#FFFFFF;
+    padding-left:20px;
+    padding-right:20px;
+    background-color: rgba(0,0,0,0.3);
+	height:100%;
+	position: absolute;
+	width: 100%;
+}
+.title-tambs a
+{
+    color:#FFFFFF;
+    text-decoration:none;
+}
+
+/* -------------------------- CAROUSEL PALESTRANTES --------------------------*/
+
+/*#quote-carousel {
+    padding: 0 10px 40px 10px;
+    margin-top: 30px;
+}
+#quote-carousel .carousel-control {
+    background: none;
+    color: #CACACA;
+    font-size: 2.3em;
+    text-shadow: none;
+    margin-top: 30px;
+}
+#quote-carousel .carousel-control.left {
+    padding-top:100px;
+}
+#quote-carousel .carousel-control.right {
+    padding-top:100px;
+    right: -60px;
+    width: 11%;
+}
+#quote-carousel .carousel-indicators {
+    right: 50%;
+    top: auto;
+    bottom: 0px;
+    margin-right: -19px;
+}
+#quote-carousel .carousel-indicators li {
+    width: 100px;
+    height: 100px;
+    
+    cursor: pointer;
+    border: 1px solid #999999;
+    border-radius: 50px;
+    opacity: 0.8;
+    overflow: hidden;
+    transition: all 0.4s;
+}
+
+.indicators-border
+{
+    margin: 10px;
+    cursor: pointer;
+    border: 1px solid #BEBEBE;
+    border-radius: 50px;    
+    overflow: hidden;    
+    
+}
+#quote-carousel .carousel-indicators .active {
+    
+    width: 128px;
+    height: 128px;
+    border-radius: 100px;
+    border-color: #2741A4;
+    opacity: 1;
+    overflow: hidden;
+}
+
+
+.carousel-inner {
+    min-height: 300px;
+}
+.item blockquote {
+    border-left: none;
+    margin: 0;
+}
+
+
+.palestrantes-text h3
+{
+    color:#274AA0;
+}
+
+.palestrantes-text p
+{
+   font-size:15px;
+}
+
+.carousel-indicators 
+{
+    
+}*/
+
+
+
+/* ----------- Palestrantes 2 --------------- */
+
+
+
+
+/* carousel */
+#quote-carousel 
+{
+  padding: 0 10px 30px 10px;
+  margin-top: 30px;
+}
+
+/* Control buttons  */
+#quote-carousel .carousel-control
+{
+  background: none;
+  color: #222;
+  font-size: 2.3em;
+  text-shadow: none;  
+  top: 25%;
+}
+/* Previous button  */
+#quote-carousel .carousel-control.left 
+{
+  left: -12px;
+}
+/* Next button  */
+#quote-carousel .carousel-control.right 
+{
+  right: -12px !important;
+}
+/* Changes the position of the indicators */
+#quote-carousel .carousel-indicators 
+{
+  right: 50%;
+  top: auto;
+  bottom: 0px;
+  margin-right: -19px;
+}
+/* Changes the color of the indicators */
+#quote-carousel .carousel-indicators li 
+{
+  background: #c0c0c0;
+}
+#quote-carousel .carousel-indicators .active 
+{
+  background: #333333;
+}
+#quote-carousel img
+{
+ 
+}
+/* End carousel */
+
+.item blockquote {
+    border-left: none; 
+    margin: 0;
+}
+
+.item blockquote img {
+    margin-bottom: 10px;
+}
+
+/*.item blockquote p:before {
+    content: "\f10d";
+    font-family: 'Fontawesome';
+    float: left;
+    margin-right: 10px;
+}*/
+
+
+.indicators-border
+{
+    
+    cursor: pointer;
+    border: 1px solid #BEBEBE;
+    border-radius: 50px;    
+    overflow: hidden;    
+    width:110px;
+    height:110px;
+    padding-top:5px;
+    
+}
+
+.palestrantes-text h3
+{
+    color:#274AA0;
+}
+.palestrantes-text p
+{
+   font-size:15px;
+}
+
+
+
+/**
+  MEDIA QUERIES
+*/
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    #quote-carousel 
+    {
+      margin-bottom: 0;
+      padding: 0 40px 30px 40px;
+    }
+    
+}
+
+/* Small devices (tablets, up to 768px) */
+@media (max-width: 768px) { 
+    
+    /* Make the indicators larger for easier clicking with fingers/thumb on mobile */
+    
+    #quote-carousel .carousel-indicators {
+        bottom: -20px !important;  
+    }
+    #quote-carousel .carousel-indicators li {
+        display: inline-block;
+        margin: 0px 5px;
+        width: 15px;
+        height: 15px;
+    }
+    #quote-carousel .carousel-indicators li.active {
+        margin: 0px 5px;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+
+
+
+
+
+
+@media (max-width: 990px){		
+		
+	.caption
+    {
+		opacity: 1;
+		transform: translateY(-201px);
+		-webkit-transform:translateY(-201px);
+		-moz-transform:translateY(-201px);
+		-ms-transform:translateY(-201px);
+		-o-transform:translateY(-201px);
+	}
+
+    .caption-text h3
+    {
+        font-size:18px;
+    }
+}
+
+
+.ui-widget-content {
+
+    background: none;
+   
+}

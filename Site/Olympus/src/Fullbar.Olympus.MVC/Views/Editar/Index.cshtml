@@ -1,0 +1,364 @@
+﻿@model Fullbar.Olympus.MVC.Models.UsuarioEditarViewModel
+
+@{
+    ViewBag.Title = @Fullbar.Olympus.MVC.Resource.PaginaEditar;
+}
+
+
+@using (Html.BeginForm("Index", "Editar", FormMethod.Post))
+{
+
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+
+        <div class="col-md-12 title-geral title-cadastro">
+            <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.PaginaCadastroNacionalidade</p>
+        </div>
+
+
+        <div class="col-md-12">
+            <div>
+                <input type="radio" name="NacionalidadeBrasileira" disabled /> @Fullbar.Olympus.MVC.Resource.NacionalidadeBrasileiro
+            </div>
+            <div>
+                <input type="radio" name="NacionalidadeOutros" disabled /> @Fullbar.Olympus.MVC.Resource.NacionalidadeOutros
+            </div>
+        </div>
+
+        <div class="col-md-12 pad-top-20">
+            <hr />
+        </div>
+
+        <div class="col-md-12 title-geral-cadastro">
+            <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.PaginaCadastroInformacaoPessoal</p>
+        </div>
+
+        <!-- ------- BRASILEIRO -------- -->
+        <div id="brasileria">
+            <div class="col-md-12">
+                <div>
+                    @Fullbar.Olympus.MVC.Resource.PaginaCadastroNome*
+                </div>
+                <div class="">
+                    @Html.TextBoxFor(model => model.Nome, new { @class = "form-control inp-contato" })
+                </div>
+            </div>
+
+            <div class="col-md-12 zera-pad pad-top-10">
+                <div class="col-md-6">
+                    <div>
+                        CPF *
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(model => model.CPF, new { @class = "form-control inp-contato",  @readonly = "readonly"  })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 zera-pad pad-top-10">
+                <div class="col-md-6">
+                    <div>
+                        @Fullbar.Olympus.MVC.Resource.PaginaCadastroTelefone
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(model => model.Telefone, new { @class = "form-control inp-contato" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        @Fullbar.Olympus.MVC.Resource.PaginaCadastroTelefoneCelular
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(model => model.Celular, new { @class = "form-control inp-contato" })
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12 zera-pad pad-top-10">
+                <div class="col-md-6">
+                    <div>
+                        E-mail*
+                    </div>
+                    <div>
+                        @*@Html.TextBoxFor(model => model.Email, new { @class = "form-control inp-contato" })*@
+                        <input type="text" name="Email" value="@ViewBag.Email" class="form-control inp-contato" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        @Fullbar.Olympus.MVC.Resource.PaginaCadastroConfirmaEmail*
+                    </div>
+                    <div>
+                        @*@Html.TextBoxFor(model => model.ConfirmaEmail, new { @class = "form-control inp-contato" })*@
+                        <input type="text" name="ConfirmaEmail" value="@ViewBag.Email" class="form-control inp-contato" />
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 zera-pad pad-top-10">
+                <div class="col-md-6">
+                    <div>
+                        @Fullbar.Olympus.MVC.Resource.PaginaCadastroSenha*
+                    </div>
+                    <div>
+                        @Html.PasswordFor(model => model.Senha, new { @class = "form-control inp-contato" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        @Fullbar.Olympus.MVC.Resource.PaginaCadastroConfirmaSenha*
+                    </div>
+                    <div>
+
+                        @Html.PasswordFor(model => model.ConfirmaSenha, new { @class = "form-control inp-contato" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ------- /BRASILEIRO -------- -->
+        <!-- ------- ESTRANGEIRO -------- -->
+
+        <div id="estrangeiro" style="display:none">
+            <div class="col-md-12 zera-pad pad-top-10">
+                <div class="col-md-6">
+                    <div>
+                        @Fullbar.Olympus.MVC.Resource.PaginaCadastroNome*
+                    </div>
+                    <div class="">
+                        @Html.TextBoxFor(model => model.NomeEstrangeiro, new { @class = "form-control inp-contato" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        @Fullbar.Olympus.MVC.Resource.PaginaCadastroTelefone
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(model => model.TelefoneEstrangeiro, new { @class = "form-control inp-contato" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 zera-pad pad-top-10">
+                <div class="col-md-6">
+                    <div>
+                        E-mail*
+                    </div>
+                    <div>
+               
+                        <input type="text" name="EmailCadastroEstrangeiro" value="@ViewBag.Email" class="form-control inp-contato" />
+                    </div>
+                
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        @Fullbar.Olympus.MVC.Resource.PaginaCadastroConfirmaEmail*
+                    </div>
+                    <div>
+                        <input type="text" name="ConfirmaEmailEstrangeiro" value="@ViewBag.Email" class="form-control inp-contato" />
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 zera-pad pad-top-10">
+                <div class="col-md-6">
+                    <div>
+                        @Fullbar.Olympus.MVC.Resource.PaginaCadastroSenha*
+                    </div>
+                    <div>
+                        @Html.PasswordFor(model => model.SenhaEstrangeiro, new { @class = "form-control inp-contato" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        @Fullbar.Olympus.MVC.Resource.PaginaCadastroConfirmaSenha*
+                    </div>
+                    <div>
+                        @Html.PasswordFor(model => model.ConfirmaSenhaEstrangeiro, new { @class = "form-control inp-contato" })
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ------- /ESTRANGEIRO -------- -->
+
+        <div class="col-md-12 pad-top-30">
+            <hr />
+        </div>
+
+        <div class="col-md-12 pad-top-10 title-geral-cadastro">
+            <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.PaginaCadastroInformacaoProfissional</p>
+        </div>
+        <div class="col-md-12 pad-top-15">
+
+            @Fullbar.Olympus.MVC.Resource.PaginaCadastroTituloProfissional *
+
+
+            <input type="radio" name="TituloProfissional" class="pad-radio" id="coren" value="COREN" /> COREN
+            <input type="radio" name="TituloProfissional" class="pad-radio" id="crm" value="CRM" /> CRM
+            <input type="radio" name="TituloProfissional" class="pad-radio" id="crea" value="CREA" /> CREA
+
+            <input type="radio" name="TituloProfissional" class="pad-radio" id="outros" value="" /> @Fullbar.Olympus.MVC.Resource.PaginaCadastroOutros
+            <input type="text" name="TituloProfissionalOutros" class="inp-contato" style="display:none" />
+
+        </div>
+
+        <div class="col-md-12 zera-pad pad-top-10">
+            <div class="col-md-6">
+                <div>
+                    @Fullbar.Olympus.MVC.Resource.PaginaCadastroNumeroConselho
+                </div>
+                <div>
+                    @Html.TextBoxFor(model => model.NumeroConselho, new { @class = "form-control inp-contato" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    @Fullbar.Olympus.MVC.Resource.PaginaCadastroEspecialidade
+                </div>
+                <div>
+                    @Html.TextBoxFor(model => model.Especialidade, new { @class = "form-control inp-contato" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 zera-pad pad-top-10">
+            <div class="col-md-6">
+                <div id="CNPJBrasileiro">
+                    CNPJ*
+                </div>
+                <div id="CNPJOutros" style="display:none">
+                    CNPJ
+                </div>
+                <div>
+                    @Html.TextBoxFor(model => model.CNPJ, new { @class = "form-control inp-contato" })
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div>
+                    @Fullbar.Olympus.MVC.Resource.PaginaCadastroNomeInstituicao
+                </div>
+                <div>
+                    @Html.TextBoxFor(model => model.NomeInstituicao, new { @readonly = "readonly", @class = "form-control inp-contato" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 zera-pad pad-top-10">
+            <div class="col-md-3">
+                <div>
+                    @Fullbar.Olympus.MVC.Resource.PaginaCadastroCepInstituicao
+                </div>
+                <div>
+                    @Html.TextBoxFor(model => model.Cep, new { @readonly = "readonly", @class = "form-control inp-contato" })
+
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div>
+                    @Fullbar.Olympus.MVC.Resource.PaginaCadastroEndereco
+                </div>
+                <div>
+                    @Html.TextBoxFor(model => model.Endereco, new { @readonly = "readonly", @class = "form-control inp-contato" })
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-12 zera-pad pad-top-10">
+            <div class="col-md-6">
+                <div>
+                    @Fullbar.Olympus.MVC.Resource.PaginaCadastroBairro
+                </div>
+                <div>
+                    @Html.TextBoxFor(model => model.Bairro, new { @readonly = "readonly", @class = "form-control inp-contato" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    @Fullbar.Olympus.MVC.Resource.PaginaCadastroCidade
+                </div>
+                <div>
+                    @Html.TextBoxFor(model => model.Cidade, new { @readonly = "readonly", @class = "form-control inp-contato" })
+
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div>
+                    @Fullbar.Olympus.MVC.Resource.PaginaCadastroUF
+                </div>
+                <div>
+                    @Html.TextBoxFor(model => model.UF, new { @readonly = "readonly", @class = "form-control inp-contato" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 zera-pad pad-top-30">
+            <div class="col-md-12 zera-pad">
+                <div class="col-md-5">
+                    @Fullbar.Olympus.MVC.Resource.PaginaCadastroLicencaMedicaEUA
+                </div>
+                <div class="col-md-2">
+                    <input type="radio" name="radio" id="LicencaMedicaEUASim" /> @Fullbar.Olympus.MVC.Resource.PaginaCadastroLicencaMedicaEUASIM <br /> 
+                    <input type="radio" name="radio" id="LicencaMedicaEUANao" checked /> @Fullbar.Olympus.MVC.Resource.PaginaCadastroLicencaMedicaEUANAO
+                </div>
+                <div style="display:none;" id="NumeroEstado" class="col-md-5 zera-pad">
+                    <div class="col-md-8">
+                        <div>
+                            @Fullbar.Olympus.MVC.Resource.PaginaCadastroLicencaMedicaEUANumero
+                        </div>
+                        <div>
+                            @Html.TextBoxFor(model => model.NumeroLicencaMedicaEUA, new { @class = "form-control inp-contato" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div>
+                            @Fullbar.Olympus.MVC.Resource.PaginaCadastroLicencaMedicaEUAEstado
+                        </div>
+                        <div>
+
+                            @Html.TextBoxFor(model => model.Estado, new { @class = "form-control inp-contato" })
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="col-md-12 pad-top-30 text-center">
+            <p>
+                <input type="submit" value="@Fullbar.Olympus.MVC.Resource.PaginaCadastroBotaoFinalizar" class="btn btn-lg btn-primary btn-amarelo" role="button" id="btEditarCadastro"/>
+            </p>
+        </div>
+
+    </fieldset>
+
+    <input type="hidden" id="erroEditar" value="@ViewBag.ErroEditar" />
+    <input type="hidden" id="erroEditarTitulo" value="@ViewBag.ErroEditarTitulo" />
+    
+    
+    <input type="hidden" name="idNacionalidade" value="@ViewBag.idNacionalidade" />
+    <input type="hidden" name="hdLicencaMedicaEUA" value="@ViewBag.LicencaMedicaEUA" />
+    <input type="hidden" name="OutrosTitulosProfissional" value="@ViewBag.TituloProfissionalOutros" />
+    <input type="hidden" name="hdTituloProfissional" value="@ViewBag.TituloProfissional" />
+    <input type="hidden" name="LicencaMedicaEUA" id="LicencaMedicaEUA" value="@ViewBag.LicencaMedica" />
+    <input type="hidden" name="idUsuario" id="idUsuario" value="@ViewBag.idUsuario" />
+    <input type="hidden" name="NumeroEstado" id="hdNumeroEstado" value="@Model.NumeroEstado" />
+    <input type="hidden" id="sucesso" value="@ViewBag.Sucesso" />
+
+}
+
+@section Scripts {
+
+    <script src=@Url.Content("~/assets/js/Editar.js")> </script>
+}

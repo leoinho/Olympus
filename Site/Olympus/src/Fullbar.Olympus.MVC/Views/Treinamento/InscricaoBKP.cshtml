@@ -1,0 +1,505 @@
+﻿@model Fullbar.Olympus.MVC.Models.TreinamentoInscricaoViewModel
+
+@{
+    ViewBag.Title = "Inscricao";
+}
+
+
+
+
+
+
+<div class="col-md-9 pad-top-40 conteudo">
+
+    <div class="col-md-12 title-geral">
+        <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@ViewBag.Treinamento</p>
+    </div>
+
+
+    @{
+        Fullbar.Olympus.Dominio.Entidade.TreinamentoDetalhe t = new Fullbar.Olympus.Dominio.Entidade.TreinamentoDetalhe();
+
+        if (ViewBag.TreinamentoDetalhe != null)
+        {
+            t = ViewBag.TreinamentoDetalhe;
+        }        
+    }
+
+    <!-- ---------------------- Detalhes -------------------  -->
+    <div class="col-md-12 pad-top-30">
+        <div class="col-md-7 zera-pad">
+            <div class="col-md-5 col-sm-6 col-xs-12 zera-pad">
+                <div class="col-md-6 treinamento-data">
+                    <div class="treinamento-data-div">
+                        @t.dsDia
+                    </div>
+                    <hr>
+                    <p>@t.dsMesPorExtenso</p>
+                </div>
+                <div class="col-md-6 zera-pad text-center treinamento-tipo">
+
+                    @if (t.idDivisao == 4)
+                    {
+                        <img src=@Url.Content("~/assets/img/treinamentos-ico-tipo-2.png") alt="" class="center-block">
+                        <p>@Fullbar.Olympus.MVC.Resource.TreinamentoDivisao4</p>
+                    }
+                    else
+                    {
+                        <img src=@Url.Content("~/assets/img/treinamentos-ico-tipo.png" ) alt="" class="center-block">
+                        <p>@Fullbar.Olympus.MVC.Resource.TreinamentoDivisao3</p>
+                    }
+
+                    @*<p>@Model.Divisao</p>*@
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-6 col-xs-12 zera-pad treinamento-endereco">
+                <div>
+                    <div class="zera-pad col-md-3 ">
+                        <img src=@Url.Content("~/assets/img/treinamentos-ico-marcador.png") alt="" class="center-block">
+                    </div>
+                    <div class="zera-pad col-md-9">
+
+                        @t.dsLocalTreinamento <br />
+                        @t.dsEndereco, @t.dsNumero <br />
+                        @t.dsBairro<br />
+                        @t.dsCidade / @t.dsUF
+                    </div>
+                </div>
+            </div>
+
+            @*<div class="col-md-12 zera-pad pad-top-10">
+                <div>
+                    <table class="table table-bordered">
+                        <tr class="treinamentos-tab-title">
+                            <td>
+                                @Fullbar.Olympus.MVC.Resource.PaginaTreinamentoDetalhesHorario
+                            </td>
+                            <td>
+                                @Fullbar.Olympus.MVC.Resource.PaginaTreinamentoDetalhesAtividades
+                            </td>
+                            @*<td>
+                                    @Fullbar.Olympus.MVC.Resource.PaginaTreinamentoDetalhesPalestrantes
+                                </td>
+                        </tr>
+
+
+                        @if (t != null)
+                        {
+                            var lastDay = 0;
+                            var i = 0;
+                            foreach (var item in t.Agendas)
+                            {
+                                if (lastDay != item.inDia)
+                                {
+                                    i++;
+                                    <tr>
+                                        <td colspan="3">@Fullbar.Olympus.MVC.Resource.TreinamentoDia @i</td>
+                                    </tr>
+                                    lastDay = item.inDia;
+                                }
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.dsHorario)h
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.dsAtividade)
+                                    </td>
+                                    @*<td>
+                                            @Html.DisplayFor(modelItem => item.dsPalestrante)
+                                        </td> 
+                                </tr>
+                            }
+                        }
+
+                    </table>
+                </div>
+            </div>*@
+        </div>
+
+
+        <div class="col-md-5 pad-r text-center">
+            
+        </div>
+    </div>
+
+    <!-- ---------------------- /Detalhes -------------------  -->
+
+    <div id="cadNacionalidadeEstrangeira" style="display:none">
+
+        <div id="empresa" style="display:none">
+            <div class="col-md-12 zera-pad pad-top-10">
+                <div class="col-md-6">
+                    <div>
+                        CNPJ:
+                    </div>
+                    <div>
+                        <input type="text" id="CNPJ" readonly value="@ViewBag.CNPJ" class="form-control inp-contato">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        Instituição
+                    </div>
+                    <div>
+                        <input type="text" id="CNPJ" readonly value="@ViewBag.Instituicao" class="form-control inp-contato">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        @using (@Html.BeginForm("FinalizaE", "Treinamento", FormMethod.Post))
+        {
+
+
+            @Html.AntiForgeryToken()
+
+            //Treinamento da divisão - Limpeza, desinfecção e esterilização - não aparece
+            if (ViewBag.idDivisao != null && ViewBag.idDivisao != 4)
+            {
+                <div class="col-md-6">
+                    <input type="checkbox" /> @Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoHospedagem
+                </div>                
+            }
+
+            <div class="col-md-6">
+
+                @*<input type="submit" name="finalizar" value="Finalizar Inscrição" class="form-control inp-contato" role="button" />*@
+            </div>
+
+            <div class="col-md-12 pad-top-30 text-center">
+                <p><input type="submit" name="finalizar" value="@Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoBotaoFinalizarInscricao" class="btn btn-lg btn-primary btn-amarelo" role="button" id="btFinaliza" /></p>
+            </div>
+
+            <input type="hidden" name="hospedagemPassagem" value="@ViewBag.Hospegadem" />
+            <input type="hidden" name="nacionalidade" value="@ViewBag.Nacionalidade" />
+            <input type="hidden" name="idTreinamento" value="@ViewBag.idTreinamento" />
+            <input type="hidden" name="mensagem" value="@ViewBag.Mensagem" />
+
+        }
+
+
+    </div>
+
+    <div id="cadNacionalidadeBrasileira">
+        <div class="col-md-12 zera-pad pad-top-10">
+            <div class="col-md-6">
+                <div>
+                    @Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoCNPJ
+                </div>
+                <div>
+                    <input type="text" id="CNPJ" readonly value="@ViewBag.CNPJ" class="form-control inp-contato">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    @Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoInstituicao
+                </div>
+                <div>
+                    <input type="text" id="CNPJ" readonly value="@ViewBag.Instituicao" class="form-control inp-contato">
+                </div>
+            </div>
+        </div>
+
+
+        @using (@Html.BeginForm("CadastrarInscricao", "Treinamento", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="col-md-12 pad-top-30">
+                <hr />
+            </div>
+
+            <div class="col-md-12 pad-top-10 title-geral-cadastro">
+                <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoTitulo</p>
+            </div>
+
+            <div class="col-md-12 zera-pad pad-top-20">
+                <div class="col-md-6">
+                    <div>
+                        @Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoNome *
+                    </div>
+                    <div class="">
+                        <input type="text" name="Nome" value="@ViewBag.Nome" class="form-control inp-contato" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        @Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoCelular *
+                    </div>
+                    <div class="">
+                        <input type="text" name="Celular" id="Celular" value="@ViewBag.Celular" class="form-control inp-contato" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 zera-pad pad-top-10">
+                <div class="col-md-6">
+                    <div>
+                        CPF *
+                    </div>
+                    <div>
+                        <input type="text" id="CPF" name="CPF" value="@ViewBag.CPF" class="form-control inp-contato">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        E-mail *
+                    </div>
+                    <div>
+                        <input type="text" id="email" name="Email" value="@ViewBag.Email" class="form-control inp-contato">
+
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <hr />
+                </div>
+
+                <div class="col-md-2">
+                    <div>
+                        &nbsp;
+                    </div>
+                    <div>
+                        <input type="submit" name="adicionar" value="@Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoBotaoAdicionar" class="btn btn-lg btn-primary btn-add" role="button" id="btAdicionaConvite" />
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12 zera-pad">
+
+                @if (@Model != null)
+                {
+                    if (@Model.Convites != null)
+                    {
+                        foreach (var item in @Model.Convites)
+                        {
+
+                            @*<div class="col-md-12 zera-pad pad-top-20">
+                                <div class="col-md-10">
+                                    <div>
+                                        @Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoNome
+                                    </div>
+                                    <div class="">
+                                        @Html.DisplayFor(modelItem => item.Nome, new { @class = "form-control inp-contato" })
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+
+                                </div>
+                                <div class="col-md-12 pad-top-30">
+                                    <hr />
+                                </div>
+                            </div>*@
+
+                            <div class="col-md-12 pad-top-30">
+                                <hr />
+                            </div>
+                            <div class="col-md-12 zera-pad pad-top-10">
+
+                                <div class="col-md-5">
+                                    <div>
+                                        @Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoNome:
+                                    </div>
+                                    <div>
+                                        @Html.DisplayFor(modelItem => item.Nome, new { @class = "form-control inp-contato" })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-5">
+                                    <div>
+                                        CPF:
+                                    </div>
+                                    <div>
+                                        @Html.DisplayFor(modelItem => item.CPF, new { @class = "form-control inp-contato" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 zera-pad pad-top-10">
+                                <div class="col-md-5">
+                                    <div>
+                                        Celular:
+                                    </div>
+                                    <div>
+                                        @Html.DisplayFor(modelItem => item.Celular, new { @class = "form-control inp-contato" })
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div>
+                                        E-mail
+                                    </div>
+                                    <div>
+                                        @Html.DisplayFor(modelItem => item.Email, new { @class = "form-control inp-contato" })
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div>
+                                        &nbsp;
+                                    </div>
+                                    <div>
+                                        @Html.ActionLink(@Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoBotaoExcluir, "Excluir", new { CPF = item.CPF }, new { @class = "btn btn-lg btn-primary btn-del", @role = "button" })
+                                    </div>
+                                </div>
+                            </div> 
+                        }
+                    }
+                }
+            </div>
+
+
+            <input type="hidden" name="idTreinamento" value="@ViewBag.idTreinamento" />
+            <input type="hidden" name="idUsuario" value="@ViewBag.idUsuario" />
+            <input type="hidden" name="idEmpresa" value="@ViewBag.idEmpresa" />
+            <input type="hidden" name="Treinamento" value="@ViewBag.Treinamento" />
+            <input type="hidden" name="CNPJ" value="@ViewBag.CNPJ" />
+            <input type="hidden" name="Instituicao" value="@ViewBag.Instituicao" />
+
+            <input type="hidden" name="mensagem" value="@ViewBag.Mensagem" />
+            <input type="hidden" name="mensagemTitulo" value="@ViewBag.MensagemTitulo" id="mensagemTitulo" />
+
+            <input type="hidden" name="hospedagemPassagem" value="@ViewBag.Hospegadem" />
+
+
+        }
+
+        <div class="col-md-12 pad-top-30">
+            <hr />
+        </div>
+
+        @using (@Html.BeginForm("Finaliza", "Treinamento", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            //Treinamento da divisão - Limpeza, desinfecção e esterilização - não aparece
+            if (ViewBag.idDivisao != null && ViewBag.idDivisao != 4)
+            { 
+                <div class="col-md-12">
+                    <input type="checkbox" /> @Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoHospedagem
+                </div>
+            }
+
+            <div class="col-md-12 qd-inscricao">
+                @Html.Raw(@Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoTexto)
+
+            </div>
+
+            <div class="col-md-12 pad-top-30 text-center">
+                <p><input type="submit" name="finalizar" value="@Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoBotaoFinalizarInscricao" class="btn btn-lg btn-primary btn-amarelo" role="button" id="btFinaliza" /></p>
+            </div>
+
+            <input type="hidden" name="idTreinamento" value="@ViewBag.idTreinamento" />
+            <input type="hidden" name="idUsuario" value="@ViewBag.idUsuario" />
+            <input type="hidden" name="idEmpresa" value="@ViewBag.idEmpresa" />
+            <input type="hidden" name="Treinamento" value="@ViewBag.Treinamento" />
+            <input type="hidden" name="CNPJ" value="@ViewBag.CNPJ" />
+            <input type="hidden" name="Instituicao" value="@ViewBag.Instituicao" />
+
+            <input type="hidden" name="mensagem" value="@ViewBag.Mensagem" />
+            <input type="hidden" name="mensagemTitulo" value="@ViewBag.MensagemTitulo" id="mensagemTitulo" />
+
+
+            <input type="hidden" name="hospedagemPassagem" value="@ViewBag.Hospegadem" />
+
+
+        }
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+
+        $(function () {
+
+
+            $('#ulMenu > li').each(function () {
+
+                $(this).removeClass('active');
+
+            });
+
+            $('#liTreinamento').addClass('active');
+
+            /*=== Verifica Nacionalidade ===*/
+
+            var nacionalidade = $('input[name="nacionalidade"]').val();
+
+            if (nacionalidade == 2) {
+
+                if ($('input[name="nacionalidadeCNPJ"]').val() != '' && $('input[name="nacionalidadeCNPJ"]').val() != undefined) {
+
+                    $('#empresa').show();
+                }
+
+                $('#cadNacionalidadeEstrangeira').show();
+                $('#cadNacionalidadeBrasileira').hide();
+
+            }
+
+
+
+            var SPMaskBehavior = function (val) {
+                return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+            },
+           spOptions = {
+               onKeyPress: function (val, e, field, options) {
+                   field.mask(SPMaskBehavior.apply({}, arguments), options);
+               }
+           };
+
+            $('#Celular').mask(SPMaskBehavior, spOptions);
+            $('#CPF').mask('000.000.000-00', { reverse: true });
+            $('#CNPJ').mask('00.000.000/0000-00', { reverse: true });
+
+
+            /*====== Verifica Mensagem de retorno*/
+
+            var mensagem = $('input[name="mensagem"]').val();
+
+            if (mensagem != '') {
+
+                var titulo = $('input[name="mensagemTitulo"]').val();
+
+                //alert($('input[name="mensagem"]').val());
+                alerta(mensagem, titulo);
+            }
+
+
+            $('input[type="checkbox"]').on("click", function () {
+
+                var isChecked = $('input[type="checkbox"]').is(':checked');
+
+                if (isChecked) {
+                    $('input[name="hospedagemPassagem"]').val(1);
+
+                } else {
+                    $('input[name="hospedagemPassagem"]').val(0);
+                }
+
+            });
+
+
+            var isHospedagem = $('input[name="hospedagemPassagem"]').val();
+
+            if (isHospedagem != 0) {
+
+                $('input[type="checkbox"]').attr('checked', true);
+                $('input[name="hospedagemPassagem"]').val(1);
+            }
+
+
+            $('#btFinaliza').on('click', function () {
+
+                $("#carregando").show();
+            });
+
+            $('#btAdicionaConvite').on('click', function () {
+                $("#carregando").show();
+            });
+        });
+
+    </script>
+
+
+}

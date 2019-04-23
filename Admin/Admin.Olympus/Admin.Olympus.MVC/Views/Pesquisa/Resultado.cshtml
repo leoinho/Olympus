@@ -1,0 +1,149 @@
+﻿@model Admin.Olympus.Dominio.Entidade.Pesquisa
+@using Admin.Olympus.Dominio.Entidade;
+
+@{
+    /* RESOURCE */
+
+    //Arquivo de Resource
+    string arquivoResource = (string)Session["ArquivoResource"];
+
+    //Idioma
+    string idioma = (string)Session["CultureIdioma"];
+    System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo(idioma);
+
+    //Tipo de Perfil (idIdioma)
+    var usuario = (Admin.Olympus.Dominio.Entidade.Administrador)Session["Administrador"];
+    int idIdioma = usuario.idTipo;
+}
+
+<!-- TÍTULO -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            @Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaResultadoTitulo", @ci))
+            <p style="line-height: 0.7;">
+                <span style="font-size: 18px">@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaResultadoSubTitulo", @ci)</span>
+            </p>
+        </h1>
+    </div>
+</div>
+
+<!-- CONTEÚDO -->
+<div class="row">
+    <div class="col-lg-12">
+
+        <!-- FORM -->
+        @using (Html.BeginForm("Resultado", "Pesquisa", FormMethod.Post))
+        {
+            <br class="clear" />
+            <div class="row">
+                <div class="col-lg-6">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaSelecioneTreinamentoVisualizacao", @ci))</label><br />
+                    @Html.DropDownListFor(x => x.idTreinamento, (IEnumerable<SelectListItem>)ViewBag.Treinamento, new { @class = "form-control" })
+                </div>
+                <div class="col-lg-4">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaTipo", @ci))</label><br />
+                    @Html.DropDownListFor(x => x.idTipo, (IEnumerable<SelectListItem>)ViewBag.Tipo, new { @class = "form-control" })
+                </div>
+                <div class="col-lg-2">
+                    <label><br /></label><br />
+                    <input type="submit" class="btn btn-primary" value="@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BotaoFiltrar", @ci))">
+                </div>
+            </div>
+            <br class="clear" />
+            <br class="clear" />
+        }
+        
+        <!-- GRID USUÁRIOS -->
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    @Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaRelatorioResultadoTitulo", @ci))
+                </h4>
+            </div>
+            <div class="panel-body">
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables">
+                        <thead>
+                            <tr>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaCodigo", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaDataEvento", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaNome", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaCPFPassaporte", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaDataResposta", @ci))</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (ViewBag.Resultados != null)
+                            {
+                                if (ViewBag.Resultados.Count > 0)
+                                {
+                                    foreach (Admin.Olympus.Dominio.Entidade.Pesquisa item in ViewBag.Resultados)
+                                    {
+                                        <tr class="odd gradeX">
+                                            <td>@item.dsCodigo</td>
+                                            <td>@item.dtTreinamento.ToShortDateString()</td>
+                                            <td>@item.dsNomeCompleto</td>
+                                            <td>@item.dsCPF</td>
+                                            <td>@item.dtResposta</td>
+                                        </tr>
+                                    }
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="well">
+
+                    @using (Html.BeginForm("ResultadoExcel", "Pesquisa", FormMethod.Get))
+                    {
+                        @Html.HiddenFor(x => x.idTreinamento)
+                        @Html.HiddenFor(x => x.idTipo)
+                        @Html.Hidden("btExcel", true)
+
+                        <input type="submit" id="btnExcel" class="btn btn-default btn-lg btn-block" value="@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BotaoExcel", @ci))" />
+                    }
+                </div>
+
+            </div>
+
+        </div>
+        <!-- FIM - GRID USUÁRIOS -->
+
+        <br class="clear" />
+
+</div>
+</div>
+
+<script>
+
+    $(function () {
+
+        $("#dsCPF").mask("999.999.999-99");
+        $("#dsCNPJ").mask("99.999.999/9999-99");
+
+        $(".dsCPF").mask("999.999.999-99");
+        $(".dsCNPJ").mask("99.999.999/9999-99");
+
+        $("#dsCelular").mask("(99) 99999-9999");
+        $("#dsDtTreinamento").mask("99/99/9999");
+        $("#dataFim").mask("99/99/9999");
+        $(".dsTelefone").mask("(99) 9999-9999");
+        $(".dsCelular").mask("(99) 99999-9999");
+
+
+        $("body").on('click', '.btInserirManualmente', function (event) {
+            event.preventDefault();
+
+            var idTreinamento = $("#idTreinamento").val();
+            var idTipo = $("#idTipo").val();
+
+            $(location).attr('href', '/Pesquisa/InserirPesquisaManualmente?idTipo=' + idTipo + '&idTreinamento=' + idTreinamento);
+
+            return false;
+        });
+
+    });
+
+</script>

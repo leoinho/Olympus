@@ -1,0 +1,52 @@
+﻿@model Admin.Olympus.Dominio.Entidade.Treinamento
+
+@{
+    /* RESOURCE */
+
+    //Arquivo de Resource
+    string arquivoResource = (string)Session["ArquivoResource"];
+
+    //Idioma
+    string idioma = (string)Session["CultureIdioma"];
+    System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo(idioma);
+
+    //Tipo de Perfil (idIdioma)
+    var usuario = (Admin.Olympus.Dominio.Entidade.Administrador)Session["Administrador"];
+    int idIdioma = usuario.idTipo;
+}
+
+<!-- TÍTULO -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            @Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarEventoBrasilTitulo", @ci))
+            <p style="line-height: 0.7;">
+                <span style="font-size: 18px">@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarEventoBrasilSubTitulo", @ci)</span>
+            </p>
+        </h1>
+    </div>
+</div>
+
+<!-- CONTEÚDO -->
+<div class="row">
+    <div class="col-lg-12">
+
+        <!-- FORM -->
+        @using (Html.BeginForm("Cadastrar", "Treinamento", FormMethod.Post))
+        { 
+            <br class="clear" />
+            <div class="row">
+                <div class="col-lg-3">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoEventoDivisao", @ci))</label><br />
+                    @Html.DropDownListFor(x => x.idDivisao, (IEnumerable<SelectListItem>)ViewBag.Divisao, new { @class = "form-control" })
+                </div>
+                <div class="col-lg-3">
+                    <label><br /></label><br />
+                    <input type="submit" class="btn btn-primary" value="@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BotaoCadastrar", @ci))">
+                </div>
+            </div>
+            <br class="clear" />
+        }
+        <!-- FIM FORM -->
+    </div>
+</div>

@@ -1,0 +1,42 @@
+/* #################################################################
+   #################################################################
+   #################################################################
+   ############										    ############
+   ############                 Geral                   ############
+   ############                                         ############
+   #################################################################
+   #################################################################
+   ################################################################# */
+
+#logo-admin{
+    width:100%;
+    margin-bottom:10px;
+}
+
+#page-wrapper{
+    padding-top: 15px;
+}
+
+.form-group{
+    margin: 10px;
+}
+
+.dataTables_filter{
+    text-align: right;
+}
+
+.dataTables_paginate{
+    text-align: right;
+}
+
+#loading { position: fixed; background-color: rgba(0, 0, 0, 0.5); background-image: url("../img/loading.gif"); background-repeat: no-repeat; background-position: center center; background-size: 50px auto; top: 0; right: 0; bottom: 0; left: 0; z-index: 1000000000; display: none; }
+
+.chkAlternativas { width: 4%; padding-right: 0px; }
+.iptAlternativas { width: 96%; padding-left: 0px; }
+
+
+#side-menu {
+    height: calc(100vh - 186px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}

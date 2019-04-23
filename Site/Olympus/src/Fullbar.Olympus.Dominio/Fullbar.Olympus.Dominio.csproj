@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2AEFED0E-D256-43A7-97B6-86D11D4FA66B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fullbar.Olympus.Dominio</RootNamespace>
+    <AssemblyName>Fullbar.Olympus.Dominio</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\Fullbar.Olympus.MVC\bin\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contexto\EFDbContexto.cs" />
+    <Compile Include="Entidade\Assunto.cs" />
+    <Compile Include="Entidade\Banner.cs" />
+    <Compile Include="Entidade\Categoria.cs" />
+    <Compile Include="Entidade\ConteudoEducacional.cs" />
+    <Compile Include="Entidade\Divisao.cs" />
+    <Compile Include="Entidade\Email.cs" />
+    <Compile Include="Entidade\FaleConosco.cs" />
+    <Compile Include="Entidade\Pais.cs" />
+    <Compile Include="Entidade\Pesquisa.cs" />
+    <Compile Include="Entidade\RetornoCNPJ.cs" />
+    <Compile Include="Entidade\Login.cs" />
+    <Compile Include="Entidade\RetornoPadrao.cs" />
+    <Compile Include="Entidade\RetornoSMS.cs" />
+    <Compile Include="Entidade\sendSmsResponse.cs" />
+    <Compile Include="Entidade\SMS.cs" />
+    <Compile Include="Entidade\SMSAkna.cs" />
+    <Compile Include="Entidade\StatusEnvioSMS.cs" />
+    <Compile Include="Entidade\TreinamentoAgenda.cs" />
+    <Compile Include="Entidade\TreinamentoAlternativaCadastro.cs" />
+    <Compile Include="Entidade\TreinamentoCalendario.cs" />
+    <Compile Include="Entidade\TreinamentoConvite.cs" />
+    <Compile Include="Entidade\TreinamentoDetalhe.cs" />
+    <Compile Include="Entidade\TreinamentoExterno.cs" />
+    <Compile Include="Entidade\TreinamentoHome.cs" />
+    <Compile Include="Entidade\TreinamentoInscricao.cs" />
+    <Compile Include="Entidade\TreinamentoInscricaoResultadoConfirmado.cs" />
+    <Compile Include="Entidade\TreinamentoInscricaoUsuario.cs" />
+    <Compile Include="Entidade\TreinamentoPalestrante.cs" />
+    <Compile Include="Entidade\TreinamentoInscricaoResultado.cs" />
+    <Compile Include="Entidade\TreinamentoPreAlternativa.cs" />
+    <Compile Include="Entidade\TreinamentoPrePergunta.cs" />
+    <Compile Include="Entidade\TreinamentoResultadoListaEspera.cs" />
+    <Compile Include="Entidade\TreinamentoUsuario.cs" />
+    <Compile Include="Entidade\TreinamentoVagas.cs" />
+    <Compile Include="Entidade\UF.cs" />
+    <Compile Include="Entidade\UploadFilesResult.cs" />
+    <Compile Include="Entidade\Usuario.cs" />
+    <Compile Include="Entidade\UsuarioCadastro.cs" />
+    <Compile Include="Entidade\TreinamentoInscricaoEstrangeiro.cs" />
+    <Compile Include="Entidade\UsuarioEditar.cs" />
+    <Compile Include="Entidade\UsuarioInscricao.cs" />
+    <Compile Include="Entidade\UsuarioSenha.cs" />
+    <Compile Include="Interface\IConteudoEducacional.cs" />
+    <Compile Include="Interface\ICategoria.cs" />
+    <Compile Include="Interface\IDivisao.cs" />
+    <Compile Include="Interface\IEmail.cs" />
+    <Compile Include="Interface\ILogin.cs" />
+    <Compile Include="Interface\IFaleConosco.cs" />
+    <Compile Include="Interface\IPagina.cs" />
+    <Compile Include="Interface\ISMS.cs" />
+    <Compile Include="Interface\ITreinamento.cs" />
+    <Compile Include="Interface\IBanner.cs" />
+    <Compile Include="Interface\IUF.cs" />
+    <Compile Include="Interface\IUsuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorio\RepositorioCategoria.cs" />
+    <Compile Include="Repositorio\RepositorioConteudoEducacional.cs" />
+    <Compile Include="Repositorio\RepositorioDivisao.cs" />
+    <Compile Include="Repositorio\RepositorioEmail.cs" />
+    <Compile Include="Repositorio\RepositorioFaleConosco.cs" />
+    <Compile Include="Repositorio\RepositorioLogin.cs" />
+    <Compile Include="Repositorio\RepositorioPagina.cs" />
+    <Compile Include="Repositorio\RepositorioSMS.cs" />
+    <Compile Include="Repositorio\RepositorioTreinamento.cs" />
+    <Compile Include="Repositorio\RepositorioBanner.cs" />
+    <Compile Include="Repositorio\RepositorioUF.cs" />
+    <Compile Include="Repositorio\RepositorioUsuario.cs" />
+    <Compile Include="Util\Crypto.cs" />
+    <Compile Include="Util\Email.cs" />
+    <Compile Include="Util\Geral.cs" />
+    <Compile Include="Util\SiteLanguages.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

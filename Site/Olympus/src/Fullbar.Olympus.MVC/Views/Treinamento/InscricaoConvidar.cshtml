@@ -1,0 +1,242 @@
+﻿@model Fullbar.Olympus.MVC.Models.TreinamentoInscricaoViewModel
+
+@{
+    ViewBag.Title = "InscricaoConvidar";
+}
+
+
+
+
+<div class="col-md-9 pad-top-40 conteudo">
+
+
+    <div class="col-md-12 pad-top-30 title-geral-cadastro">
+        <p><span><img class="" src="/assets/img/ico-title.png" alt=""></span>@Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoPreencha</p>
+    </div>
+
+    @using (@Html.BeginForm("CadastrarInscricao", "Treinamento", FormMethod.Post))
+    {
+     @Html.AntiForgeryToken()
+        
+        <input type="hidden" name="idTreinamento" value="@ViewBag.idTreinamento" />
+        <input type="hidden" name="idUsuario" value="@ViewBag.idUsuario" />
+        <input type="hidden" name="Treinamento" value="@ViewBag.Treinamento" />       
+        
+
+    <div class="col-md-12 zera-pad pad-top-20">
+        <div class="col-md-10">
+            <div>
+                @Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoNome*
+            </div>
+            <div class="">
+                <input type="text" name="Nome" value="@ViewBag.Nome" class="form-control inp-contato">
+            </div>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+    <div class="col-md-12 zera-pad pad-top-10">
+        <div class="col-md-10">
+            <div>
+                E-mail*
+            </div>
+            <div class="">
+                <input type="text" id="email" name="Email" value="@ViewBag.Email" class="form-control inp-contato">
+            </div>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+
+    <div class="col-md-12 zera-pad pad-top-10">
+        <div class="col-md-5">
+            <div>
+                @Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoCelular*
+            </div>
+            <div class="">
+                <input type="text" name="Celular" id="Celular" value="@ViewBag.Celular" class="form-control inp-contato">
+            </div>
+        </div>
+        <div class="col-md-5 mtop-10">
+            <div>
+                CPF*
+            </div>
+            <div>
+                <input type="text" id="CPF" name="CPF" value="@ViewBag.CPF" class="form-control inp-contato">
+            </div>
+        </div>
+
+        <div class="col-md-2 mtop-10 text-center">
+            <div>
+                &nbsp;
+            </div>
+            <p>
+                <input type="submit" name="adicionar" value="@Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoBotaoAdicionar" class="btn btn-lg btn-primary btn-amarelo btn-amarelo-add" role="button" id="btAdicionaConvite">
+            </p>
+        </div>
+    </div>
+    
+    }
+
+    <div class="col-md-12 pad-top-10">
+        @Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoCamposObrigatorio
+    </div>
+
+
+
+    <div class="col-md-12 zera-pad">
+
+        @if (@Model != null && @Model.Convites != null)
+        {            
+            
+            if (@Model.Convites != null)
+            {
+                if (@Model.Convites.Count > 0)
+                {
+                    <input type="hidden" class="hdnConvidado" value="1" />
+                }
+                else
+                {
+                     <input type="hidden" class="hdnConvidado" value="0" />
+                }
+            
+                foreach (var item in @Model.Convites)
+                {
+                    
+                    <div class="col-md-12 pad-top-30">
+                        <hr />
+                    </div>
+                    <div class="col-md-12 zera-pad pad-top-10">
+
+                        <div class="col-md-5">
+                            <div>
+                                @Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoNome:
+                            </div>
+                            <div>
+                                @Html.DisplayFor(modelItem => item.Nome, new { @class = "form-control inp-contato" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <div>
+                                CPF:
+                            </div>
+                            <div>
+                                @Html.DisplayFor(modelItem => item.CPF, new { @class = "form-control inp-contato" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 zera-pad pad-top-10">
+                        <div class="col-md-5">
+                            <div>
+                                @Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoCelular:
+                            </div>
+                            <div>
+                                @Html.DisplayFor(modelItem => item.Celular, new { @class = "form-control inp-contato" })
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div>
+                                E-mail
+                            </div>
+                            <div>
+                                @Html.DisplayFor(modelItem => item.Email, new { @class = "form-control inp-contato" })
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div>
+                                &nbsp;
+                            </div>
+                            <div>
+                                @Html.ActionLink(@Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoBotaoExcluir, "Excluir", new { CPF = item.CPF }, new { @class = "btn btn-lg btn-primary btn-del", @role = "button" })
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        }
+        else
+        {
+            <input type="hidden" class="hdnConvidado" value="0" />
+        }
+    </div>
+
+
+    <div class="col-md-12 pad-top-20">
+        <hr />
+    </div>
+
+    <div class="col-md-12">
+        <div class="col-md-12 qd-inscricao">
+            @Html.Raw(Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoAtencaoOutros)     
+        </div>
+    </div>
+
+    <div class="col-md-12 pad-top-50 text-center">
+    @using (@Html.BeginForm("FinalizaConvidar", "Treinamento", FormMethod.Post))
+    {
+        
+        @Html.AntiForgeryToken()
+        
+        <p>
+            <input type="button" name="finalizar" value="@("< " + Fullbar.Olympus.MVC.Resource.BotaoEnviarSenhaVoltar)" class="btn btn-lg btn-primary bt-cinza" role="button" id="btnVoltar"> &nbsp;&nbsp;
+            <input type="submit" name="finalizar" value="@Fullbar.Olympus.MVC.Resource.TreinamentoConfirmaInscricao" class="btn btn-lg btn-primary btn-azul" role="button" id="btnConfirmar">
+            <input type="button" value="@Fullbar.Olympus.MVC.Resource.TreinamentoConfirmaInscricao" class="btn btn-lg btn-primary btn-azul" role="button" disabled id="btnConfirmarD">
+        </p>
+    }
+    </div>
+
+
+</div>
+
+<input type="hidden" name="mensagem" value="@ViewBag.Mensagem" />
+<input type="hidden" name="mensagemTitulo" value="@ViewBag.MensagemTitulo" />
+
+@section Scripts {
+    <script>
+
+        $(function () {
+            
+            $("#Celular").mask("(99) 99999-9999");
+            $("#CPF").mask("999.999.999-99");
+
+            if ($(".hdnConvidado").val() == "0") {
+                $("#btnConfirmar").hide();
+                $("#btnConfirmarD").show();
+            } else {
+                $("#btnConfirmarD").hide();
+                $("#btnConfirmar").show();
+            }
+
+            $('#btAdicionaConvite').on('click', function () {
+                $("#carregando").show();
+            });            
+
+            $('#btFinaliza').on('click', function () {
+
+                $("#carregando").show();
+            });
+
+            $('#btAdicionaConvite').on('click', function () {
+                $("#carregando").show();
+            });
+
+            $('#btnVoltar').on('click', function () {
+                location.href = '/Treinamento/Resultado/';
+            });
+            
+
+            var mensagem = $('input[name="mensagem"]').val();
+
+            if (mensagem != '') {
+
+                var titulo = $('input[name="mensagemTitulo"]').val();
+                alerta(mensagem, titulo);
+            }
+
+        });
+
+    </script>
+
+
+}

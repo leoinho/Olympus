@@ -1,0 +1,177 @@
+html,
+body
+{
+	height:100%;
+}
+
+body
+{
+	  background: url(../../assets/img/bg-landing.png) no-repeat center center fixed; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	  height: 100%;
+}
+
+.wrapper {
+	min-height: 100%;
+	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+	height: 100%;
+	
+	margin: 0 auto -87px; /* the bottom margin is the negative value of the footer's height */
+    padding-bottom: 87px;;
+}
+.footer, .push {
+	 /* .push must be the same height as .footer */
+}
+
+.container
+{
+	
+}
+
+.pad-top-80{padding-top:80px;}
+.pad-top-50{padding-top:50px;}
+.pad-top-40{padding-top:40px;}
+.pad-top-20{padding-top:20px;}
+.pad-top-30{padding-top:30px;}
+.pad-top-15{padding-top:15px;}
+.pad-top-10{padding-top:10px;}
+
+.logo-branco-align
+{
+	float:right;
+}
+
+.logo-hcp
+{
+	padding-top:190px;
+}
+.texto-hcp
+{
+	text-align:right;
+}
+.texto-hcp h1
+{
+	font-family:'Webnar-Light';
+	font-size:60px;
+	color:#FFFFFF;
+	line-height: 20px;
+}
+.texto-hcp p
+{
+	font-family:'Titillium-Bold';
+	font-size:40px;
+	color:#FDB813;
+	padding-right:16px;
+}
+
+.texto-hcp-enter
+{
+	color:#FFFFFF;
+	font-family:'Titillium-Bold';
+	font-size:22px;
+	text-align:center;
+	letter-spacing:4px;
+	padding-top:60px;
+	padding-bottom:20px;
+	
+}
+
+.text-footer-landing
+{
+	color:#FFFFFF;
+	font-size:20px;
+	text-transform:uppercase;
+	
+}
+
+/* ---- */
+.idioma-land ul
+{
+    padding:0px;
+    margin:0px;
+    padding-top:25px;
+}
+.idioma-land ul li
+{
+    display:inline;
+}
+
+.idioma-land li 
+{
+	-webkit-box-shadow: -1px 3px 3px 0px rgba(50, 50, 50, 0.10);
+	-moz-box-shadow:    -1px 3px 3px 0px rgba(50, 50, 50, 0.10);
+	box-shadow:         -1px 3px 3px 0px rgba(50, 50, 50, 0.10);
+	border:solid 1px #085387;
+	border-bottom:none;
+	padding:10px;
+	padding-top: 10px;
+    padding-bottom: 10px;
+	font-size:20px;
+	margin-right:6px;
+	margin-top:15px;
+    text-decoration:none;
+	-webkit-box-shadow: 0px 4px 6px 0px rgba(8,83,135,0.8);
+	-moz-box-shadow: 0px 4px 6px 0px rgba(8,83,135,0.8);
+	box-shadow: 0px 4px 6px 0px rgba(8,83,135,0.8);
+}
+
+.idioma-land li a
+{	
+    text-decoration:none;
+    color:#9DE3FF;
+}
+
+.idioma-land li:hover
+{
+	background-color:#085387;
+}
+
+
+@media (max-width: 900px){		
+		
+	.text-footer-landing
+	{
+		text-align:center;
+	}
+	.logo-hcp
+	{
+		padding:40px;
+		padding-top:60px;		
+	}
+	.texto-hcp
+	{
+		text-align:center;
+		padding:30px;
+	}
+	.texto-hcp-enter
+	{
+		padding-top:20px;
+		padding-bottom:10px;
+	}
+}
+
+@media (max-width: 600px){		
+		
+	.text-footer-landing
+	{
+		text-align:center;
+	}
+	.logo-hcp
+	{
+		padding:40px;
+		padding-top:60px;		
+	}
+	.texto-hcp
+	{
+		text-align:center;
+		padding:30px;
+	}
+	.texto-hcp-enter
+	{
+		padding-top:20px;
+		padding-bottom:10px;
+	}
+}

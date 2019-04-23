@@ -1,0 +1,3 @@
+O projeto Admin.Olympus.MVC é o Admin de OBL (Brasil)
+O projeto Admin.Olympus.MVC.OLA é o Admin de OLA e OMS (sites tem 2 URLs diferentes, mas o site em si é o mesmo). 
+O controle dos dados que vem do Banco é feito pela variável idIdioma (2 para OLA e 3 para OMS).

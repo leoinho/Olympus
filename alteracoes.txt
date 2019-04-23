@@ -1,0 +1,50 @@
+
+--ALTER TABLE TB_TREINAMENTOInscricao ADD dsCurriculo VARCHAR(100) NULL
+--ALTER SP_TreinamentoInscricaoCadastro
+
+
+\assets\js\vendor\jquery.fileupload
+/Home/Error/
+/Treinamento/MeusTreinamentos/
+
+ <customErrors mode="On"  defaultRedirect="/Home/Error">
+      <error statusCode="404" redirect="/Home/Error" />
+      <error statusCode="500" redirect="/Home/Error" />
+    </customErrors>
+
+
+-----------------------------
+
+ADMIN 
+---------------------
+CREATE PROCEDURE [dbo].[SP_TreinamentoPreRespostaLista] 
+--ALTER PROCEDURE [dbo].[SP_TreinamentoListaInscricao]
+
+/Scripts/datetime-moment.js
+/Scripts/moment.min.js
+/Participacao/PesquisaUsuario/
+/Participacao/Inscricoes/
+/Treinamento/CadastrarInternacional/
+/Treinamento/Index/
+/Treinamento/CadastrarHCP/
+/Treinamento/Detalhe/
+/Treinamento/DetalheEditar/
+/Participacao/ListaPresenca/
+/Participacao/Inscricoes/
+/Shared/_Layout/
+/assets/js/vendor/-sb-admin.js
+
+/Pesquisa/CadastrarPre/
+
+--  INSERT INTO TB_TreinamentoPesquisaTipo VALUES ('Obrigatório', 1)
+-- ALTER TABLE TB_TreinamentoPrePesquisa ADD btObrigatoria BIT NULL
+-- ALTER PROCEDURE [dbo].[SP_TreinamentoPrePesquisaLista]
+-- ALTER PROCEDURE [dbo].[SP_TreinamentoPrePesquisaCadastro]
+-- ALTER PROCEDURE [dbo].[SP_RelatorioTreinamentoPrePesquisa] 
+-- ALTER PROCEDURE [dbo].[SP_TreinamentoListaPorID]
+-- ALTER PROCEDURE [dbo].[SP_TreinamentoPesquisaProcessa]
+-- ALTER PROCEDURE [dbo].[SP_TreinamentoLista]
+-- ALTER PROCEDURE [dbo].[SP_TreinamentoHomeLista]
+-- ALTER PROCEDURE [dbo].[SP_TreinamentoListaInscricao]
+-- ALTER PROCEDURE SP_TreinamentoInscricaoAlteraStatus
+--ALTER PROCEDURE [dbo].[SP_TreinamentoInscricaoConfirmaListaEspera]

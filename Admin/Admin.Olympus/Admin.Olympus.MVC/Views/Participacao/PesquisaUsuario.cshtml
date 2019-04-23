@@ -1,0 +1,151 @@
+﻿
+@model List<Admin.Olympus.Dominio.Entidade.Pesquisa>
+
+@{
+    /* RESOURCE */
+
+    //Arquivo de Resource
+    string arquivoResource = (string)Session["ArquivoResource"];
+
+    //Idioma
+    string idioma = (string)Session["CultureIdioma"];
+    System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo(idioma);
+
+    //Tipo de Perfil (idIdioma)
+    var usuario = (Admin.Olympus.Dominio.Entidade.Administrador)Session["Administrador"];
+    int idIdioma = usuario.idTipo;
+
+    var inscricao = (Admin.Olympus.Dominio.Entidade.Participacao)ViewBag.Inscricao;
+}
+
+<!-- TÍTULO -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            @Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ParticipacaoInscricaoTitulo", @ci))<span>: @inscricao.dsTreinamento</span>
+            <p style="line-height: 0.7;">
+                <span style="font-size: 18px">Moderação da Pesquisa: @inscricao.dsNomeCompleto </span>
+            </p>
+        </h1>
+    </div>
+</div>
+
+<!-- CONTEÚDO -->
+<div class="row">
+    <div class="col-lg-12">
+        @if (Model != null)
+        {
+            var n = 0;
+            foreach (var pergunta in Model)
+            {
+                n++;
+                
+                <p><strong>@(n + " - " + pergunta.dsDescricao)</strong></p>
+                
+                foreach (var alternativa in pergunta.Alternativas)
+                {
+                    var strStyle = "style=color:red;";
+
+                    if (alternativa.btCorretaUsuario) { strStyle = "style=color:green;"; }
+                    
+                    <p>
+                        @if (alternativa.btResposta){ <strong @strStyle>@alternativa.dsDescricao</strong> }
+                          else{ <span>@alternativa.dsDescricao</span> }
+                    </p>
+                }
+                
+                <hr />
+
+            }  
+            
+        }
+            
+    </div>
+
+    <div class="col-lg-12">
+
+        
+        @if (inscricao.dsCurriculo != "") { 
+           
+            <a href="@("http://olympuseducacao.com.br/assets/file/curriculo/" + inscricao.dsCurriculo)" target="_blank" class="btn btn-default btn-primary">Download do currículo</a>
+            <hr />           
+        }
+
+        <input type="hidden" id="hdnStatus" value="" />
+        <input type="hidden" id="hdnInscricao" value="@inscricao.idInscricao" />        
+
+        <a href="/Participacao/Inscricoes/" class="btn btn-default">voltar</a>
+
+        @if (ViewBag.StatusInscricao == 1)
+        {
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <input type="button" id="btnReprovar" value="reprovar" class="btn btn-danger" style="width:150px;" /> 
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <input type="button" id="btnAprovar" value="aprovar" class="btn btn-success" style="width:150px;" /> 
+        }
+
+
+    </div>
+</div>
+
+
+
+
+
+<script>
+
+    $(function () {
+
+        $("#btnSimModal").attr("data-dismiss", "modal");
+
+        $("body").on('click', '#btnReprovar', function (event) {
+            event.preventDefault();
+            $("#hdnStatus").val(5);                
+            confirma('@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ModalTituloAtencao", @ci))',
+                'Deseja REPROVAR a inscrição?');
+        });
+
+
+        $("body").on('click', '#btnAprovar', function (event) {
+            event.preventDefault();
+            $("#hdnStatus").val(2);
+            confirma('@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ModalTituloAtencao", @ci))',
+                'Deseja APROVAR a inscrição?');
+        });
+
+        
+
+        $("body").on('click', '#btnSimModal', function (event) {
+            event.preventDefault();           
+
+            var msg = "Inscrição Cancelada";
+            var nStatus = $("#hdnStatus").val();
+            var idInscricao = $("#hdnInscricao").val();
+
+            $("#loading").fadeIn();
+
+
+            var url = "/Participacao/AlteraStatusInscricao";
+            $.post(url, { idStatus: nStatus, idInscricao: idInscricao }, function (response) {
+                if (response.id > 0) {
+                    
+                    if (nStatus == 2)
+                        msg = "Inscrição Aprovada";
+
+                    $("#loading").fadeOut();
+
+                    alerta('@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ModalTituloAtencao", @ci))', msg, null, "/Participacao/Inscricoes/");
+
+                }
+                else {
+                    $("#loading").fadeOut();
+                    alerta("Erro", response.dsMensagem);
+                }
+            });
+            
+            
+        });
+
+    });
+
+</script>

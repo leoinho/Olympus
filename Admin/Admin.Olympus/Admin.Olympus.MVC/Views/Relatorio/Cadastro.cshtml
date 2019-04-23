@@ -1,0 +1,222 @@
+﻿@model Admin.Olympus.Dominio.Entidade.Usuario
+
+@{
+    /* RESOURCE */
+
+    //Arquivo de Resource
+    string arquivoResource = (string)Session["ArquivoResource"];
+
+    //Idioma
+    string idioma = (string)Session["CultureIdioma"];
+    System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo(idioma);
+
+    //Tipo de Perfil (idIdioma)
+    var usuario = (Admin.Olympus.Dominio.Entidade.Administrador)Session["Administrador"];
+    int idIdioma = usuario.idTipo;
+}
+
+<!-- TÍTULO -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            @Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "RelatorioCadastroTitulo", @ci))
+            <p style="line-height: 0.7;">
+                <span style="font-size: 18px">@HttpContext.GetGlobalResourceObject(@arquivoResource, "RelatorioCadastroSubTitulo", @ci)</span>
+            </p>
+        </h1>
+    </div>
+</div>
+
+<!-- CONTEÚDO -->
+<div class="row">
+    <div class="col-lg-12">
+
+        @if (idIdioma == 1)
+        {
+            <!-- OBL -->
+            using (Html.BeginForm("Cadastro", "Relatorio", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+                <!-- FORM -->
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "RelatorioCampoNome", @ci))</label><br />
+                        @Html.TextBoxFor(x => x.dsNomeCompleto, new { @class = "form-control" })
+                    </div>
+                    <div class="col-lg-3">
+                        <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "RelatorioCampoCPF", @ci))</label><br />
+                        @Html.TextBoxFor(x => x.dsCPF, new { @class = "form-control" })
+                    </div>
+                    <div class="col-lg-3">
+                        <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "RelatorioCampoCNPJ", @ci))</label><br />
+                        @Html.TextBoxFor(x => x.dsCNPJ, new { @class = "form-control" })
+                    </div>
+                </div>
+                <br class="clear" />
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "RelatorioCampoCodigoTreinamento", @ci))</label><br />
+                        @Html.TextBoxFor(x => x.dsCodigoTreinamento, new { @class = "form-control" })
+                    </div>
+                    <div class="col-lg-3">
+                        <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "RelatorioCampoSite", @ci))</label><br />
+                        @Html.DropDownListFor(x => x.idIdioma, (IEnumerable<SelectListItem>)ViewBag.Site, new { @class = "form-control" })
+                    </div>
+                    <div class="col-lg-3">
+                        <label><br /></label><br />
+                        <input type="submit" class="btn btn-primary" value="@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BotaoFiltrar", @ci))">
+                    </div>
+                </div>
+                <br class="clear" />
+
+                <div class="row">
+
+                </div>
+                <!-- FIM FORM -->
+            }
+            <!-- FIM OBL -->
+        }
+        else
+        {
+            <!-- OLA e OMS -->
+            using (Html.BeginForm("Cadastro", "Relatorio", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+                <!-- FORM -->
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "RelatorioCampoNome", @ci))</label><br />
+                        @Html.TextBoxFor(x => x.dsNomeCompleto, new { @class = "form-control" })
+                    </div>
+                    <div class="col-lg-3">
+                        <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "RelatorioCampoCPF", @ci))</label><br />
+                        @Html.TextBoxFor(x => x.dsCPF, new { @class = "form-control" })
+                    </div>
+                    <div class="col-lg-3">
+                        <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "RelatorioCampoPais", @ci))</label><br />
+                        @Html.DropDownListFor(x => x.idPais, (IEnumerable<SelectListItem>)ViewBag.Pais, "--", new { @class = "form-control" })
+                    </div>
+                </div>
+                <br class="clear" />
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "RelatorioCampoSite", @ci))</label><br />
+                        @if (idIdioma == 2) { @Html.Raw("OLA") }else { @Html.Raw("OMS") }
+                    </div>
+                    <div class="col-lg-3">
+                        <label><br /></label><br />
+                        <input type="submit" class="btn btn-primary" value="@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BotaoFiltrar", @ci))">
+                    </div>
+                </div>
+                <br class="clear" />
+
+                <div class="row">
+
+                </div>
+                <!-- FIM FORM -->
+            }
+            <!-- FIM OLA e OMS -->
+        }
+        
+
+        <br class="clear" />
+        <br class="clear" />
+
+        <!-- GRID USUÁRIOS -->
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    @Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "RelatorioCadastroRelatorioTitulo", @ci))
+                </h4>
+            </div>
+            <div class="panel-body">
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables">
+                        <thead>
+                            <tr>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "RelatorioCampoNome", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "RelatorioCampoCPF", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "RelatorioCampoPais", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "RelatorioCampoCNPJ", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "RelatorioColunaNomeFantasia", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "RelatorioColunaEstado", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "RelatorioColunaNovaEmpresa", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "RelatorioColunaDataCadastro", @ci))</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (ViewBag.Cadastros != null)
+                            {
+                                if (ViewBag.Cadastros.Count > 0)
+                                {
+                                    var n = 0;                             
+                                    foreach (Admin.Olympus.Dominio.Entidade.Usuario item in ViewBag.Cadastros)
+                                    {
+                                        n = n + 1;
+                                
+                                        <tr class="odd gradeX">
+                                            <td>@item.dsNomeCompleto</td>
+                                            <td>@item.dsCPF</td>
+                                            <td>@item.dsPais</td>
+                                            <td>@item.dsCNPJ</td>
+                                            <td>@item.dsNomeFantasia</td>
+                                            <td>@item.dsUF</td>
+                                            <td>@if(item.btNovaEmpresa == true){
+                                                    @Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BotaoSim", @ci))
+                                                }else
+                                                {
+                                                     @Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BotaoNao", @ci))
+                                                }</td>
+                                            <td>@item.dtCadastro</td>
+                                        </tr>
+                                    }
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="well">
+
+                    @using (Html.BeginForm("CadastroExcel", "Relatorio", FormMethod.Get))
+                    {
+                        @Html.HiddenFor(x => x.dsNomeCompleto)
+                        @Html.HiddenFor(x => x.dsCPF)
+                        @Html.HiddenFor(x => x.dsCNPJ)
+                        @Html.HiddenFor(x => x.dsCodigoTreinamento)
+                        @Html.HiddenFor(x => x.idIdioma)
+                        @Html.HiddenFor(x => x.idPais)
+
+                        <input type="submit" id="btnExcel" class="btn btn-default btn-lg btn-block" value="@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BotaoExcel", @ci))" />
+                    }
+                </div>
+
+            </div>
+
+        </div>
+        <!-- FIM - GRID USUÁRIOS -->
+
+        <br class="clear" />
+
+
+    </div>
+</div>
+
+<script>
+
+    $(function () {
+
+        $("#dsCPF").mask("999.999.999-99");
+        $("#dsCNPJ").mask("99.999.999/9999-99");
+
+        $(".dsCPF").mask("999.999.999-99");
+        $(".dsCNPJ").mask("99.999.999/9999-99");
+
+        $("#dsCelular").mask("(99) 99999-9999");
+        $("#dataInicio").mask("99/99/9999");
+        $("#dataFim").mask("99/99/9999");
+        $(".dsTelefone").mask("(99) 9999-9999");
+        $(".dsCelular").mask("(99) 99999-9999");
+    });
+
+</script>

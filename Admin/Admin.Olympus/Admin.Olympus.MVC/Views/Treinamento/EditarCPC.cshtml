@@ -1,0 +1,216 @@
+﻿@model Admin.Olympus.Dominio.Entidade.Treinamento
+
+@{
+    /* RESOURCE */
+
+    //Arquivo de Resource
+    string arquivoResource = (string)Session["ArquivoResource"];
+
+    //Idioma
+    string idioma = (string)Session["CultureIdioma"];
+    System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo(idioma);
+
+    //Tipo de Perfil (idIdioma)
+    var usuario = (Admin.Olympus.Dominio.Entidade.Administrador)Session["Administrador"];
+    int idIdioma = usuario.idTipo;
+}
+
+<!-- TÍTULO -->
+<div class="row">
+    <div class="col-lg-12">
+        @Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoAlterarEventoBrasilTitulo", @ci))
+    </div>
+</div>
+
+<!-- CONTEÚDO -->
+<div class="row">
+    <div class="col-lg-12">
+
+        <br class="clear" />
+        <h4><strong>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarTreinamentoDados", @ci))</strong></h4>
+
+        <div class="row">
+            <div class="col-lg-10">
+                <hr />
+            </div>
+            <div class="col-lg-1" style="text-align: right">
+                <a href="/Treinamento/DetalheEditar/@Model.idTreinamento" class="btn btn-primary">@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BotaoEditarDetalhes", @ci))</a>
+            </div>
+        </div>
+
+        <br class="clear" />
+
+        <!-- FORM -->
+        @using (Html.BeginForm("EditarHCP", "Treinamento", FormMethod.Post))
+        {
+            @Html.HiddenFor(x => x.idTreinamento)
+            @Html.HiddenFor(x => x.idStatus)
+            @Html.HiddenFor(x => x.btBrasil)
+            @Html.HiddenFor(x => x.inQuantidadeVagasPorCNPJ)
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoEventoDivisao", @ci))</label><br />
+                    @Html.DropDownListFor(x => x.idDivisao, (IEnumerable<SelectListItem>)ViewBag.Divisao, new { @class = "form-control", @disabled = "disabled" })
+                    @Html.HiddenFor(x => x.idDivisao)
+                </div>            
+            </div>
+            <br class="clear" />
+            <div class="row">
+                <div class="col-lg-12">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoNome", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsNome, new { @class = "form-control" })
+                </div>            
+            </div>
+            <br class="clear" />
+            <div class="row">
+                <div class="col-lg-6">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoCodigo", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsCodigoTreinamento, new { @class = "form-control" })
+                </div>
+                <div class="col-lg-3">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoTotalVagas", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.inQuantidadeVagas, new { @class = "form-control" })
+                </div>
+                <div class="col-lg-3">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoTotalVagasPorCNPJ", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.inQuantidadeVagasPorCNPJ, new { @class = "form-control" })
+                </div>
+            </div>
+            <br class="clear" />
+            <div class="row">
+                <div class="col-lg-3">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoDtInicio", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsInicio, new { @class = "form-control dataCalendario", @placeholder = "99/99/9999" })
+                </div>
+                <div class="col-lg-3">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoDtTermino", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsTermino, new { @class = "form-control dataCalendario", @placeholder = "99/99/9999" })
+                </div>
+                <div class="col-lg-3">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoDtHoraInicio", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsHoraInicio, new { @class = "form-control", @placeholder = "99:99" })
+                </div>
+                <div class="col-lg-3">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoDtHoraTermino", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsHoraTermino, new { @class = "form-control", @placeholder = "99:99" })
+                </div>
+            </div>
+            <br class="clear" />
+            <div class="row">
+                <div class="col-lg-6">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoInscricaoDtInicio", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsInscInicio, new { @class = "form-control dataCalendario", @placeholder = "99/99/9999" })
+                </div>
+                <div class="col-lg-6">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoInscricaoDtFim", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsInscFim, new { @class = "form-control dataCalendario", @placeholder = "99/99/9999" })
+                </div>
+            </div>
+            <br class="clear" />
+            <div class="row">
+                <div class="col-lg-12">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoDescricao", @ci))</label><br />
+                    @Html.TextAreaFor(x => x.dsDescricao, new { @class = "form-control", @style = "resize: none; height: 100px;" })
+                </div>
+            </div>
+            
+            <br class="clear" />
+            <br class="clear" />
+            <h4><strong>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarTreinamentoLocalizacao", @ci))</strong></h4>
+            <hr />
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoLocal", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsLocal, new { @class = "form-control" })
+                </div>
+            </div>
+            <br class="clear" />
+            <div class="row">
+                <div class="col-lg-8">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoEndereco", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsEndereco, new { @class = "form-control" })
+                </div>
+                <div class="col-lg-4">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoNumero", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsNumero, new { @class = "form-control" })
+                </div>
+            </div>
+            <br class="clear" />
+            <div class="row">
+                <div class="col-lg-8">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoBairro", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsBairro, new { @class = "form-control" })
+                </div>
+                <div class="col-lg-4">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoCEP", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsCEP, new { @class = "form-control" })
+                </div>
+            </div>
+            <br class="clear" />
+            <div class="row">
+                <div class="col-lg-4">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoCidade", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsCidade, new { @class = "form-control" })
+                </div>
+                <div class="col-lg-4">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoEstado", @ci))</label><br />
+                    @Html.DropDownListFor(x => x.dsUF, (IEnumerable<SelectListItem>)ViewBag.Estado, new { @class = "form-control" })
+                </div>
+                <div class="col-lg-4">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoPais", @ci))</label><br />
+                    @Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoBrasil", @ci))
+                </div>
+            </div>
+            <br class="clear" />
+            
+            <br class="clear" />
+            <h5>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoGoogleMaps", @ci))</h5>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoLatitude", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsLatitude, new { @class = "form-control" })
+                </div>
+                <div class="col-lg-6">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoCadastrarCampoLongitude", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsLongitude, new { @class = "form-control" })
+                </div>
+            </div>
+            <br class="clear" />
+        
+            <div class="col-lg-4">
+                <label><br /></label><br />
+                <input type="submit" class="btn btn-primary" value="@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BotaoSalvar", @ci))">
+            </div>
+
+            <br class="clear" />
+            <br class="clear" />
+            <br class="clear" />
+            <br class="clear" />
+        } 
+        <!-- FIM FORM -->
+    </div>
+</div>
+
+<script>
+
+    $(function () {
+
+        $("#dsInicio").mask("99/99/9999");
+        $("#dsTermino").mask("99/99/9999");
+        $("#dsHoraInicio").mask("99:99");
+        $("#dsHoraTermino").mask("99:99");
+
+        $("#dsInscInicio").mask("99/99/9999");
+        $("#dsInscFim").mask("99/99/9999");
+
+        $("#dsCEP").mask("99999-999");
+
+        $("#inQuantidadeVagas").mask("99999");
+        $("#inQuantidadeVagasPorCNPJ").mask("99999");
+
+    });
+
+</script>

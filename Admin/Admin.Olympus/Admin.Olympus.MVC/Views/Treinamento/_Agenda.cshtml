@@ -1,0 +1,76 @@
+﻿@model Admin.Olympus.Dominio.Entidade.Treinamento
+@using Admin.Olympus.Dominio.Entidade
+
+@{
+    /* RESOURCE */
+
+    //Arquivo de Resource
+    string arquivoResource = (string)Session["ArquivoResource"];
+
+    //Idioma
+    string idioma = (string)Session["CultureIdioma"];
+    System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo(idioma);
+
+    //Tipo de Perfil (idIdioma)
+    var usuario = (Admin.Olympus.Dominio.Entidade.Administrador)Session["Administrador"];
+    int idIdioma = usuario.idTipo;
+}
+<script type="text/javascript" src="~/assets/js/treinamento.js"></script>
+
+<h3><strong>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoDetalheAgendaTitulo", @ci))</strong></h3>
+<hr />
+
+<div class="row">
+    @Html.HiddenFor(x => x.idTreinamento)
+    <div class="col-lg-3">
+        <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoDetalheAgendaDia", @ci))</label><br />
+        @Html.DropDownListFor(x => x.dtTreinamento, (IEnumerable<SelectListItem>)ViewBag.Dias, new { @class = "form-control" })
+    </div>
+    <div class="col-lg-3">
+        <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoDetalheAgendaHorario", @ci))</label><br />
+        @Html.TextBoxFor(x => x.dsHorario, new { @class = "form-control", @required = "required" })
+    </div>
+    <div class="col-lg-5">
+        <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "TreinamentoDetalheAgendaAtividade", @ci))</label><br />
+        @Html.TextBoxFor(x => x.dsAtividade, new { @class = "form-control", @required = "required" })
+    </div>
+    <div class="col-lg-1">
+        <label><br /></label><br />
+        <input type="submit" class="btn btn-primary" id="btAddAgenda" value="+">
+    </div>
+</div>
+<br class="clear" />
+<!-- FIM AGENDA -->
+<!-- LISTA AGENDA -->
+
+<div class="row">
+    <div class="col-lg-11">
+        @if (ViewBag.Agenda != null)
+        {
+            var listAgenda = (List<Treinamento>)ViewBag.Agenda;
+
+            if (listAgenda.Count > 0)
+            {
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Horário</th>
+                                <th>Atividade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in listAgenda)
+                            {
+                                <tr>
+                                    <td>@item.dsHorario</td>
+                                    <td>@item.dsAtividade</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        }
+    </div>
+</div>

@@ -1,0 +1,21 @@
+﻿@model Admin.Olympus.Dominio.Entidade.Pesquisa
+
+@{
+    /* RESOURCE */
+
+    //Arquivo de Resource
+    string arquivoResource = (string)Session["ArquivoResource"];
+
+    //Idioma
+    string idioma = (string)Session["CultureIdioma"];
+    System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo(idioma);
+
+    //Tipo de Perfil (idIdioma)
+    var usuario = (Admin.Olympus.Dominio.Entidade.Administrador)Session["Administrador"];
+    int idIdioma = usuario.idTipo;
+}
+
+<div class="col-lg-10">
+    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaSelecionePesquisaCadastrada", @ci))</label>
+    @Html.DropDownListFor(x => x.idPesquisa, (IEnumerable<SelectListItem>)ViewBag.Pesquisas, new { @class = "form-control" })
+</div>

@@ -1,0 +1,369 @@
+﻿@model Fullbar.Olympus.MVC.Models.TreinamentoInscricaoViewModel
+
+@{
+    ViewBag.Title = "InscricaoConfirmacaoTerceirosLista";
+}
+
+<div class="col-md-9 pad-top-40 conteudo">
+    <div class="col-md-12 title-geral">
+        <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@ViewBag.Treinamento</p>
+    </div>
+
+
+    @{
+        Fullbar.Olympus.Dominio.Entidade.TreinamentoDetalhe t = new Fullbar.Olympus.Dominio.Entidade.TreinamentoDetalhe();
+
+        if (ViewBag.TreinamentoDetalhe != null)
+        {
+            t = ViewBag.TreinamentoDetalhe;
+        }
+    }
+
+
+    @if (ViewBag.ListaConvidados != null && ((List<Fullbar.Olympus.Dominio.Entidade.TreinamentoConvite>)ViewBag.ListaConvidados).Count > 0)
+    {
+
+        <div class="col-md-12 pad-top-20 title-geral title-cadastro result-inscri">
+            <p><span><img class="" src=@Url.Content("~/assets/img/ico-inscri-confirma.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoConfiralista</p>
+        </div>
+
+
+        if (ViewBag.ListaConvidados != null)
+        {
+            foreach (var item in ViewBag.ListaConvidados)
+            {
+                 <div class="col-md-12 zera-pad pad-top-20">
+                    <div class="col-md-12">                    
+                        <div class="">
+                            <input type="text" name="Nome" value="@item.dsNome" class=" form-control inp-contato">
+                        </div>
+                    </div>
+                </div>
+            }
+        }     
+    
+    }  
+
+
+    @if (ViewBag.ListaConvidadosEspera != null && ((List<Fullbar.Olympus.Dominio.Entidade.TreinamentoConvite>)ViewBag.ListaConvidadosEspera).Count > 0)
+    {
+
+    <div class="col-md-12 pad-top-40 title-geral title-cadastro result-inscri">
+        <p><span><img class="" src=@Url.Content("~/assets/img/ico-inscri-espera.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoOutrasInscricoes</p>
+    </div>
+
+    <div class="col-md-12 pad-top-20 inscr-confirma-text">        
+        @Html.Raw(Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoAListaDeEspera)
+    </div>
+                        
+    
+        foreach (var item in ViewBag.ListaConvidadosEspera)
+        {
+            <div class="col-md-12 zera-pad pad-top-20">
+                <div class="col-md-12">
+                    <div class="">
+                        <input type="text" name="Nome" value="@item.dsNome" class="form-control inp-contato">
+                    </div>
+                </div>
+            </div>
+        }
+      
+
+    <div class="col-md-12 pad-top-30 inscr-confirma-text">
+        @Html.Raw(Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoSeAlgum)
+    </div>
+        
+    }
+    
+    <div class="col-md-12">
+        <hr />
+    </div>
+
+    <div class="col-md-12 pad-top-10 inscr-confirma-text">
+        @Html.Raw(Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoParaAlterar)
+    </div>
+
+    <div class="col-md-12 pad-top-30 text-center">
+        <p><input type="button" name="" onclick="location.href='@("/" + Fullbar.Olympus.MVC.Resource.PaginaTreinamentoController + "/" + Fullbar.Olympus.MVC.Resource.PaginaTreinamentoActionMeusTreinamentos)'" value="@Fullbar.Olympus.MVC.Resource.HomeMeusTreinamentos" class="btn btn-lg btn-primary btn-amarelo" role="button" id=""></p>
+    </div>
+
+    <div class="col-md-12">
+        <hr />
+    </div>
+
+
+
+    <div class="col-md-8 zera-pad">
+        <div class="col-md-12 pad-top-30 title-geral-cadastro title-geral-cadastro-laranja">
+            <p><span><img class="" src="/assets/img/ico-title.png" alt=""></span>@Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoDadosTreinamento</p>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="col-md-12 pad-top-30">
+            <div class="col-md-2">
+                <img src="~/assets/img/inscricao/ico-data.png" class="img-responsive center-block" />
+            </div>
+            <div class="col-md-3 text-center inscri-title-data">
+                <strong>@Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoData</strong>
+            </div>
+            <div class="col-md-7 inscri-data">
+                @if (t.dtTreinamento == t.dtTreinamentoFim)
+                {
+                    @(ViewBag.DiaSemana + " - " + t.dsDia + " de " + t.dsMesPorExtenso + ", " + t.dtTreinamento.Year.ToString())
+                }
+                else
+                {
+                    if (t.dsMesPorExtenso == t.mesFinalPorExtenso)
+                    {
+                        @("De " + t.dtTreinamento.Day + " a " + t.dtTreinamentoFim.Day + " de " + t.dsMesPorExtenso + ", " + t.dtTreinamento.Year.ToString())
+                    }
+                    else
+                    {
+                        @("De " + t.dtTreinamento.Day + " de " + t.dsMesPorExtenso + " a " + t.dtTreinamentoFim.Day + " de " + t.mesFinalPorExtenso + ", " + t.dtTreinamento.Year.ToString())
+                    }
+                }
+            </div>
+        </div>
+        <div class="col-md-12 pad-top-30">
+            <div class="col-md-2">
+                <img src="~/assets/img/inscricao/ico-segmento.png" class="img-responsive center-block" />
+            </div>
+            <div class="col-md-3 text-center inscri-title-data">
+                <strong>@Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoSegmento</strong>
+            </div>
+            <div class="col-md-7 inscri-data">
+                @if (t.idDivisao == 4)
+                {
+                    @*<img src=@Url.Content("~/assets/img/treinamentos-ico-tipo-2.png") alt="" class="center-block">*@
+                    @Fullbar.Olympus.MVC.Resource.TreinamentoDivisao4
+                }
+                else
+                {
+                    @*<img src=@Url.Content("~/assets/img/treinamentos-ico-tipo.png" ) alt="" class="center-block">*@
+                    @Fullbar.Olympus.MVC.Resource.TreinamentoDivisao3
+                }
+            </div>
+        </div>
+        <div class="col-md-12 pad-top-30">
+            <div class="col-md-2">
+                <img src="~/assets/img/inscricao/ico-endereco.png" class="img-responsive center-block" />
+            </div>
+            <div class="col-md-3 text-center inscri-title-data">
+                <strong>@Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoEndereco</strong>
+            </div>
+            <div class="col-md-7 inscri-data">
+                @(t.dsLocalTreinamento + " - " + t.dsEndereco + "," + t.dsNumero + "." + t.dsBairro + " - " + t.dsCidade + "," + t.dsUF)
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-4 pad-top-30 text-center">
+        <a target="_blank" href="https://www.google.com.br/maps/place/Model.dsLatitude,Model.dsLongitude">
+            <div id="map_canvas" style="width: 346px; height: 247px;" class="img-responsive center-block"></div>
+        </a>
+    </div>
+
+
+
+
+    <input type="hidden" id="latitude" value="@t.dsLatitude" />
+    <input type="hidden" id="longitude" value="@t.dsLongitude" />
+
+
+    <div class="clearfix"></div>
+
+    <div class="col-md-12 pad-top-40">
+        <div>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr class="treinamentos-tab-title c-laranja">
+                        <td>
+                            @Fullbar.Olympus.MVC.Resource.PaginaTreinamentoDetalhesHorario
+                        </td>
+                        <td>
+                            @Fullbar.Olympus.MVC.Resource.PaginaTreinamentoDetalhesAtividades
+                        </td>
+                        @*<td>
+                            @Fullbar.Olympus.MVC.Resource.PaginaTreinamentoDetalhesPalestrantes
+                        </td>*@
+                    </tr>
+                    @if (t != null)
+                    {
+                        var lastDay = 0;
+                        var i = 0;
+                        foreach (var item in t.Agendas)
+                        {
+                            if (lastDay != item.inDia)
+                            {
+                                i++;
+                                <tr>
+                                    <td colspan="3">@Fullbar.Olympus.MVC.Resource.TreinamentoDia @i</td>
+                                </tr>
+                                lastDay = item.inDia;
+                            }
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.dsHorario)h
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.dsAtividade)
+                                </td>
+                                @*<td>
+                                    @Html.DisplayFor(modelItem => item.dsPalestrante)
+                                </td>*@
+                            </tr>
+                        }
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+
+    @*<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>*@
+
+<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDs0TJkpgSY9DUWtB-cSign8rQeONr-CZg" async="" defer="defer" type="text/javascript"></script>
+    <script type="text/javascript" src=@Url.Content("~/assets/js/Mapa.js")></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            Initialize();
+
+            $('#ulMenu > li').each(function () {
+
+                $(this).removeClass('active');
+
+            });
+
+            $('#liTreinamento').addClass('active');
+
+        });
+
+
+    </script>
+
+
+    <script>
+            $(document).ready(function () {
+                var qtd = $(".carousel-inner > .item").size()
+                if (qtd <= 1) {
+                    $(".esconde-seta").hide();
+                }
+
+            });
+    </script>
+
+
+    <script>
+            $(function($) {
+
+                $(".knob").knob({
+                    change : function (value) {
+                        //console.log("change : " + value);
+                    },
+                    release : function (value) {
+                        //console.log(this.$.attr('value'));
+                        console.log("release : " + value);
+                    },
+                    cancel : function () {
+                        console.log("cancel : ", this);
+                    },
+                    /*format : function (value) {
+                        return value + '%';
+                    },*/
+                    draw : function () {
+
+                        // "tron" case
+                        if(this.$.data('skin') == 'tron') {
+
+                            this.cursorExt = 0.3;
+
+                            var a = this.arc(this.cv)  // Arc
+                                , pa                   // Previous arc
+                                , r = 1;
+
+                            this.g.lineWidth = this.lineWidth;
+
+                            if (this.o.displayPrevious) {
+                                pa = this.arc(this.v);
+                                this.g.beginPath();
+                                this.g.strokeStyle = this.pColor;
+                                this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, pa.s, pa.e, pa.d);
+                                this.g.stroke();
+                            }
+
+                            this.g.beginPath();
+                            this.g.strokeStyle = r ? this.o.fgColor : this.fgColor ;
+                            this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, a.s, a.e, a.d);
+                            this.g.stroke();
+
+                            this.g.lineWidth = 2;
+                            this.g.beginPath();
+                            this.g.strokeStyle = this.o.fgColor;
+                            this.g.arc( this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
+                            this.g.stroke();
+
+                            return false;
+                        }
+                    }
+                });
+
+                // Example of infinite knob, iPod click wheel
+                var v, up=0,down=0,i=0
+                    ,$idir = $("div.idir")
+                    ,$ival = $("div.ival")
+                    ,incr = function() { i++; $idir.show().html("+").fadeOut(); $ival.html(i); }
+                    ,decr = function() { i--; $idir.show().html("-").fadeOut(); $ival.html(i); };
+                $("input.infinite").knob(
+                                    {
+                                    min : 0
+                                    , max : 20
+                                    , stopper : false
+                                    , change : function () {
+                                                    if(v > this.cv){
+                                                        if(up){
+                                                            decr();
+                                                            up=0;
+                                                        }else{up=1;down=0;}
+                                                    } else {
+                                                        if(v < this.cv){
+                                                            if(down){
+                                                                incr();
+                                                                down=0;
+                                                            }else{down=1;up=0;}
+                                                        }
+                                                    }
+                                                    v = this.cv;
+                                                }
+                                    });
+            });
+    </script>
+
+    <script>
+
+    $(function () {
+
+        /*====== Verifica Mensagem de retorno*/
+
+        var mensagem = $('input[name="mensagem"]').val();
+
+        if (mensagem != '') {
+
+            var titulo = $('input[name="mensagemTitulo"]').val();
+
+            //alerta(mensagem, titulo);
+        }
+    });
+
+    </script>
+
+
+
+}

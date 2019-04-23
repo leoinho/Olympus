@@ -1,0 +1,264 @@
+﻿@model Fullbar.Olympus.MVC.Models.TreinamentoInscricaoResultadoViewModel
+
+@{
+    ViewBag.Title = @Fullbar.Olympus.MVC.Resource.PaginaResultado;
+    var caminho = System.Web.Configuration.WebConfigurationManager.AppSettings["caminhoImg"];    
+}
+
+<div class="col-md-9 pad-top-40 conteudo">
+    
+    <div class="col-md-12 title-geral">
+        <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@ViewBag.Treinamento</p>
+    </div>
+
+    <!-- STATUS DE INSCRIÇÃO DO PARTICIPANTE -->
+
+    @if (ViewBag.idStatus == 1)
+    {
+        <!-- STATUS PENDENTE -->
+    <div class="col-md-12 pad-top-30 title-geral title-cadastro result-inscri">
+        <p><span><img class="" src=@Url.Content("~/assets/img/ico-pendente.png") alt=""></span>Inscrição Pendente</p>
+    </div>
+
+    <div class="col-md-12 pad-top-20 texto-inscricao">
+
+        @Html.Raw(@Fullbar.Olympus.MVC.Resource.TreinamentoResultadoPendente)
+
+        
+    </div>
+        <div class="col-md-12 text-center">
+            @if (ViewBag.dsPesquisa != string.Empty)
+            {
+                <a class="btn btn-lg btn-primary btn-amarelo" href="@ViewBag.CaminhoAdmin/assets/file/pesquisa/@ViewBag.dsPesquisa" role="button">Download</a>
+            }
+        </div>
+
+    <!-- /STATUS PENDENTE -->    
+    }
+    else if (ViewBag.idStatus == 2)
+    {
+        <!-- Inscrição Confirmada -->
+        <div class="col-md-12 pad-top-30 title-geral title-cadastro result-inscri">
+            <p><span><img class="" src=@Url.Content("~/assets/img/ico-inscri-confirma.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.TreinamentoResultadoInscricaoConfirmada</p>
+        </div>
+
+        <div class="col-md-12 pad-top-20 texto-inscricao">
+            <p>
+                @Html.Raw(@Fullbar.Olympus.MVC.Resource.TreinamentoResultadoTexto)<br /><br />
+
+                @Html.Raw(@Fullbar.Olympus.MVC.Resource.TreinamentoResultadoTexto2)
+            </p>
+        </div>        
+    }
+    else if (ViewBag.idStatus == 3 || ViewBag.idStatus == 4)
+    {
+        <!-- ------ Inscrição em lista de espera-->
+        <div class="col-md-12 pad-top-30 title-geral title-cadastro result-inscri">
+            <p><span><img class="" src=@Url.Content("~/assets/img/ico-inscri-espera.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.TreinamentoResultadoOutrasInscricaoListaEspera</p>
+        </div>
+        
+        if (ViewBag.idDivisao == 3)
+        {
+            <div class="col-md-12 pad-top-20 texto-inscricao">
+                <p>
+                    @Html.Raw(@Fullbar.Olympus.MVC.Resource.TreinamentoResultadoTexto4)
+                </p>
+                
+                @if (ViewBag.dsPesquisa != string.Empty)
+                {
+                    <div class="col-md-12 pad-top-30 text-center">
+                        <p><a class="btn btn-lg btn-primary btn-amarelo btnDownloadResultado" href="@Url.Content(caminho + "/assets/file/pesquisa/" + ViewBag.dsPesquisa)" download>Download</a></p>
+                    </div>                    
+                }
+            </div>
+        }
+        else
+        {
+            <div class="col-md-12 pad-top-20 texto-inscricao">
+                <p>
+                    @Html.Raw(@Fullbar.Olympus.MVC.Resource.TreinamentoResultadoTexto3)
+                </p>
+            </div>
+        }        
+    }
+        
+    <!-- STATUS DE INSCRIÇÃO DOS CONVIDADOS -->
+    @if (Model.Confirmado != null)
+    {
+        if (Model.Confirmado.Count > 0)
+        {                
+            <!-- Inscrição Confirmada -->
+            <div class="col-md-12 title-geral result-inscri-title pad-top-30">
+                <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.TreinamentoResultadoOutrasInscricaoConfirmada</p>
+            </div>
+
+            foreach (var item in Model.Confirmado)
+            {
+                <div class="col-md-12 pad-top-15">
+                    <div class="col-md-12">
+                        <input type="text" id="" readonly value="@item.dsNome" class="form-control inp-contato">
+                    </div>
+                </div>
+            }
+        }        
+    }
+    
+        
+    @if (Model.ListaEspera != null)
+    {
+        if (Model.ListaEspera.Count > 0)
+        {            
+            <div class="col-md-12 title-geral result-inscri-title pad-top-30">
+                <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.TreinamentoResultadoOutrasListaEsperaInscricao</p>
+            </div>
+
+            foreach (var itemListaEspera in Model.ListaEspera)
+            {
+                <div class="col-md-12 pad-top-15">
+                    <div class="col-md-12">
+                        <input type="text" id="" readonly value="@itemListaEspera.dsNome" class="form-control inp-contato">
+                    </div>
+                </div>
+            }
+        }
+    }
+    
+
+
+
+
+    @{
+        Fullbar.Olympus.Dominio.Entidade.TreinamentoDetalhe t = new Fullbar.Olympus.Dominio.Entidade.TreinamentoDetalhe();
+
+        if (ViewBag.TreinamentoDetalhe != null)
+        {
+            t = ViewBag.TreinamentoDetalhe;
+        }
+    }
+
+    <!-- ---------------------- Detalhes -------------------  -->
+    <div class="col-md-12 pad-top-30">
+        <div class="col-md-7 zera-pad">
+            <div class="col-md-5 col-sm-6 col-xs-12 zera-pad">
+                <div class="col-md-6 treinamento-data">
+                    <div class="treinamento-data-div">
+                        @t.dsDia
+                    </div>
+                    <hr>
+                    <p>@t.dsMesPorExtenso</p>
+                </div>
+                <div class="col-md-6 zera-pad text-center treinamento-tipo">
+
+                    @if (t.idDivisao == 4)
+                    {
+                        <img src=@Url.Content("~/assets/img/treinamentos-ico-tipo-2.png") alt="" class="center-block">
+                        <p>@Fullbar.Olympus.MVC.Resource.TreinamentoDivisao4</p>
+                    }
+                    else
+                    {
+                        <img src=@Url.Content("~/assets/img/treinamentos-ico-tipo.png" ) alt="" class="center-block">
+                        <p>@Fullbar.Olympus.MVC.Resource.TreinamentoDivisao3</p>
+                    }
+
+                    @*<p>@Model.Divisao</p>*@
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-6 col-xs-12 zera-pad treinamento-endereco">
+                <div>
+                    <div class="zera-pad col-md-3 ">
+                        <img src=@Url.Content("~/assets/img/treinamentos-ico-marcador.png") alt="" class="center-block">
+                    </div>
+                    <div class="zera-pad col-md-9">
+
+                        @t.dsLocalTreinamento <br />
+                        @t.dsEndereco, @t.dsNumero <br />
+                        @t.dsBairro<br />
+                        @t.dsCidade / @t.dsUF
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 zera-pad pad-top-10">
+                <div>
+                    <table class="table table-bordered">
+                        <tr class="treinamentos-tab-title">
+                            <td>
+                                @Fullbar.Olympus.MVC.Resource.PaginaTreinamentoDetalhesHorario
+                            </td>
+                            <td>
+                                @Fullbar.Olympus.MVC.Resource.PaginaTreinamentoDetalhesAtividades
+                            </td>
+                            @*<td>
+                                    @Fullbar.Olympus.MVC.Resource.PaginaTreinamentoDetalhesPalestrantes
+                                </td>*@
+                        </tr>
+
+
+                        @if (t != null)
+                        {
+                            var lastDay = 0;
+                            var i = 0;
+                            foreach (var item in t.Agendas)
+                            {
+                                if (lastDay != item.inDia)
+                                {
+                                    i++;
+                                    <tr>
+                                        <td colspan="3">@Fullbar.Olympus.MVC.Resource.TreinamentoDia @i</td>
+                                    </tr>
+                                    lastDay = item.inDia;
+                                }
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.dsHorario)h
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.dsAtividade)
+                                    </td>
+                                    @*<td>
+                                            @Html.DisplayFor(modelItem => item.dsPalestrante)
+                                        </td>*@
+                                </tr>
+                            }
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-5 pad-r text-center">
+
+        </div>
+    </div>
+    <!-- ---------------------- /Detalhes -------------------  -->
+
+
+    <div class="col-md-12 text-center">
+        <a class="btn btn-lg btn-primary bt-cinza" href="" role="button">Voltar</a>
+        <a class="btn btn-lg btn-primary btn-amarelo" href="/Treinamento/MeusTreinamento/" role="button">Meus Treinamentos</a>
+    </div>
+    
+</div>
+
+
+
+@section Scripts{
+    
+    <script>
+
+        $(function () {
+        
+            $('#ulMenu > li').each(function () {
+
+                $(this).removeClass('active');
+
+            });
+
+            $('#liTreinamento').addClass('active')
+
+        });
+
+    </script>
+}

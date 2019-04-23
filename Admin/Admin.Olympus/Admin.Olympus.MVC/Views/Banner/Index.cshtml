@@ -1,0 +1,387 @@
+﻿@model Admin.Olympus.Dominio.Entidade.Banner
+
+@{
+    /* RESOURCE */
+
+    //Arquivo de Resource
+    string arquivoResource = (string)Session["ArquivoResource"];
+
+    //Idioma
+    string idioma = (string)Session["CultureIdioma"];
+    System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo(idioma);
+}
+
+<!-- TÍTULO -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            <strong>Banners</strong>
+            <p style="line-height: 0.7;">
+                <span style="font-size: 18px">@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerSubTitulo", @ci)</span>
+            </p>
+        </h1>
+    </div>
+</div>
+
+<!-- CONTEÚDO -->
+<div class="row">
+    <div class="col-lg-12">
+
+        @using (Html.BeginForm("Index", "Banner", FormMethod.Post, new { @enctype = "multipart/form-data" } ))
+        { 
+            <!-- FORM -->
+            <div class="row">
+                <div class="col-lg-3">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerCampoTitulo", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsTitulo, new { @class = "form-control" })
+                </div>
+                <div class="col-lg-3">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerCampoImagem", @ci))</label><br />
+                    <input type="file" class="form-control" id="dsImagem" name="dsImagem" />
+                </div>
+                <div class="col-lg-3">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerCampoLink", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsLink, new { @class = "form-control" })
+                </div>
+            </div>
+            <br class="clear" />
+
+            <div class="row">                
+                <div class="col-lg-3">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerCampoSite", @ci))</label><br />
+                    @Html.DropDownListFor(x => x.idIdioma, (IEnumerable<SelectListItem>)ViewBag.Site, new { @class = "form-control" })
+                </div>
+                <div class="col-lg-3">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerCampoStatus", @ci))</label><br />
+                    @Html.DropDownListFor(x => x.idStatus, (IEnumerable<SelectListItem>)ViewBag.Status, new { @class = "form-control" })
+                </div>
+                @*<div class="col-lg-3">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerCampoOrdem", @ci))</label><br />
+                    @Html.DropDownListFor(x => x.inOrdem, (IEnumerable<SelectListItem>)ViewBag.Ordem, new { @class = "form-control" })
+                </div>*@
+                <div class="col-lg-3">
+                    <label><br /></label><br />
+                    <input type="submit" class="btn btn-primary" value="@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BotaoSalvar", @ci))">
+                </div>
+            </div>
+            <br class="clear" />
+
+            <div class="row">
+                
+            </div>
+        }
+        <!-- FIM FORM -->
+        
+        <br class="clear" />
+        <br class="clear" />
+
+        <!-- GRID BANNERS ATIVOS -->
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    @Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerRelatorioBannerAtivoTitulo", @ci))
+                </h4>
+            </div>
+            <div class="panel-body">
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="sortable">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerRelatorioBannerColunaTitulo", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerRelatorioBannerColunaSite", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerRelatorioBannerColunaOrdem", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerRelatorioBannerColunaData", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerCampoLink", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerRelatorioBannerColunaAcao", @ci))</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (ViewBag.BannersAtivos != null)
+                            {
+                                if (ViewBag.BannersAtivos.Count > 0)
+                                {
+                                    foreach (Admin.Olympus.Dominio.Entidade.Banner item in ViewBag.BannersAtivos)
+                                    {
+                                        <tr class="odd gradeX" id="@item.idBanner">
+                                            <td width="100px"><img src="/assets/img/banner/@item.dsImagem" width="100" /></td>
+                                            <td>@item.dsTitulo</td>
+                                            <td>@item.dsSite</td>
+                                            <td class="posicao">@item.inOrdem</td>                                            
+                                            <td>@item.dtOperacao</td>
+                                            <td><input type="text" class="editalink" id="link_@item.idBanner" value="@item.dsLink" style="background-color:transparent; border:none; width:100%;" /></td>
+                                            <td>
+                                                <input id="@item.idBanner" type="button" class="btn btn-default btInativar" value="@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerRelatorioBotaoInativar", @ci))" />
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- FIM - GRID BANNERS ATIVOS -->
+
+        <br class="clear" />
+
+        <!-- GRID BANNERS INATIVOS -->
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    @Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerRelatorioBannerInativoTitulo", @ci))
+                </h4>
+            </div>
+            <div class="panel-body">
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerRelatorioBannerColunaTitulo", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerRelatorioBannerColunaSite", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerRelatorioBannerColunaOrdem", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerRelatorioBannerColunaData", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerRelatorioBannerColunaAcao", @ci))</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (ViewBag.BannersInativos != null)
+                            {
+                                if (ViewBag.BannersInativos.Count > 0)
+                                {
+                                    foreach (Admin.Olympus.Dominio.Entidade.Banner item in ViewBag.BannersInativos)
+                                    {
+                                        <tr class="odd gradeX" id="tr_@item.idBanner">
+                                            <td width="100px"><img src="/assets/img/banner/@item.dsImagem" width="100" /></td>
+                                            <td>@item.dsTitulo</td>
+                                            <td>@item.dsSite</td>
+                                            <td>@item.inOrdem</td>
+                                            <td>@item.dtOperacao</td>
+                                            <td>
+                                                <input id="@item.idBanner" type="button" class="btn btn-default btAtivar" value="@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerRelatorioBotaoAtivar", @ci))" />
+                                                &nbsp;
+                                                <input id="exclui_@item.idBanner" type="button" class="btn btn-default btExcluir" value="@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BotaoExcluir", @ci))" title="@item.dsTitulo" />                                               
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+        <!-- FIM - GRID BANNERS INATIVOS -->
+
+
+    </div>
+</div>
+
+
+<script>
+
+
+    $(function () {
+        $("#sortable tbody").sortable();
+        $("#sortable tbody").disableSelection();
+
+
+        var _n = 0;
+        $(".posicao").each(function (index) {
+            _n++;
+            $(this).html(_n);
+        });
+
+
+        $("#sortable tbody").sortable({
+            update: function () {
+                
+                $('#loading').fadeIn();
+
+                var url = "/Banner/Ordenar";
+                $.post(url, { ordem: "" + $('#sortable tbody').sortable('toArray') + "" }, function (response) {
+                    if (response.id > 0) {
+                        var n = 0;
+                        $(".posicao").each(function (index) {
+                            n++;
+                            $(this).html(n);
+                        });
+
+                    }
+                    else {
+                        alerta("Erro", response.dsMensagem);
+                    }
+
+                    $('#loading').fadeOut();
+
+                });
+                //return false;
+            }
+        });
+
+    });
+
+
+    $("body").on('click', '.btAtivar', function (event) {
+        event.preventDefault();
+
+        confirma('@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ModalTituloAtencao", @ci))',
+            '@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerModalMensagemConfirma", @ci))');
+
+        var id = $(this).attr("id");
+
+        $("body").on('click', '#btnSimModal', function (event) {
+            event.preventDefault();
+
+            if (id != null && id != 0) {
+
+                var url = "/Banner/Alterar/";
+
+                $.ajax({
+
+                    url: url,
+                    type: 'post',
+                    dataType: 'json',
+                    data: { idBanner: id, idStatus: 1 },
+                    success: function () {
+                    },
+                    complete: function (data) {
+
+                        window.location = "/Banner";
+                    }
+                });
+            }
+        });
+
+        return false;
+
+    });
+
+    $("body").on('click', '.btInativar', function (event) {
+        event.preventDefault();
+
+        confirma('@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ModalTituloAtencao", @ci))',
+            '@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BannerModalMensagemConfirma", @ci))');
+
+        var id = $(this).attr("id");
+
+        $("body").on('click', '#btnSimModal', function (event) {
+            event.preventDefault();
+
+            if (id != null && id != 0) {
+
+                var url = "/Banner/Alterar/";
+
+                $.ajax({
+
+                    url: url,
+                    type: 'post',
+                    dataType: 'json',
+                    data: { idBanner: id, idStatus: 2 },
+                    success: function () {
+                    },
+                    complete: function (data) {
+
+                        window.location = "/Banner";
+                    }
+                });
+            }
+        });
+
+        return false;
+
+    });
+
+
+
+
+    $("body").on('blur', '.editalink', function () {
+
+        $("#loading").fadeIn();
+
+        var id = $(this).attr("id").replace("link_", "");
+    
+        var url = "/Banner/AlteraLink/";
+
+        $.ajax({
+
+            url: url,
+            type: 'post',
+            dataType: 'json',
+            data: { idBanner: id, dsLink: $(this).val() },
+            success: function () {
+            },
+            complete: function (data) {
+
+                $("#loading").fadeOut();
+            }
+        });       
+
+
+    });
+
+
+
+    /***EXCLUIR BANNER**/
+
+    $("body").on('click', '.btExcluir', function (event) {
+        event.preventDefault();
+
+        var id = $(this).attr("id").replace("exclui_", "");
+
+        confirmaGeral("", "Deseja excluir o banner <strong>" + $(this).attr("title") + "</strong>?", id);
+
+        return false;
+    });
+
+
+    function confirmaGeral(titulo, mensagem, idAcao) {
+
+        $('#myModalConfirmLabelGeral').text(titulo);
+        $('#myModalConfirmTextoGeral').html(mensagem);
+        $('#myModalConfirmGeral').modal('show');
+
+        $("#btnSimGeral").prop("title", idAcao);
+
+    }
+
+
+    $("body").on('click', '#btnSimGeral', function (event) {
+        event.preventDefault();
+       
+        var id = $(this).attr("title");
+        
+        $('#myModalConfirmGeral').modal('hide');
+        $("#loading").fadeIn();
+
+        var url = "/Banner/Excluir/";
+
+        $.ajax({
+
+            url: url,
+            type: 'post',
+            dataType: 'json',
+            data: { idBanner: id },
+            success: function () {
+            },
+            complete: function (data) {
+                $("#loading").fadeOut();
+                $('#tr_' + id).hide();
+            }
+        });
+
+
+        return false;
+    });
+    /***FIM EXCLUIR BANNER**/
+
+    
+
+</script>

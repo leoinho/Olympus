@@ -1,0 +1,339 @@
+﻿@model Admin.Olympus.Dominio.Entidade.Pesquisa
+@using Admin.Olympus.Dominio.Entidade
+
+@{
+    /* RESOURCE */
+
+    //Arquivo de Resource
+    string arquivoResource = (string)Session["ArquivoResource"];
+
+    //Idioma
+    string idioma = (string)Session["CultureIdioma"];
+    System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo(idioma);
+
+    //Tipo de Perfil (idIdioma)
+    var usuario = (Admin.Olympus.Dominio.Entidade.Administrador)Session["Administrador"];
+    int idIdioma = usuario.idTipo;
+}
+
+<!-- TÍTULO -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            @Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaCadastrarTitulo", @ci))
+            <p style="line-height: 0.7;">
+                <span style="font-size: 18px">@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaCadastrarSubTitulo", @ci)</span>
+            </p>
+        </h1>
+    </div>
+</div>
+
+<!-- CONTEÚDO -->
+<div class="row">
+    <div class="col-lg-12">
+
+        <!-- FORM -->
+        @using (Html.BeginForm("Cadastrar", "Pesquisa", FormMethod.Post))
+        {
+            <br class="clear" />
+            <div class="row">
+                <div class="col-lg-9">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaSelecioneTreinamento", @ci))</label><br />
+                    @Html.DropDownListFor(x => x.idTreinamento, (IEnumerable<SelectListItem>)ViewBag.Treinamento, new { @class = "form-control" })
+                </div>
+                <div class="col-lg-3">
+                    <label><br /></label><br />
+                    <input type="submit" class="btn btn-primary" value="@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BotaoConfirmar", @ci))">
+                </div>
+            </div>
+            <br class="clear" />
+            <br class="clear" />
+        }
+        <!-- FIM FORM -->
+        @if (Model != null)
+        {
+            using (Html.BeginForm("CadastrarPergunta", "Pesquisa", FormMethod.Post))
+            {
+                @Html.HiddenFor(x => x.idTreinamento)
+                @Html.HiddenFor(x => x.idPesquisa)
+                @Html.HiddenFor(x => x.idTipo)
+
+                <!-- DETALHES TREINAMENTO  -->
+                <h4><strong>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaTreinamentoSelecionado", @ci))</strong></h4>
+                <hr />
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaNomeEvento", @ci))</label><br />
+                        @Html.TextBoxFor(x => x.dsNome, new { @class = "form-control", @disabled = "disabled" })
+                    </div>
+                </div>
+                <br class="clear" />
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaCodigo", @ci))</label><br />
+                        @Html.TextBoxFor(x => x.dsCodigo, new { @class = "form-control", @disabled = "disabled" })
+                    </div>
+                    <div class="col-lg-6">
+                        <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaDataEvento", @ci))</label><br />
+                        @Html.TextBoxFor(x => x.dsDtTreinamento, new { @class = "form-control", @disabled = "disabled" })
+                    </div>
+                </div>
+                <br class="clear" />
+                <!-- FIM DETALHES TREINAMENTO  -->
+
+                <hr />
+            
+                <!-- PERGUNTAS -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4><strong>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaPosTreinamentoTitulo", @ci))</strong></h4>
+                    </div>
+                </div>
+                <br class="clear" />
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaPergunta", @ci))</label><br />
+                        @Html.TextAreaFor(x => x.dsDescricao, new { @class = "form-control", @style = "resize: none; height: 100px;" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <input type="radio" name="idTipoPergunta" value="1" checked /> @Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaTipoPerguntaAlternativa", @ci)) &nbsp; 
+                        <input type="radio" name="idTipoPergunta" value="2" /> @Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaTipoPerguntaDissertativa", @ci))
+                    </div>
+                </div>
+                <br class="clear" />
+
+                <div id="divAlternativa">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaSinalizeAlternativaCorreta", @ci))</label><br />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-1 chkAlternativas">
+                            @Html.CheckBoxFor(x => x.btCorretaA) A
+                        </div>
+                        <div class="col-lg-11 iptAlternativas">
+                            @Html.TextBoxFor(x => x.dsAlternativaA, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <br class="clear" />
+                    <div class="row">
+                        <div class="col-lg-1 chkAlternativas">
+                            @Html.CheckBoxFor(x => x.btCorretaB) B
+                        </div>
+                        <div class="col-lg-11 iptAlternativas">
+                            @Html.TextBoxFor(x => x.dsAlternativaB, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <br class="clear" />
+                    <div class="row">
+                        <div class="col-lg-1 chkAlternativas">
+                            @Html.CheckBoxFor(x => x.btCorretaC) C
+                        </div>
+                        <div class="col-lg-11 iptAlternativas">
+                            @Html.TextBoxFor(x => x.dsAlternativaC, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <br class="clear" />
+                    <div class="row">
+                        <div class="col-lg-1 chkAlternativas">
+                            @Html.CheckBoxFor(x => x.btCorretaD) D
+                        </div>
+                        <div class="col-lg-11 iptAlternativas">
+                            @Html.TextBoxFor(x => x.dsAlternativaD, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <br class="clear" />
+                    <div class="row">
+                        <div class="col-lg-1 chkAlternativas">
+                            @Html.CheckBoxFor(x => x.btCorretaE) E
+                        </div>
+                        <div class="col-lg-11 iptAlternativas">
+                            @Html.TextBoxFor(x => x.dsAlternativaE, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <br class="clear" />
+            
+                <div class="row">
+                    <div class="col-lg-12" style="text-align: right">
+                        <input type="submit" class="btn btn-primary" onclick="return ValidaAlternativas()" value="@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BotaoSalvar", @ci))">
+                    </div>
+                </div>
+                <br class="clear" />            
+                <!-- FIM PERGUNTAS -->
+            }
+            
+            <!-- PERGUNTAS CADASTRADAS -->
+            
+            
+            if (ViewBag.Perguntas != null)
+            {
+                var listPerguntas = (List<Pesquisa>)ViewBag.Perguntas;
+                
+                <hr />
+            
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaPerguntasCadastradas", @ci))</h4>
+                    </div>
+                </div>
+                <br class="clear" />
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h5>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaTituloAlternativas", @ci))</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                    
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaPergunta", @ci))</th>
+                                    <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaTipoPerguntaAlternativa", @ci)) A</th>
+                                    <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaTipoPerguntaAlternativa", @ci)) B</th>
+                                    <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaTipoPerguntaAlternativa", @ci)) C</th>
+                                    <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaTipoPerguntaAlternativa", @ci)) D</th>
+                                    <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaTipoPerguntaAlternativa", @ci)) E</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in listPerguntas.Where(x => x.idTipo == 1))
+                                {
+                                    <tr>
+                                        <td>@item.dsDescricao</td>
+
+                                        @foreach (var alternativas in item.Alternativas)
+                                        {
+                                            <td>@alternativas.dsDescricao</td>
+                                        }
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                                        
+                    </div>
+                </div>
+                <br class="clear" />
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h5>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaTituloDissertativas", @ci))</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                    
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaPergunta", @ci))</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in listPerguntas.Where(x => x.idTipo == 2))
+                                {
+                                    <tr>
+                                        <td>@item.dsDescricao</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                                        
+                    </div>
+                </div>
+            
+                using (Html.BeginForm("FinalizarPesquisa", "Pesquisa", FormMethod.Post))
+                {
+                    @Html.HiddenFor(x => x.idPesquisa)
+                    @Html.HiddenFor(x => x.idTreinamento)
+                    @Html.HiddenFor(x => x.idTipo)
+                    
+                    <br class="clear" />
+                    <div class="row">
+                        <div class="col-lg-12" style="text-align: right">
+                            <input type="submit" class="btn btn-primary" value="@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BotaoFinalizarPesquisa", @ci))">
+                        </div>
+                    </div>
+                }                            
+            }
+                        
+            
+            <br class="clear" />
+            <br class="clear" />
+            <br class="clear" />
+            <br class="clear" />
+            <br class="clear" />
+            <br class="clear" />
+            <br class="clear" />
+            <br class="clear" />
+            <!-- FIM PERGUNTAS CADASTRADAS -->
+        }
+
+    </div>
+</div>
+
+<script>
+    function ValidaAlternativas() {
+        debugger;
+        if ($('#divAlternativa').is(':visible')) {
+            if ($('#dsAlternativaA').val() == '' || $('#dsAlternativaB').val() == '') {
+                alert('@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ObrigatorioQuestoes", @ci))');
+                return false;
+            }
+        }
+
+    }
+ 
+  
+
+
+    $(function () {
+
+        $("#dsCPF").mask("999.999.999-99");
+        $("#dsCNPJ").mask("99.999.999/9999-99");
+
+        $(".dsCPF").mask("999.999.999-99");
+        $(".dsCNPJ").mask("99.999.999/9999-99");
+
+        $("#dsCelular").mask("(99) 99999-9999");
+        $("#dsDtTreinamento").mask("99/99/9999");
+        $("#dataFim").mask("99/99/9999");
+        $(".dsTelefone").mask("(99) 9999-9999");
+        $(".dsCelular").mask("(99) 99999-9999");
+
+
+        $("body").on('click', '.btEditar', function (event) {
+            event.preventDefault();
+
+            var id = $(this).attr("id");
+
+            $("#idTreinamento").val(id);
+
+            $("#frmEditar").submit();
+
+            return false;
+        });
+
+        $("input[name='idTipoPergunta']").change(function (e) {
+
+            var idTipoPergunta = $(this).val();
+            
+            if (idTipoPergunta == 1) {
+                $("#divAlternativa").attr('style', 'display: block');
+            }
+            else {
+                $("#divAlternativa").attr('style', 'display: none');
+            }
+
+
+        });
+
+    });
+
+</script>

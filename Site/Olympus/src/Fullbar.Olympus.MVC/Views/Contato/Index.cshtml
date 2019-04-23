@@ -1,0 +1,186 @@
+﻿@{
+    ViewBag.Title = @Fullbar.Olympus.MVC.Resource.PaginaContato;
+}
+
+
+@using (Html.BeginForm(@Fullbar.Olympus.MVC.Resource.PaginaContatoAction, @Fullbar.Olympus.MVC.Resource.PaginaContato, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="col-md-9 pad-top-40 conteudo">
+        <!--  Conteúdo -->
+        <form>
+            <div class="col-md-12 title-geral">
+                <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.PaginaContatoEnviarMensagem</p>
+            </div>
+
+
+            <div class="col-md-12 pad-top-20">
+
+                <div class="col-md-12">
+                    <label>@Fullbar.Olympus.MVC.Resource.PaginaContatoNomeCompleto*</label>
+                    <input type="text" name="nome" class="form-control inp-contato" placeholder="" value="@ViewBag.Nome"  onkeypress="return Onlychars(event);"  />
+                </div>
+            </div>
+
+            <div class="col-md-12 pad-top-20">
+                <div class="col-md-6 ">
+                    <label>@Fullbar.Olympus.MVC.Resource.PaginaContatoTelefone*</label>
+                    <input type="text" name="telefone" class="form-control inp-contato" placeholder="" value="@ViewBag.Telefone" />
+                </div>
+                <div class="col-md-6 pad-top-mobile">
+                    <label>@Fullbar.Olympus.MVC.Resource.PaginaContatoEmail*</label>
+                    <input type="text" name="email"class="form-control inp-contato" placeholder="" value="@ViewBag.Email" />
+                </div>
+            </div>
+
+            <div class="col-md-12 pad-top-20">
+                <div class="col-md-6">
+                    <label>@Fullbar.Olympus.MVC.Resource.PaginaContatoContato*</label>
+                    @Html.DropDownList("Contato", (IEnumerable<SelectListItem>)ViewBag.Contato, @Fullbar.Olympus.MVC.Resource.PaginaContatoSelecione, new { @class = "form-control inp-contato" })
+                   
+                </div>
+                <div class="col-md-6 pad-top-mobile">
+                    <label>@Fullbar.Olympus.MVC.Resource.PaginaContatoAssunto*</label>
+
+                    @Html.DropDownList("Assunto", null, @Fullbar.Olympus.MVC.Resource.PaginaContatoSelecione, new { @class = "form-control inp-contato" })
+                   
+                </div>
+            </div>
+
+            <div class="col-md-12 pad-top-20">
+                <div class="col-md-12">
+                    <label>@Fullbar.Olympus.MVC.Resource.PaginaContatoMensagem</label>
+                    <textarea rows="5" cols="60" name="mensagem" class="form-control inp-contato" placeholder="" >@ViewBag.Mensagem</textarea>
+                </div>
+            </div>
+
+            <div class="col-md-12 pad-top-20">
+                <div class="col-md-12 text-right">
+                    <input type="submit" class="btn btn-lg btn-primary btn-amarelo wid-bt" role="button" value="@Fullbar.Olympus.MVC.Resource.BotaoEnviarContato" id="enviaContato" />
+                
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <hr>
+            </div>
+        </form>
+        <div class="col-md-12 title-geral">
+            <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.PaginaContato</p>
+        </div>
+        <div class="col-md-6 email-contato">
+            <p><span><img class="" src=@Url.Content("~/assets/img/ico-contato.png") alt=""></span><a href="mailto:@Fullbar.Olympus.MVC.Resource.PaginaContatoEmailEnvio">@Fullbar.Olympus.MVC.Resource.Email: @Fullbar.Olympus.MVC.Resource.PaginaContatoEmailEnvio</a></p>
+        </div>
+        <div class="col-md-6 email-contato">            	
+            <p style="display: @Fullbar.Olympus.MVC.Resource.ContatoStyleDisplayTelefone;"><span><img class="" src=@Url.Content("~/assets/img/ico-telefone.png") alt=""></span>Telefone: (+55 11) 3272-1059</p>
+        </div>
+    </div><!--  /Conteúdo -->
+
+    <input type="hidden" id="CPF" value="@ViewBag.CPF" />
+    <input type="hidden" id="nome" value="@ViewBag.nome" />
+    <input type="hidden" id="telefone" value="@ViewBag.telefone" />
+    <input type="hidden" id="email" value="@ViewBag.email" />
+    <input type="hidden" id="mensagem" value="@ViewBag.mensagem" />
+    <input type="hidden" id="nacionalidade" name="nacionalidade" value="@ViewBag.Nacionalidade" />
+    <input type="hidden" id="logado" value="@ViewBag.logado" />
+    
+    <input type="hidden" id="mesagemRetorno" value="@ViewBag.MensagemRetorno" />
+     <input type="hidden" id="erroTituloCadastro" value="@ViewBag.ErroCadastroTitulo" />
+
+}
+
+@section Scripts {
+
+
+    <script>
+
+        $(function () {
+
+
+            $('#ulMenu > li').each(function () {
+
+                $(this).removeClass('active');
+
+            });
+
+            $('#liContato').addClass('active')
+
+
+            var SPMaskBehavior = function (val) {
+                return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+            },
+                      spOptions = {
+                          onKeyPress: function (val, e, field, options) {
+                              field.mask(SPMaskBehavior.apply({}, arguments), options);
+                          }
+          };
+
+            if ($('#logado').val() == 1 && $('#nacionalidade').val() == 1) {
+
+                $('input[name="CPF"]').val($('#CPF').val());
+                $('input[name="nome"]').val($('#nome').val());
+                $('input[name="telefone"]').val($('#telefone').val());
+                $('input[name="email"]').val($('#email').val());
+
+            }
+
+            if ($('#logado').val() == 1 && $('#nacionalidade').val() == 2) {
+
+                $('#divNacionalidade').hide();
+
+                $('input[name="nome"]').val($('#nome').val());
+                $('input[name="telefone"]').val($('#telefone').val());
+                $('input[name="email"]').val($('#email').val());
+            }
+
+
+            if ($('#logado').val() == 1) {
+
+                $('input[name="CPF"]').prop('readOnly', true);
+                $('input[name="nome"]').prop('readOnly', true);
+                $('input[name="telefone"]').prop('readOnly', true);
+                $('input[name="email"]').prop('readOnly', true);
+            }
+
+            if ($('#mesagemRetorno').val() != '') {
+
+                var mensagem = $('#mesagemRetorno').val();
+                var titulo = $('#erroTituloCadastro').val();
+
+                alerta(mensagem,titulo);
+            }
+
+            $('#enviaContato').on("click", function () {
+
+                $("#carregando").show();
+
+            });
+
+            $('input[name="telefone"]').mask(SPMaskBehavior, spOptions);
+            $('input[name="CPF"]').mask('000.000.000-00', { reverse: true });
+
+        });
+
+
+        function Onlychars(e) {
+            var tecla = new Number();
+            if (window.event) {
+                tecla = e.keyCode;
+            }
+            else if (e.which) {
+                tecla = e.which;
+            }
+            else {
+                return true;
+            }
+            if ((tecla >= "48") && (tecla <= "57")) {
+                return false;
+            }
+        }
+
+
+    </script>
+
+}
+

@@ -1,0 +1,219 @@
+﻿@model Admin.Olympus.Dominio.Entidade.Participacao
+
+@{
+    /* RESOURCE */
+
+    //Arquivo de Resource
+    string arquivoResource = (string)Session["ArquivoResource"];
+
+    //Idioma
+    string idioma = (string)Session["CultureIdioma"];
+    System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo(idioma);
+
+    //Tipo de Perfil (idIdioma)
+    var usuario = (Admin.Olympus.Dominio.Entidade.Administrador)Session["Administrador"];
+    int idIdioma = usuario.idTipo;
+}
+
+<!-- TÍTULO -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            @Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ParticipacaoListaEsperaTitulo", @ci))
+            <p style="line-height: 0.7;">
+                <span style="font-size: 18px">@HttpContext.GetGlobalResourceObject(@arquivoResource, "ParticipacaoListaEsperaSubTitulo", @ci)</span>
+            </p>
+        </h1>
+    </div>
+</div>
+
+<!-- CONTEÚDO -->
+<div class="row">
+    <div class="col-lg-12">
+
+        <!-- FILTROS -->
+        @using (Html.BeginForm("ListaEspera", "Participacao", FormMethod.Post))
+        {
+            @Html.HiddenFor(x => x.inTipo)
+            <!-- FORM -->
+            <div class="row">
+                <div class="col-lg-3">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ParticipacaoInscricaoNome", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsNomeCompleto, new { @class = "form-control" })
+                </div>
+                <div class="col-lg-3">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ParticipacaoInscricaoCPF", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsCPF, new { @class = "form-control", @placeholder = "999.999.999-99" })
+                </div>
+                <div class="col-lg-3">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ParticipacaoInscricaoInstituicaoProfissional", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsInstituicao, new { @class = "form-control" })
+                </div>
+            </div>
+            <br class="clear" />
+            <div class="row">
+                <div class="col-lg-3">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ParticipacaoInscricaoDataTreinamento", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsDtTreinamento, new { @class = "form-control", @placeholder = "99/99/9999" })
+                </div>
+                <div class="col-lg-3">
+                    <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ParticipacaoInscricaoCodigoEvento", @ci))</label><br />
+                    @Html.TextBoxFor(x => x.dsCodigo, new { @class = "form-control" })
+                </div>
+                <div class="col-lg-3">
+                    <label><br /></label><br />
+                    <input type="submit" class="btn btn-primary" value="@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BotaoFiltrar", @ci))">
+                </div>
+            </div>
+            <!-- FIM FORM -->
+        }
+        <!-- FILTROS -->
+
+
+        <br class="clear" />
+        <br class="clear" />
+
+        <!-- GRID USUÁRIOS -->
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    @Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ParticipacaoListaEsperaRelatorioTitulo", @ci))
+                </h4>
+            </div>
+            <div class="panel-body">
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables">
+                        <thead>
+                            <tr>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ParticipacaoInscricaoCodigoEvento", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ParticipacaoInscricaoDataTreinamento", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ParticipacaoInscricaoNome", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ParticipacaoInscricaoCPF", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ParticipacaoInscricaoEstado", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ParticipacaoListaPresencaNomeInstituicao", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ParticipacaoInscricaoData", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ParticipacaoInscricaoStatus", @ci))</th>
+                                <th>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ParticipacaoInscricaoAcao", @ci))</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (ViewBag.ListaEspera != null)
+                            {
+                                if (ViewBag.ListaEspera.Count > 0)
+                                {
+                                    foreach (Admin.Olympus.Dominio.Entidade.Participacao item in ViewBag.ListaEspera)
+                                    {
+                                        <tr class="odd gradeX">
+                                            <td>@item.dsCodigo</td>
+                                            <td>@item.dtTreinamento.ToShortDateString()</td>
+                                            <td>@item.dsNomeCompleto</td>
+                                            <td>@item.dsCPF</td>
+                                            <td>@item.dsEstado</td>
+                                            <td>@item.dsNomeFantasia</td>
+                                            <td>@item.dtCadastro.ToShortDateString()</td>
+                                            <td>@item.dsStatusInscricao</td>
+                                            <td>
+                                                @if (item.dtTreinamento >= DateTime.Now)
+                                                {
+                                                    <input type="button" class="btn btn-default btn-block btCancelar" value="@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BotaoCancelar", @ci))" id="@item.idInscricao" />
+                                                    <input type="button" class="btn btn-default btn-block btConfirmar" value="@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BotaoConfirmar", @ci))" id="@item.idInscricao" />
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="well">
+
+                    @using (Html.BeginForm("ListaEsperaExcel", "Participacao", FormMethod.Get))
+                    {
+                        @Html.Hidden("inTipo", 2)
+                        @Html.HiddenFor(x => x.dsNomeCompleto)
+                        @Html.HiddenFor(x => x.dsCPF)
+                        @Html.HiddenFor(x => x.dsCodigo)
+                        @Html.HiddenFor(x => x.dsDtTreinamento)
+                        @Html.HiddenFor(x => x.dsInstituicao)
+
+                        <input type="submit" id="btnExcel" class="btn btn-default btn-lg btn-block" value="@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BotaoExcel", @ci))" />
+                    }
+                </div>
+            </div>
+
+        </div>
+        <!-- FIM - GRID USUÁRIOS -->
+
+        <br class="clear" />
+
+        <!-- FORM QUE SIMULA O ALTERAR A INSCRIÇÃO -->
+        <form action="/Participacao/AlterarStatusInscricao" method="post" id="frmAlterar">
+            <input type="hidden" value="" id="idInscricao" name="idInscricao" />
+            <input type="hidden" value="" id="idStatusInscricao" name="idStatusInscricao" />
+            <input type="hidden" value="" id="idStatusInscricaoAltera" name="idStatusInscricaoAltera" />
+            <input type="hidden" value="" id="dsAction" name="dsAction" />
+        </form>
+
+    </div>
+</div>
+
+<script>
+
+    $(function () {
+
+        $("#dsCPF").mask("999.999.999-99");
+        $("#dsCNPJ").mask("99.999.999/9999-99");
+        $("#dsDtTreinamento").mask("99/99/9999");
+
+        $(".dsCPF").mask("999.999.999-99");
+        $(".dsCNPJ").mask("99.999.999/9999-99");
+
+        $("body").on('click', '.btConfirmar', function (event) {
+            event.preventDefault();
+
+            confirma('@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ModalTituloAtencao", @ci))',
+                '@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ParticipacaoModalMensagemConfirmaInscricao", @ci))');
+
+            var idInscricao = $(this).attr("id");
+
+            $("body").on('click', '#btnSimModal', function (event) {
+                event.preventDefault();
+
+                $("#loading").fadeIn();
+
+                $("#idInscricao").val(idInscricao);
+                $("#idStatusInscricao").val(2);
+                $("#idStatusInscricaoAltera").val(2);
+                $("#dsAction").val('ListaEspera');
+
+                $("#frmAlterar").submit();
+            });
+        });
+
+        $("body").on('click', '.btCancelar', function (event) {
+            event.preventDefault();
+
+            confirma('@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ModalTituloAtencao", @ci))',
+                '@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "ParticipacaoModalMensagemConfirmaCancelamento", @ci))');
+
+            var idInscricao = $(this).attr("id");
+
+            $("body").on('click', '#btnSimModal', function (event) {
+                event.preventDefault();
+
+                $("#loading").fadeIn();
+
+                $("#idInscricao").val(idInscricao);
+                $("#idStatusInscricao").val(5);
+                $("#idStatusInscricaoAltera").val(5);
+                $("#dsAction").val('ListaEspera');
+
+                $("#frmAlterar").submit();
+            });
+        });
+
+    });
+
+</script>

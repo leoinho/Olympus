@@ -1,0 +1,1127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BannerCadastroErro" xml:space="preserve">
+    <value>Erro ao cadastrar banner</value>
+  </data>
+  <data name="BannerCampoImagem" xml:space="preserve">
+    <value>Imagem (jpeg/png - mínimo 791x335)</value>
+  </data>
+  <data name="BannerCampoLink" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="BannerCampoOrdem" xml:space="preserve">
+    <value>Ordem</value>
+  </data>
+  <data name="BannerCampoSite" xml:space="preserve">
+    <value>Site</value>
+  </data>
+  <data name="BannerCampoStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="BannerCampoTitulo" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="BannerModalMensagem" xml:space="preserve">
+    <value>Informe o título</value>
+  </data>
+  <data name="BannerModalMensagemArquivoIncorreto" xml:space="preserve">
+    <value>Informe um arquivo correto</value>
+  </data>
+  <data name="BannerModalMensagemArquivoNulo" xml:space="preserve">
+    <value>Informe um arquivo</value>
+  </data>
+  <data name="BannerRelatorioBannerAtivoTitulo" xml:space="preserve">
+    <value>Banners ativos</value>
+  </data>
+  <data name="BannerRelatorioBannerColunaAcao" xml:space="preserve">
+    <value>Ação</value>
+  </data>
+  <data name="BannerRelatorioBannerColunaOrdem" xml:space="preserve">
+    <value>Ordem</value>
+  </data>
+  <data name="BannerRelatorioBannerColunaSite" xml:space="preserve">
+    <value>Site</value>
+  </data>
+  <data name="BannerRelatorioBannerColunaTitulo" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="BannerRelatorioBannerInativoTitulo" xml:space="preserve">
+    <value>Banners inativos</value>
+  </data>
+  <data name="BannerRelatorioBotaoAtivar" xml:space="preserve">
+    <value>Ativar</value>
+  </data>
+  <data name="BannerRelatorioBotaoInativar" xml:space="preserve">
+    <value>Inativar</value>
+  </data>
+  <data name="BotaoCadastrar" xml:space="preserve">
+    <value>Cadastrar</value>
+  </data>
+  <data name="BotaoConfirmar" xml:space="preserve">
+    <value>Confirmar</value>
+  </data>
+  <data name="BotaoExcel" xml:space="preserve">
+    <value>Exportar para Excel</value>
+  </data>
+  <data name="BotaoFiltrar" xml:space="preserve">
+    <value>Filtrar</value>
+  </data>
+  <data name="BotaoFinalizar" xml:space="preserve">
+    <value>Finalizar</value>
+  </data>
+  <data name="BotaoSalvar" xml:space="preserve">
+    <value>Salvar</value>
+  </data>
+  <data name="DashboardGraficoAcessoDiarioColunaAcesso" xml:space="preserve">
+    <value>Acessos</value>
+  </data>
+  <data name="DashboardGraficoAcessoDiarioColunaData" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="DashboardGraficoAcessoDiarioTituloOBL" xml:space="preserve">
+    <value>Acessos Diários - Brasil</value>
+  </data>
+  <data name="DashboardGraficoAcessoDiarioTituloOLA" xml:space="preserve">
+    <value>Acessos Diários - OLA</value>
+  </data>
+  <data name="DashboardGraficoAcessoDiarioTituloOMS" xml:space="preserve">
+    <value>Acessos Diários - OMS</value>
+  </data>
+  <data name="DashboardGraficoCancelamentoAusenciaColunaCancelamento" xml:space="preserve">
+    <value>Cancelamento/Ausência</value>
+  </data>
+  <data name="DashboardGraficoCancelamentoAusenciaColunaPresenca" xml:space="preserve">
+    <value>Presença</value>
+  </data>
+  <data name="DashboardGraficoCancelamentoAusenciaEixoX" xml:space="preserve">
+    <value>Eventos</value>
+  </data>
+  <data name="DashboardGraficoCancelamentoAusenciaEixoy" xml:space="preserve">
+    <value>Quantidade</value>
+  </data>
+  <data name="DashboardGraficoCancelamentoAusenciaTitulo" xml:space="preserve">
+    <value>Cancelamento | Ausência</value>
+  </data>
+  <data name="DashboardGraficoCliquesTreinamentoColunaCliques" xml:space="preserve">
+    <value>Cliques</value>
+  </data>
+  <data name="DashboardGraficoCliquesTreinamentoEixoX" xml:space="preserve">
+    <value>Eventos</value>
+  </data>
+  <data name="DashboardGraficoCliquesTreinamentoEixoY" xml:space="preserve">
+    <value>Cliques</value>
+  </data>
+  <data name="DashboardGraficoCliquesTreinamentoTitulo" xml:space="preserve">
+    <value>Cliques | Treinamento</value>
+  </data>
+  <data name="DashboardGraficoInscritoListaEsperaColunaInscrito" xml:space="preserve">
+    <value>Inscritos</value>
+  </data>
+  <data name="DashboardGraficoInscritoListaEsperaColunaListaEspera" xml:space="preserve">
+    <value>Lista de Espera</value>
+  </data>
+  <data name="DashboardGraficoInscritoListaEsperaEixoX" xml:space="preserve">
+    <value>Eventos</value>
+  </data>
+  <data name="DashboardGraficoInscritoListaEsperaEixoY" xml:space="preserve">
+    <value>Inscritos</value>
+  </data>
+  <data name="DashboardGraficoInscritoListaEsperaTitulo" xml:space="preserve">
+    <value>Inscrito | Lista de Espera</value>
+  </data>
+  <data name="DashboardRelatorioCadastroPorSiteTituloCadastro" xml:space="preserve">
+    <value>Cadastros</value>
+  </data>
+  <data name="DashboardRelatorioCadastroPorSiteTituloSite" xml:space="preserve">
+    <value>Site</value>
+  </data>
+  <data name="DashboardRelatorioInscritoPorSiteTituloCadastro" xml:space="preserve">
+    <value>Inscritos</value>
+  </data>
+  <data name="DashboardRelatorioInscritoPorSiteTituloPais" xml:space="preserve">
+    <value>País</value>
+  </data>
+  <data name="DashboardResumoUsuariosCadastrados" xml:space="preserve">
+    <value>Usuários Cadastrados&lt;br /&gt; (Todas as nacionalidades)</value>
+  </data>
+  <data name="DashboardResumoUsuariosCadastradosBrasil" xml:space="preserve">
+    <value>Usuários Cadastrados&lt;br /&gt; (Brasil)</value>
+  </data>
+  <data name="DashboardResumoUsuariosCadastradosOLA" xml:space="preserve">
+    <value>Usuários Cadastrados&lt;br /&gt; (OLA)</value>
+  </data>
+  <data name="DashboardResumoUsuariosCadastradosOMS" xml:space="preserve">
+    <value>Usuários Cadastrados&lt;br /&gt; (OMS)</value>
+  </data>
+  <data name="DashboardResumoUsuariosCliquesOLA" xml:space="preserve">
+    <value>Usuários Cliques Treinamentos&lt;br /&gt; (OLA)</value>
+  </data>
+  <data name="DashboardResumoUsuariosCliquesOMS" xml:space="preserve">
+    <value>Usuários Cliques Treinamentos&lt;br /&gt; (OMS)</value>
+  </data>
+  <data name="DashboardResumoUsuariosInscritosBrasil" xml:space="preserve">
+    <value>Usuários inscritos nos treinamentos&lt;br /&gt; (Brasil)</value>
+  </data>
+  <data name="ModalBotaoFechar" xml:space="preserve">
+    <value>Fechar</value>
+  </data>
+  <data name="ModalMensagemCamposObrigatorios" xml:space="preserve">
+    <value>Todos os campos são obrigatórios</value>
+  </data>
+  <data name="ModalTituloAtencao" xml:space="preserve">
+    <value>Atenção</value>
+  </data>
+  <data name="PaginaLoginBotaoEntrar" xml:space="preserve">
+    <value>Entrar</value>
+  </data>
+  <data name="PaginaLoginModalMensagemErro" xml:space="preserve">
+    <value>O login e/ou a senha inseridos estão incorretos.</value>
+  </data>
+  <data name="PaginaLoginModalMensagemValidacao" xml:space="preserve">
+    <value>Preencha seu login e senha.</value>
+  </data>
+  <data name="PaginaLoginModalTitulo" xml:space="preserve">
+    <value>Aviso</value>
+  </data>
+  <data name="PaginaLoginPlaceLogin" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="PaginaLoginPlaceSenha" xml:space="preserve">
+    <value>Senha</value>
+  </data>
+  <data name="RelatorioCadastroRelatorioTitulo" xml:space="preserve">
+    <value>Cadastros</value>
+  </data>
+  <data name="RelatorioCadastroTitulo" xml:space="preserve">
+    <value>&lt;strong&gt;Relatórios&lt;/strong&gt; &lt;span&gt;- Cadastros&lt;/span&gt;</value>
+  </data>
+  <data name="RelatorioCampoCNPJ" xml:space="preserve">
+    <value>CNPJ</value>
+  </data>
+  <data name="RelatorioCampoCodigoTreinamento" xml:space="preserve">
+    <value>Código Treinamento</value>
+  </data>
+  <data name="RelatorioCampoCPF" xml:space="preserve">
+    <value>CPF</value>
+  </data>
+  <data name="RelatorioCampoNome" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="RelatorioCampoPais" xml:space="preserve">
+    <value>País</value>
+  </data>
+  <data name="RelatorioCampoSite" xml:space="preserve">
+    <value>Site</value>
+  </data>
+  <data name="RelatorioColunaDataCadastro" xml:space="preserve">
+    <value>Data de Cadastro</value>
+  </data>
+  <data name="RelatorioColunaEstado" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="RelatorioColunaNomeFantasia" xml:space="preserve">
+    <value>Nome Fantasia</value>
+  </data>
+  <data name="TituloOBL" xml:space="preserve">
+    <value>Olympus OBL</value>
+  </data>
+  <data name="TituloOLA" xml:space="preserve">
+    <value>Olympus OLA</value>
+  </data>
+  <data name="TituloOMS" xml:space="preserve">
+    <value>Olympus OMS</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoBairro" xml:space="preserve">
+    <value>Bairro</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoBrasil" xml:space="preserve">
+    <value>Brasil</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoCEP" xml:space="preserve">
+    <value>CEP</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoCidade" xml:space="preserve">
+    <value>Cidade</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoCodigo" xml:space="preserve">
+    <value>Código do evento</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoDescricao" xml:space="preserve">
+    <value>Descrição do evento</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoDtHoraInicio" xml:space="preserve">
+    <value>Horário</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoDtHoraTermino" xml:space="preserve">
+    <value>às</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoDtInicio" xml:space="preserve">
+    <value>Início</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoDtTermino" xml:space="preserve">
+    <value>Término</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoEndereco" xml:space="preserve">
+    <value>Endereço</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoEstado" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoGoogleMaps" xml:space="preserve">
+    <value>Google Maps</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoImagem" xml:space="preserve">
+    <value>Imagem (jpeg/png - mínimo 446x238)</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoInscricaoDtFim" xml:space="preserve">
+    <value>à</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoInscricaoDtInicio" xml:space="preserve">
+    <value>Período de inscrição</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoLatitude" xml:space="preserve">
+    <value>Latitude</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoLocal" xml:space="preserve">
+    <value>Local do evento</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoLongitude" xml:space="preserve">
+    <value>Longitude</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoMaterialEstudo" xml:space="preserve">
+    <value>Material de estudo (doc/pdf)</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoNome" xml:space="preserve">
+    <value>Nome do evento</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoNumero" xml:space="preserve">
+    <value>Número</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoPais" xml:space="preserve">
+    <value>País</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoPesquisa" xml:space="preserve">
+    <value>Pesquisa obrigatória (doc/pdf)</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoTotalVagas" xml:space="preserve">
+    <value>Total de vagas</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoTotalVagasPorCNPJ" xml:space="preserve">
+    <value>Vagas por instituição</value>
+  </data>
+  <data name="TreinamentoCadastrarEventoBrasilTitulo" xml:space="preserve">
+    <value>&lt;strong&gt;Treinamento&lt;/strong&gt; &lt;span&gt;- Cadastrar Brasil&lt;/span&gt;</value>
+  </data>
+  <data name="TreinamentoCadastrarModalMensagemArquivoIncorreto" xml:space="preserve">
+    <value>Formato de arquivo incorreto</value>
+  </data>
+  <data name="TreinamentoCadastrarModalMensagemDataInscricao" xml:space="preserve">
+    <value>Data de término de inscrição menor que a data de início</value>
+  </data>
+  <data name="TreinamentoCadastrarModalMensagemDataInvalida" xml:space="preserve">
+    <value>Verifique se todas as datas são validas</value>
+  </data>
+  <data name="TreinamentoCadastrarModalMensagemDataTreinamento" xml:space="preserve">
+    <value>Data de término do treinamento menor que a data de início</value>
+  </data>
+  <data name="TreinamentoCadastrarModalMensagemErro" xml:space="preserve">
+    <value>Erro ao salvar treinamento</value>
+  </data>
+  <data name="TreinamentoCadastrarModalMensagemErroArquivo" xml:space="preserve">
+    <value>Erro ao salvar arquivo(s)</value>
+  </data>
+  <data name="TreinamentoCadastrarModalMensagemHora" xml:space="preserve">
+    <value>Informe um horário correto</value>
+  </data>
+  <data name="TreinamentoCadastrarModalMensagemOK" xml:space="preserve">
+    <value>Treinamento salvo com sucesso</value>
+  </data>
+  <data name="TreinamentoCadastrarModalMensagemTamanhoImagem" xml:space="preserve">
+    <value>Tamanho de imagem muito pequeno</value>
+  </data>
+  <data name="TreinamentoCadastrarTreinamentoDados" xml:space="preserve">
+    <value>Dados do Treinamento</value>
+  </data>
+  <data name="TreinamentoCadastrarTreinamentoLocalizacao" xml:space="preserve">
+    <value>Localização</value>
+  </data>
+  <data name="TreinamentoDetalheAgendaAtividade" xml:space="preserve">
+    <value>Atividade</value>
+  </data>
+  <data name="TreinamentoDetalheAgendaDia" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="TreinamentoDetalheAgendaHorario" xml:space="preserve">
+    <value>Horário</value>
+  </data>
+  <data name="TreinamentoDetalheAgendaTitulo" xml:space="preserve">
+    <value>Agenda</value>
+  </data>
+  <data name="TreinamentoDetalheCodigoEvento" xml:space="preserve">
+    <value>Código do evento</value>
+  </data>
+  <data name="TreinamentoDetalheDataEvento" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="TreinamentoDetalheNomeEvento" xml:space="preserve">
+    <value>Nome do envento</value>
+  </data>
+  <data name="TreinamentoDetalhePalestranteFoto" xml:space="preserve">
+    <value>Foto do palestrante</value>
+  </data>
+  <data name="TreinamentoDetalhePalestranteNome" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="TreinamentoDetalhePalestrantePerfil" xml:space="preserve">
+    <value>Perfil</value>
+  </data>
+  <data name="TreinamentoDetalhePalestranteTitulo" xml:space="preserve">
+    <value>Palestrante</value>
+  </data>
+  <data name="TreinamentoDetalheSelecioneTreinamento" xml:space="preserve">
+    <value>Selecione o treinamento para inserir os detalhes</value>
+  </data>
+  <data name="TreinamentoDetalheTitulo" xml:space="preserve">
+    <value>&lt;strong&gt;Treinamento&lt;/strong&gt; &lt;span&gt;- Detalhes do Evento&lt;/span&gt;</value>
+  </data>
+  <data name="TreinamentoDetalheTreinamentoSelecionado" xml:space="preserve">
+    <value>Treinamento selecionado</value>
+  </data>
+  <data name="TreinamentoEventoCategoria" xml:space="preserve">
+    <value>Categoria</value>
+  </data>
+  <data name="TreinamentoEventoColunaAcao" xml:space="preserve">
+    <value>Ação</value>
+  </data>
+  <data name="TreinamentoEventoColunaStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="TreinamentoEventoData" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="TreinamentoEventoDivisao" xml:space="preserve">
+    <value>Divisão</value>
+  </data>
+  <data name="TreinamentoEventoNome" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="TreinamentoEventoRelatorioTitulo" xml:space="preserve">
+    <value>Eventos</value>
+  </data>
+  <data name="TreinamentoEventoSite" xml:space="preserve">
+    <value>Site</value>
+  </data>
+  <data name="TreinamentoEventoTitulo" xml:space="preserve">
+    <value>&lt;strong&gt;Treinamento&lt;/strong&gt; &lt;span&gt;- Eventos&lt;/span&gt;</value>
+  </data>
+  <data name="TreinamentoDetalheAgendaNulo" xml:space="preserve">
+    <value>Informe uma atividade</value>
+  </data>
+  <data name="TreinamentoDetalhePalestranteNulo" xml:space="preserve">
+    <value>Informe um palestrante</value>
+  </data>
+  <data name="BotaoCancelar" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="BotaoEditar" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="BotaoGerarListaPresenca" xml:space="preserve">
+    <value>Gerar Lista de Presença</value>
+  </data>
+  <data name="BotaoNao" xml:space="preserve">
+    <value>Não</value>
+  </data>
+  <data name="BotaoSim" xml:space="preserve">
+    <value>Sim</value>
+  </data>
+  <data name="ModalTituloMensagem" xml:space="preserve">
+    <value>Mensagem</value>
+  </data>
+  <data name="ParticipacaoInscricaoAcao" xml:space="preserve">
+    <value>Ação</value>
+  </data>
+  <data name="ParticipacaoInscricaoCNPJ" xml:space="preserve">
+    <value>CNPJ</value>
+  </data>
+  <data name="ParticipacaoInscricaoCodigoEvento" xml:space="preserve">
+    <value>Código do evento</value>
+  </data>
+  <data name="ParticipacaoInscricaoCPF" xml:space="preserve">
+    <value>CPF</value>
+  </data>
+  <data name="ParticipacaoInscricaoCPFPassaporte" xml:space="preserve">
+    <value>CPF | Passaporte</value>
+  </data>
+  <data name="ParticipacaoInscricaoData" xml:space="preserve">
+    <value>Data de Inscrição</value>
+  </data>
+  <data name="ParticipacaoInscricaoDataTreinamento" xml:space="preserve">
+    <value>Data do treinamento</value>
+  </data>
+  <data name="ParticipacaoInscricaoEstado" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="ParticipacaoInscricaoInstituicaoProfissional" xml:space="preserve">
+    <value>Instituição Profissional</value>
+  </data>
+  <data name="ParticipacaoInscricaoNome" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="ParticipacaoInscricaoRelatorioTitulo" xml:space="preserve">
+    <value>Relatório de Inscrições</value>
+  </data>
+  <data name="ParticipacaoInscricaoStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ParticipacaoInscricaoTitulo" xml:space="preserve">
+    <value>&lt;strong&gt;Eventos&lt;/strong&gt; | &lt;span&gt;Inscrições&lt;/span&gt;</value>
+  </data>
+  <data name="ParticipacaoListaEsperaRelatorioTitulo" xml:space="preserve">
+    <value>Relatório de Lista de Espera</value>
+  </data>
+  <data name="ParticipacaoListaEsperaTitulo" xml:space="preserve">
+    <value>&lt;strong&gt;Eventos&lt;/strong&gt; | &lt;span&gt;Lista de Espera&lt;/span&gt;</value>
+  </data>
+  <data name="ParticipacaoListaPresencaCompareceu" xml:space="preserve">
+    <value>Compareceu?</value>
+  </data>
+  <data name="ParticipacaoListaPresencaNomeInstituicao" xml:space="preserve">
+    <value>Nome da Instituição</value>
+  </data>
+  <data name="ParticipacaoListaPresencaRelatorioTitulo" xml:space="preserve">
+    <value>Relatório de Lista de Presença</value>
+  </data>
+  <data name="ParticipacaoListaPresencaTitulo" xml:space="preserve">
+    <value>&lt;strong&gt;Eventos&lt;/strong&gt; | &lt;span&gt;Lista de Presença&lt;/span&gt;</value>
+  </data>
+  <data name="ParticipacaoListaPresencaTreinamento" xml:space="preserve">
+    <value>Treinamento</value>
+  </data>
+  <data name="PesquisaCodigo" xml:space="preserve">
+    <value>Código do evento</value>
+  </data>
+  <data name="PesquisaCPFPassaporte" xml:space="preserve">
+    <value>CPF | Passaporte</value>
+  </data>
+  <data name="PesquisaDataEvento" xml:space="preserve">
+    <value>Data do evento</value>
+  </data>
+  <data name="PesquisaDataResposta" xml:space="preserve">
+    <value>Data de resposta</value>
+  </data>
+  <data name="PesquisaNome" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="PesquisaTipo" xml:space="preserve">
+    <value>Tipo pesquisa</value>
+  </data>
+  <data name="PesquisaTitulo" xml:space="preserve">
+    <value>&lt;h1 class="page-header"&gt;&lt;strong&gt;Pesquisa&lt;/strong&gt;&lt;/h1&gt;</value>
+  </data>
+  <data name="Titulo" xml:space="preserve">
+    <value>Admin - Olympus</value>
+  </data>
+  <data name="TreinamentoDetalheModalMensagemErro" xml:space="preserve">
+    <value>Erro ao salvar detalhes</value>
+  </data>
+  <data name="TreinamentoDetalheModalMensagemOK" xml:space="preserve">
+    <value>Detalhes salvos com sucesso</value>
+  </data>
+  <data name="TreinamentoModalMensagemAlteracaoAgendaPalestrante" xml:space="preserve">
+    <value>Não é possível ativar um treinamento sem Palestrante e/ou Agenda</value>
+  </data>
+  <data name="TreinamentoModalMensagemAlteracaoDataInscricao" xml:space="preserve">
+    <value>Não é possível alterar um treinamento aberto para inscrições</value>
+  </data>
+  <data name="TreinamentoModalMensagemAlteracaoErro" xml:space="preserve">
+    <value>Erro ao alterar treinamento</value>
+  </data>
+  <data name="TreinamentoModalMensagemAlteracaoInscricaoErro" xml:space="preserve">
+    <value>Erro ao alterar status de inscrição</value>
+  </data>
+  <data name="TreinamentoModalMensagemAlteracaoInscricaoJaEfetuada" xml:space="preserve">
+    <value>Inscrição já efetuada</value>
+  </data>
+  <data name="TreinamentoModalMensagemAlteracaoInscricaoOK" xml:space="preserve">
+    <value>Inscrição alterada com sucesso</value>
+  </data>
+  <data name="TreinamentoModalMensagemAlteracaoOK" xml:space="preserve">
+    <value>Treinamento alterado com sucesso</value>
+  </data>
+  <data name="AnalyticsCidade" xml:space="preserve">
+    <value>Cidade</value>
+  </data>
+  <data name="AnalyticsCidadesMaisAtivas" xml:space="preserve">
+    <value>Cidades mais ativas</value>
+  </data>
+  <data name="AnalyticsDuracaoSessao" xml:space="preserve">
+    <value>Duração média de sessão</value>
+  </data>
+  <data name="AnalyticsPagina" xml:space="preserve">
+    <value>Página</value>
+  </data>
+  <data name="AnalyticsPaginasMaisVisualizadas" xml:space="preserve">
+    <value>Páginas mais visualizadas</value>
+  </data>
+  <data name="AnalyticsPaginasSessao" xml:space="preserve">
+    <value>Páginas / sessão</value>
+  </data>
+  <data name="AnalyticsPerformance" xml:space="preserve">
+    <value>Performance</value>
+  </data>
+  <data name="AnalyticsPeriodo" xml:space="preserve">
+    <value>Período</value>
+  </data>
+  <data name="AnalyticsPosicao" xml:space="preserve">
+    <value>Posição</value>
+  </data>
+  <data name="AnalyticsSessao" xml:space="preserve">
+    <value>Sessão</value>
+  </data>
+  <data name="AnalyticsSessoes" xml:space="preserve">
+    <value>Sessões</value>
+  </data>
+  <data name="AnalyticsTituloOBL" xml:space="preserve">
+    <value>&lt;strong&gt;Analytics &lt;/strong&gt; &lt;span&gt;- Olympus Educação (OBL)&lt;/span&gt;</value>
+  </data>
+  <data name="AnalyticsTituloOLA" xml:space="preserve">
+    <value>&lt;strong&gt;Analytics &lt;/strong&gt; &lt;span&gt;- Olympus Educação (OLA)&lt;/span&gt;</value>
+  </data>
+  <data name="AnalyticsTituloOMS" xml:space="preserve">
+    <value>&lt;strong&gt;Analytics &lt;/strong&gt; &lt;span&gt;- Olympus Educação (OMS)&lt;/span&gt;</value>
+  </data>
+  <data name="AnalyticsVisualizacoes" xml:space="preserve">
+    <value>Visualizações</value>
+  </data>
+  <data name="AnalyticsVisualizacoesPaginas" xml:space="preserve">
+    <value>Visualizações de página</value>
+  </data>
+  <data name="ConteudoAcao" xml:space="preserve">
+    <value>Ação</value>
+  </data>
+  <data name="ConteudoArquivo" xml:space="preserve">
+    <value>Arquivo</value>
+  </data>
+  <data name="ConteudoAtivar" xml:space="preserve">
+    <value>Ativar</value>
+  </data>
+  <data name="ConteudoInativar" xml:space="preserve">
+    <value>Inativar</value>
+  </data>
+  <data name="ConteudoLink" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="ConteudoMaterialAtivo" xml:space="preserve">
+    <value>Material Ativo</value>
+  </data>
+  <data name="ConteudoMaterialInativo" xml:space="preserve">
+    <value>Material Inativo</value>
+  </data>
+  <data name="ConteudoModalMensagem" xml:space="preserve">
+    <value>Todos os campos são obrigatórios</value>
+  </data>
+  <data name="ConteudoModalMensagemArquivoIncorreto" xml:space="preserve">
+    <value>Informe um arquivo correto</value>
+  </data>
+  <data name="ConteudoModalMensagemArquivoNulo" xml:space="preserve">
+    <value>Informe um arquivo</value>
+  </data>
+  <data name="ConteudoModalMensagemErro" xml:space="preserve">
+    <value>Erro ao salvar conteúdo</value>
+  </data>
+  <data name="ConteudoPaginaTitulo" xml:space="preserve">
+    <value>&lt;strong&gt;Conteúdo Educacional &lt;/strong&gt;</value>
+  </data>
+  <data name="ConteudoSite" xml:space="preserve">
+    <value>Site</value>
+  </data>
+  <data name="ConteudoStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ConteudoTipoMaterial" xml:space="preserve">
+    <value>Tipo de material</value>
+  </data>
+  <data name="ConteudoTitulo" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="SACAssunto" xml:space="preserve">
+    <value>Assunto</value>
+  </data>
+  <data name="SACCPF" xml:space="preserve">
+    <value>CPF | Passaporte</value>
+  </data>
+  <data name="SACData" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="SACEmail" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="SACInstituicao" xml:space="preserve">
+    <value>Instituição Profissional</value>
+  </data>
+  <data name="SACMensagem" xml:space="preserve">
+    <value>Mensagem</value>
+  </data>
+  <data name="SACNome" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="SACPais" xml:space="preserve">
+    <value>País</value>
+  </data>
+  <data name="SACRelatorioTitulo" xml:space="preserve">
+    <value>Relatório SAC</value>
+  </data>
+  <data name="SACTitulo" xml:space="preserve">
+    <value>&lt;strong&gt;SAC &lt;/strong&gt;</value>
+  </data>
+  <data name="BotaoFinalizarPesquisa" xml:space="preserve">
+    <value>Finalizar Pesquisa</value>
+  </data>
+  <data name="PesquisaCadastrarTitulo" xml:space="preserve">
+    <value>&lt;strong&gt;Pesquisa&lt;/strong&gt; &lt;span&gt;- Cadastrar&lt;/span&gt;</value>
+  </data>
+  <data name="PesquisaInserirQuestaoManualmente" xml:space="preserve">
+    <value>Incluir questões manualmente:</value>
+  </data>
+  <data name="PesquisaModalMensagemErro" xml:space="preserve">
+    <value>Erro ao vincular pesquisa</value>
+  </data>
+  <data name="PesquisaModalMensagemErroCadastrarPergunta" xml:space="preserve">
+    <value>Erro ao cadastrar pergunta</value>
+  </data>
+  <data name="PesquisaModalMensagemErroFinalizar" xml:space="preserve">
+    <value>Erro ao finalizar pesquisa</value>
+  </data>
+  <data name="PesquisaModalMensagemOK" xml:space="preserve">
+    <value>Pesquisa vinculada ao treinamento com sucesso</value>
+  </data>
+  <data name="PesquisaModalMensagemPesquisaJaCadastrada" xml:space="preserve">
+    <value>Treinamento já possui esse tipo de pesquisa cadastrada</value>
+  </data>
+  <data name="PesquisaNomeEvento" xml:space="preserve">
+    <value>Nome do evento</value>
+  </data>
+  <data name="PesquisaPergunta" xml:space="preserve">
+    <value>Pergunta</value>
+  </data>
+  <data name="PesquisaPerguntasCadastradas" xml:space="preserve">
+    <value>Perguntas Cadastradas</value>
+  </data>
+  <data name="PesquisaPosTreinamentoTitulo" xml:space="preserve">
+    <value>Pós - Treinamento (Limite de até 15 questões)</value>
+  </data>
+  <data name="PesquisaPreTreinamentoTitulo" xml:space="preserve">
+    <value>Pré - Treinamento (Limite de até 15 questões)</value>
+  </data>
+  <data name="PesquisaSelecionePesquisaCadastrada" xml:space="preserve">
+    <value>Selecione uma pesquisa cadastrada</value>
+  </data>
+  <data name="PesquisaSelecioneTipoPesquisa" xml:space="preserve">
+    <value>Selecione o tipo de pesquisa que será cadastrada</value>
+  </data>
+  <data name="PesquisaSelecioneTreinamento" xml:space="preserve">
+    <value>Selecione o treinamento para inserir os detalhes</value>
+  </data>
+  <data name="PesquisaSinalizeAlternativaCorreta" xml:space="preserve">
+    <value>Sinalize ao lado da letra qual(is) a(s) alternativa(s) correta(s).</value>
+  </data>
+  <data name="PesquisaTipoPerguntaAlternativa" xml:space="preserve">
+    <value>Alternativa</value>
+  </data>
+  <data name="PesquisaTipoPerguntaDissertativa" xml:space="preserve">
+    <value>Dissertativa</value>
+  </data>
+  <data name="PesquisaTituloAlternativas" xml:space="preserve">
+    <value>Alternativas</value>
+  </data>
+  <data name="PesquisaTituloDissertativas" xml:space="preserve">
+    <value>Dissertativas</value>
+  </data>
+  <data name="PesquisaTreinamentoSelecionado" xml:space="preserve">
+    <value>Treinamento selecionado</value>
+  </data>
+  <data name="TreinamentoAlterarEventoBrasilTitulo" xml:space="preserve">
+    <value>&lt;h1 class="page-header"&gt;&lt;strong&gt;Treinamento&lt;/strong&gt; &lt;span&gt;- Alterar&lt;/span&gt;&lt;/h1&gt;</value>
+  </data>
+  <data name="TreinamentoCadastrarCampoURL" xml:space="preserve">
+    <value>URL para cadastro</value>
+  </data>
+  <data name="TreinamentoCadastrarInternacionalSiteOBL" xml:space="preserve">
+    <value>Olympus Educação (OBL)</value>
+  </data>
+  <data name="TreinamentoCadastrarInternacionalSiteOLA" xml:space="preserve">
+    <value>Olympus Education Latam (OLA)</value>
+  </data>
+  <data name="TreinamentoCadastrarInternacionalSiteOMS" xml:space="preserve">
+    <value>Olympus Educacion (OMS)</value>
+  </data>
+  <data name="TreinamentoCadastrarInternacionalTitulo" xml:space="preserve">
+    <value>&lt;strong&gt;Treinamento&lt;/strong&gt; &lt;span&gt;- Cadastro Internacional&lt;/span&gt;</value>
+  </data>
+  <data name="PesquisaEditarPerguntaTitulo" xml:space="preserve">
+    <value>&lt;h1 class="page-header"&gt;&lt;strong&gt;Pesquisa&lt;/strong&gt; &lt;span&gt;- Editar&lt;/span&gt;&lt;/h1&gt;</value>
+  </data>
+  <data name="PesquisaListarTitulo" xml:space="preserve">
+    <value>&lt;strong&gt;Pesquisa&lt;/strong&gt;</value>
+  </data>
+  <data name="PesquisaRelatorioResultadoTitulo" xml:space="preserve">
+    <value>Relatório de Resultados</value>
+  </data>
+  <data name="PesquisaResultadoTitulo" xml:space="preserve">
+    <value>&lt;strong&gt;Pesquisa&lt;/strong&gt; &lt;span&gt;- Resultado&lt;/span&gt;</value>
+  </data>
+  <data name="PesquisaSelecioneTreinamentoVisualizacao" xml:space="preserve">
+    <value>Selecione o treinamento para visualizar a pesquisa</value>
+  </data>
+  <data name="PesquisaModalMensagemAlterarPerguntaOK" xml:space="preserve">
+    <value>Pergunta alterada com sucesso</value>
+  </data>
+  <data name="PesquisaModalMensagemErroAlterarPergunta" xml:space="preserve">
+    <value>Erro ao alterar pergunta</value>
+  </data>
+  <data name="AnalyticsSubTitulo" xml:space="preserve">
+    <value>Tela com informações do site da Olympus fornecidos pelo Google Analytics. As informações
+disponíveis são: performance do site (o número de sessões x visualizações de página), cidades
+mais ativas (em tabela e gráfico), visualizações de página divididas em visitantes recentes por
+visitantes recorrentes e páginas mais visualizadas.</value>
+  </data>
+  <data name="BannerSubTitulo" xml:space="preserve">
+    <value>Cadastre os banners rotativos que se encontram na home do site. Para cadastrá-los, é necessário
+inserir um título e a imagem. O link direcional é opcional. Abaixo consta a lista com todos os
+banners cadastrados, sendo possível ativar ou inativar.</value>
+  </data>
+  <data name="ConteudoPaginaSubTitulo" xml:space="preserve">
+    <value>Cadastre os materiais de estudo para os treinamentos. Os uploads podem ser feitos pelo Youtube
+(link do vídeo), Slideshare (link da apresentação) ou PDF (upload de arquivo). Além disso, os
+conteúdos devem conter título e site de destino (OBL, OMS ou OLA).</value>
+  </data>
+  <data name="DashboardSubTituloOBL" xml:space="preserve">
+    <value>Consulte a quantidade de cadastrados por site (OBL, OMS e OLA), a quantidade de inscritos nos
+treinamentos, os usuários em lista de espera, os cancelamentos e os dados dos acessos diários.</value>
+  </data>
+  <data name="DashboardSubTituloOLA" xml:space="preserve">
+    <value>Consulte a quantidade de cadastros, os dados de acessos diários e a quantidade de cliques nos
+treinamentos (no botão inscreva-se do site).</value>
+  </data>
+  <data name="DashboardSubTituloOMS" xml:space="preserve">
+    <value>Consulte a quantidade de cadastros, os dados de acessos diários e a quantidade de cliques nos
+treinamentos (no botão inscreva-se do site).</value>
+  </data>
+  <data name="ParticipacaoInscricaoSubTitulo" xml:space="preserve">
+    <value>Realize consultas dos inscritos. Filtros por nome, CPF, instituição profissional, data do treinamento
+e código do evento.</value>
+  </data>
+  <data name="ParticipacaoListaEsperaSubTitulo" xml:space="preserve">
+    <value>Realize consultas em lista de espera. Filtros por nome, CPF, instituição profissional, data do
+treinamento e código do evento.</value>
+  </data>
+  <data name="ParticipacaoListaPresencaSubTitulo" xml:space="preserve">
+    <value>Selecione o treinamento, clique em “filtrar” e faça o download dos relatórios de lista de presença.
+Essas listas já estão nos moldes para recolhimento de assinaturas dos participantes.</value>
+  </data>
+  <data name="PesquisaCadastrarSubTitulo" xml:space="preserve">
+    <value>Selecione o treinamento no qual deseja cadastrar uma pesquisa. Na próxima aba, você deve
+selecionar o tipo de pesquisa que será cadastrada e incluir a pesquisa manualmente.</value>
+  </data>
+  <data name="PesquisaListarSubTitulo" xml:space="preserve">
+    <value>Visualize as pesquisas criadas pelos seguintes filtros: código do evento, data do evento e tipo de
+pesquisa.</value>
+  </data>
+  <data name="PesquisaResultadoSubTitulo" xml:space="preserve">
+    <value>Apresenta os resultados das pesquisas de satisfação (quando houver). É possível filtrar por
+código do evento, data do evento e tipo de pesquisa.</value>
+  </data>
+  <data name="RelatorioCadastroSubTitulo" xml:space="preserve">
+    <value>Visualize todos os usuários cadastrados no site (não necessariamente inscritos em treinamentos).
+Além disso, você pode extrair relatórios de cadastros com filtro por nome, CPF, país, CNPJ, nome
+fantasia, estado e data de cadastro.</value>
+  </data>
+  <data name="SACSubTitulo" xml:space="preserve">
+    <value>São apresentadas as mensagens enviadas através da seção “Contato" do site da Olympus. Filtro
+por nome, país e instituição profissional.</value>
+  </data>
+  <data name="TreinamentoCadastrarEventoBrasilSubTitulo" xml:space="preserve">
+    <value>Cadastre os treinamentos nesta seção. Insira a divisão no qual pertence o treinamento e preencha
+os dados de treinamento e localização para inclusão.</value>
+  </data>
+  <data name="TreinamentoCadastrarInternacionalSubTitulo" xml:space="preserve">
+    <value>Para cadastrar treinamentos nesta seção, escolha a opção de site (OBL, OMS ou OLA) e
+preencha os dados de treinamento e localização para inclusão.</value>
+  </data>
+  <data name="TreinamentoDetalheSubTitulo" xml:space="preserve">
+    <value>Selecione o treinamento cadastrado para ver os detalhes. Após clicar no botão “confirmar”, é
+possível incluir dados do palestrante e a agenda de treinamento. O treinamento só ficará
+disponível para ativação após a inclusão desses dados.</value>
+  </data>
+  <data name="TreinamentoEventoSubTitulo" xml:space="preserve">
+    <value>Visualize todos os treinamentos cadastrados com filtro por divisão, categoria, nome, data, status e
+ação. É possível visualizar as seguintes regras de status em cada treinamento:
+&lt;br /&gt;&lt;br /&gt;&lt;strong&gt; - Em breve:&lt;/strong&gt; treinamento cadastrado completamente, aguardando a data de início das inscrições
+para ficar "ativo". Este treinamento já aparece no site;
+&lt;br /&gt;&lt;strong&gt; - Ativo:&lt;/strong&gt; treinamento disponível para inscrição;
+&lt;br /&gt;&lt;strong&gt; - Inativo:&lt;/strong&gt; treinamento não está cadastrado completamente ou ainda não está disponível para
+inscrição. Este treinamento não está visível no site.</value>
+  </data>
+  <data name="BannerModalMensagemTamanhoImagem" xml:space="preserve">
+    <value>Limite mínimo de imagem exigido</value>
+  </data>
+  <data name="TreinamentoCadastrarModalMensagemDataTreinamentoAtual" xml:space="preserve">
+    <value>Data de início do treinamento deve ser maior que a data atual</value>
+  </data>
+  <data name="BannerModalMensagemConfirma" xml:space="preserve">
+    <value>Confirma alteração do banner?</value>
+  </data>
+  <data name="ConteudoModalMensagemConfirma" xml:space="preserve">
+    <value>Confirma alteração do conteúdo?</value>
+  </data>
+  <data name="ParticipacaoModalMensagemCompareceu" xml:space="preserve">
+    <value>Confirma que o participante compareceu ao evento?</value>
+  </data>
+  <data name="ParticipacaoModalMensagemConfirmaCancelamento" xml:space="preserve">
+    <value>Confirma cancelamento de inscrição?</value>
+  </data>
+  <data name="ParticipacaoModalMensagemConfirmaInscricao" xml:space="preserve">
+    <value>Confirma inscrição do participante?</value>
+  </data>
+  <data name="ParticipacaoModalMensagemNaoCompareceu" xml:space="preserve">
+    <value>Confirma que o participante não compareceu ao evento?</value>
+  </data>
+  <data name="TreinamentoModalMensagemAlteracaoDataAnterior" xml:space="preserve">
+    <value>Não é possível ativar um treinamento que já ocorreu</value>
+  </data>
+  <data name="BannerRelatorioBannerColunaData" xml:space="preserve">
+    <value>Data de Alteração</value>
+  </data>
+  <data name="ConteudoData" xml:space="preserve">
+    <value>Data de Alteração</value>
+  </data>
+  <data name="DashboardGraficoInscricoesTitulo" xml:space="preserve">
+    <value>Inscrições</value>
+  </data>
+  <data name="DashboardMes" xml:space="preserve">
+    <value>Mês:</value>
+  </data>
+  <data name="PesquisaModalMensagemPesquisaPreTreinamentoJaOcorreu" xml:space="preserve">
+    <value>Não é possível incluir pesquisa Pré para um treinamento que já ocorreu</value>
+  </data>
+  <data name="MenuConteudoEducacional" xml:space="preserve">
+    <value>Conteúdo Educacional</value>
+  </data>
+  <data name="MenuParticipacao" xml:space="preserve">
+    <value>Participação</value>
+  </data>
+  <data name="MenuParticipacaoInscricoes" xml:space="preserve">
+    <value>Inscrições</value>
+  </data>
+  <data name="MenuParticipacaoListaDeEspera" xml:space="preserve">
+    <value>Lista de Espera</value>
+  </data>
+  <data name="MenuParticipacaoListarPresenca" xml:space="preserve">
+    <value>Presença</value>
+  </data>
+  <data name="MenuPesquisaResultado" xml:space="preserve">
+    <value>Pesquisa | Resultado</value>
+  </data>
+  <data name="MenuRelatorios" xml:space="preserve">
+    <value>Relatórios</value>
+  </data>
+  <data name="MenuRelatoriosCadastros" xml:space="preserve">
+    <value>Cadastros</value>
+  </data>
+  <data name="MenuSAC" xml:space="preserve">
+    <value>SAC</value>
+  </data>
+  <data name="MenuTreinamentos" xml:space="preserve">
+    <value>Treinamentos</value>
+  </data>
+  <data name="MenuTreinamentosCadastrarBrasil" xml:space="preserve">
+    <value>Cadastrar Brasil</value>
+  </data>
+  <data name="MenuTreinamentosCadastrarInternacional" xml:space="preserve">
+    <value>Cadastrar Internacional</value>
+  </data>
+  <data name="MenuTreinamentosDetalheDoEvento" xml:space="preserve">
+    <value>Detalhe do Evento</value>
+  </data>
+  <data name="MenuTreinamentosEventos" xml:space="preserve">
+    <value>Eventos</value>
+  </data>
+  <data name="MenuTreinamentosPesquisa" xml:space="preserve">
+    <value>Pesquisa</value>
+  </data>
+  <data name="MenuTreinamentosPesquisaCadastrar" xml:space="preserve">
+    <value>Cadastrar</value>
+  </data>
+  <data name="MenuTreinamentosPesquisaListar" xml:space="preserve">
+    <value>Listar | Editar</value>
+  </data>
+  <data name="DashboardTituloRelatorioCadastrosPorSite" xml:space="preserve">
+    <value>Cadastros por Site</value>
+  </data>
+  <data name="DashboardTituloRelatorioInscritosPorSite" xml:space="preserve">
+    <value>Inscritos | Eventos por Site</value>
+  </data>
+  <data name="BotaoEditarDetalhes" xml:space="preserve">
+    <value>Editar Detalhes</value>
+  </data>
+  <data name="TreinamentoDetalheEditarErroSemPalestranteAgenda" xml:space="preserve">
+    <value>Não é possível editar sem Palestrante e Agenda</value>
+  </data>
+  <data name="SiglaIdioma" xml:space="preserve">
+    <value>PT</value>
+  </data>
+  <data name="RelatorioColunaNovaEmpresa" xml:space="preserve">
+    <value>Nova Instituição</value>
+  </data>
+  <data name="ModalMensagemCamposObrigatoriosDocImg" xml:space="preserve">
+    <value>O Documento e a Imagem do Treinamento são obrigatórios</value>
+  </data>
+  <data name="BotaoExcluir" xml:space="preserve">
+    <value>Excluir</value>
+  </data>
+  <data name="ModalMensagemDataInscricao" xml:space="preserve">
+    <value>Data de término de inscrição menor que a data de início</value>
+  </data>
+  <data name="ModalMensagemDataInvalida" xml:space="preserve">
+    <value>Verifique se todas as datas são validas</value>
+  </data>
+  <data name="ModalMensagemDataTreinamentoAtual" xml:space="preserve">
+    <value>Data de início do treinamento deve ser maior que a data atual</value>
+  </data>
+  <data name="ObrigatorioQuestoes" xml:space="preserve">
+    <value>Preencha no mínimo duas alternativas.</value>
+  </data>
+  <data name="TreinamentoModalMensagemAlteracaoCadastrarPesquisa" xml:space="preserve">
+    <value>Não é possível alterar o treinamento sem antes cadastrar a Pesquisa Obrigatória</value>
+  </data>
+  <data name="TreinamentoCadastrarModalMensagemData" xml:space="preserve">
+    <value>Verifique se todas as datas são válidas</value>
+  </data>
+  <data name="TreinamentoCadastrarModalMensagemDataFimInscricaoMaior" xml:space="preserve">
+    <value>Data de final de inscrição não pode ser maior que a data final do treinamento</value>
+  </data>
+  <data name="PesquisaObrigatoriaTreinamentoTitulo" xml:space="preserve">
+    <value>Obrigatória (Limite de até 15 questões)</value>
+  </data>
+  <data name="TreinamentoModalMensagemEventoAnteriorDataAtual" xml:space="preserve">
+    <value>A data do evento é anterior a data atual</value>
+  </data>
+</root>

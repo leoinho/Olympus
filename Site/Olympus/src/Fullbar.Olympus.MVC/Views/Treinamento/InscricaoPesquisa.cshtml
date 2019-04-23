@@ -1,0 +1,201 @@
+﻿@model IEnumerable<Fullbar.Olympus.MVC.Models.TreinamentoPrePerguntaViewModel>
+@{
+    //ViewBag.Title = "InscricaoPesquisa";
+}
+
+<div class="col-md-9 pad-top-40 conteudo">
+    <div class="col-md-12 title-geral">
+        <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>Treinamento Lorem impsum</p>
+    </div>
+    <div class="col-md-12 pad-top-20 title-geral title-cadastro result-inscri">
+        <p><span><img class="" src=@Url.Content("~/assets/img/ico-inscri-confirma.png") alt=""></span>hdhsdhfddfgfhfgh hdhdhdghfhdh hfghdgd gdjdjdfjdg jfjdfjgdfjdfjdfjd jdfjd </p>
+    </div>
+
+    <div class="col-md-12 pad-top-30">
+        
+        <div class="col-md-3">
+            <div class="pad-top-20"><a class="btn btn-lg btn-primary btn-laranja" role="button" href="">Enviar currículo</a></div>
+        </div>      
+
+        <div class="col-md-6">
+            <div class="form-group" style="position:relative;">
+                <label>Arquivo de conteúdo (Formatos: PDF, PPT, Jpeg ou PNG)</label>
+                <input type="file" id="fupArquivo" name="fupArquivo" class="form-control" style="width:450px;" accept=".pdf, .png, .jpg, .ppt, .pptx" />
+                <div class="upload" id="labelArquivo">Nenhum arquivo selecionado</div>
+                <input type="hidden" id="dsArquivo" name="dsArquivo" value="" />
+                <a href="" target="_blank" class="icoFile"><img src="/assets/img/view.png" border="0" /></a>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="col-md-12 pad-top-30">
+        <div class="col-md-6">
+            <div class="pad-top-20"><a class="btn btn-lg btn-primary btn-laranja" role="button" href="#" id="btnPesquisa">Responder pesquisa</a></div>
+        </div>
+    </div>
+
+
+    <div class="col-md-12 pad-top-30" style="display:none;" id="pesquisa">
+        
+        
+
+        <div class="col-md-12 modal-body mCustomScrollbar heid-questionario" data-mcs-theme="dark">
+            <!-- scroll-->
+            @Html.AntiForgeryToken()
+
+            @if (Model != null)
+            {
+                var id = 0;
+
+                foreach (var item in Model)
+                {
+                    if (item.idTipo == 1) //ALTERNATIVAS
+                    {
+                        var hdnPerguntaId = "Alternativas_" + id.ToString() + "__idPergunta";
+                        var hdnPerguntaName = "Alternativas[" + id.ToString() + "].idPergunta";
+
+                        <input type="hidden" name="@hdnPerguntaName" id="@hdnPerguntaId" value="@item.idPergunta" />
+
+                        <div class="col-md-12 pad-top-10">
+                            <div class="sub-tit-questionario">
+                                @Html.DisplayFor(modelItem => item.dsDescricao)
+                            </div>
+                            <div class="sub-tit-questionario pad-top-10">
+
+                                <div class="option-questionario rdbQuestionario">
+                                    @*@{ var perguntaId = "Alternativas_" + id.ToString() + "__idAlternativa"; }*@
+
+                                    @for (int i = 0; i < item.Alternativas.Count; i++)
+                                    {
+                                        var perguntaId = "Alternativas_" + id.ToString() + "__idPergunta";
+                                        var perguntaName = "Alternativas[" + id.ToString() + "].idAlternativa";
+
+                                        <div>
+                                            <input id="@perguntaId" type="radio" name="@perguntaName" value="@item.Alternativas[i].idAlternativa" /> <label for="@perguntaId"><span><span></span></span>@item.Alternativas[i].dsDescricao</label>
+                                        </div>
+                                    }
+
+                                    @{ id++; }
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else if (item.idTipo == 2) //DISSERTATIVA
+                    {
+                        var hdnPerguntaId = "Alternativas_" + id.ToString() + "__idPergunta";
+                        var hdnPerguntaName = "Alternativas[" + id.ToString() + "].idPergunta";
+
+                        var perguntaId = "Alternativas_" + id.ToString() + "__idPergunta";
+                        var perguntaName = "Alternativas[" + id.ToString() + "].dsDescricao";
+
+                        <input type="hidden" name="@hdnPerguntaName" id="@hdnPerguntaId" value="@item.idPergunta" />
+
+                        <div class="col-md-12 pad-top-10">
+                            <div class="sub-tit-questionario">
+                                @Html.DisplayFor(modelItem => item.dsDescricao)
+                            </div>
+                        </div>
+                        <div class="sub-tit-questionario pad-top-10">
+                            <div class="option-questionario txtQuestionario">
+                                <textarea id="@perguntaId" class="form-control inp-contato" name="@perguntaName" style="resize: none"></textarea>
+                            </div>
+                        </div>
+
+                        id++;
+                    }
+                }
+            }
+        </div><!-- /scroll-->
+
+
+
+
+    </div>
+
+
+    <div class="col-md-12">
+        <hr />
+    </div>
+
+
+    <div class="col-md-12 pad-top-20">
+        <input type="submit" name="finalizar" value="@Fullbar.Olympus.MVC.Resource.TreinamentoConfirmaInscricao" class="btn btn-lg btn-primary btn-azul" role="button" id="btnConfirmar">
+    </div>
+    
+
+</div>
+
+
+@section Scripts {
+
+<style>
+    .upload {
+        position: absolute;
+        top: 26px;
+        left: 135px;
+        width: 280px;
+        height: 28px;
+        background-color: #ffffff;
+        padding-top: 7px;
+        padding-left: 10px;
+    }
+
+    .icoFile {
+        position: absolute;
+        right: -30px;
+        top: 30px;
+    }
+</style>
+
+<script src="/assets/js/vendor/jquery.fileupload.js"></script>
+
+<script>
+
+        $(document).ready(function () {
+
+
+            $("#btnPesquisa").click(function () {
+                $("#pesquisa").show();
+            });
+            
+            // Upload Currículo
+            $('#fupArquivo').fileupload({
+                dataType: 'json',
+                url: '/Treinamento/UploadArquivo?pasta=Curriculo',
+                autoUpload: true,
+                done: function (e, data) {
+
+                    $("#labelArquivo").html("Nenhum arquivo selecionado");
+
+                    if (data.result.Length > 3061200) {
+
+                        alerta('Tamanho máximo da imagem 3 MB', 'Atenção!');
+                        return false;
+                    }
+
+                    if (data.result.extensao != 'PDF' && data.result.extensao != 'XLS' && data.result.extensao != 'XLSX' && data.result.extensao != 'JPG' && data.result.extensao != 'PNG' && data.result.extensao != 'JPEG' && data.result.extensao != 'PPT' && data.result.extensao != 'PPTX') {
+                        alerta(' Extensão invalida.', 'Atenção!');
+                        return false;
+                    }
+
+                    if (data.result.id <= 0) {
+                        alerta(' Erro ao fazer Upload do arquivo.', 'Atenção!');
+                        return false;
+                    } else {
+                        $("#labelArquivo").html(data.result.Name);
+                        $("#dsArquivo").val(data.result.nomeImagem);                      
+                    }
+                }
+            });
+
+
+
+        });
+
+
+
+</script>
+}

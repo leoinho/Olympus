@@ -1,0 +1,85 @@
+﻿@using Fullbar.Olympus.Dominio.Entidade;
+
+@{
+    ViewBag.Title = "Indicados";
+}
+
+<div class="col-md-9 pad-top-40 conteudo conteudo-mob">
+    <div class="col-md-12 pad-top-10 title-geral-cadastro">
+        <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.TreinamentoConvidadoTitulo - @Html.Raw(ViewBag.Titulo)</p>
+    </div>
+
+    <div class="col-md-12 pad-top-20">
+        @Html.Raw(ViewBag.SubTitulo)
+    </div>
+
+    @if (ViewBag.Indicados != null)
+    {
+        var listIndicados = (List<TreinamentoConvite>)ViewBag.Indicados;
+                
+        foreach (TreinamentoConvite item in listIndicados)
+        {
+            <div class="col-md-12 zera-pad pad-top-20">
+                <div class="col-md-6">
+                    <div>
+                        @Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoNome
+                    </div>
+                    <div class="">
+                        <input type="text" name="Nome" value="@item.dsNome" class="form-control inp-contato" id="Nome_@item.idUsuarioConvidado" disabled />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        E-mail
+                    </div>
+                    <div>
+                        <input type="text" name="" value="@item.dsEmail" class="form-control inp-contato" disabled>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-12 zera-pad pad-top-10">
+                <div class="col-md-6">
+                    <div>
+                        CPF:
+                    </div>
+                    <div>
+                        <input type="text" name="CPF" value="@item.dsCPF" class="form-control inp-contato" disabled>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div>
+                        @Fullbar.Olympus.MVC.Resource.TreinamentoInscricaoCelular
+                    </div>
+                    <div class="">
+                        <input type="text" name="Celular" value="@item.dsCelular" class="form-control inp-contato" disabled />
+                    </div>
+                </div>
+
+                <div class="col-md-12 pad-top-30 text-right">
+                    <p><a class="btn btn-lg btn-primary btn-mtrenamentos-azul pad-top-17" target="_blank" role="button" href="/Treinamento/Certificado/@item.idTreinamento?idUsuario=@item.idUsuarioConvidado">@Fullbar.Olympus.MVC.Resource.PaginaMeusTreinamentosBotaoCertificado </a></p>
+                </div>
+
+            </div>
+        
+            <div class="col-md-12">
+                <hr />
+            </div>
+
+        }
+
+        <div class="col-md-12 pad-top-30 text-right">
+            <p>
+                <input type="button" name="finalizar" onclick="location.href='@("/" + Fullbar.Olympus.MVC.Resource.PaginaTreinamentoController + "/" + Fullbar.Olympus.MVC.Resource.PaginaTreinamentoActionMeusTreinamentos)'" value="@Fullbar.Olympus.MVC.Resource.TreinamentoVoltarMeusTreinamentos" class="btn btn-lg btn-primary bt-cinza" role="button" id="">
+
+
+            </p>
+        </div>
+
+    }
+
+</div>

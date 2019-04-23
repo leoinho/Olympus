@@ -1,0 +1,237 @@
+﻿@model Fullbar.Olympus.MVC.Models.TreinamentoInscricaoViewModel
+
+@{
+    ViewBag.Title = "InscricaoHCP";
+}
+
+
+
+<div class="col-md-9 pad-top-40 conteudo">
+
+    <div class="col-md-12 title-geral">
+        <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@ViewBag.Treinamento</p>
+        <hr>
+    </div>
+
+    <div class="col-md-12">
+        <div class="col-md-1">
+            <img src="~/assets/img/inscricao/ico-data.png" class="img-responsive center-block" />
+        </div>
+        <div class="col-md-2 text-center inscri-title-data">
+            <strong>DATA</strong>
+        </div>
+        <div class="col-md-9 inscri-data">
+            Sábado - 21 de Desembro, 2017
+        </div>
+    </div>
+    <div class="col-md-12 pad-top-30">
+        <div class="col-md-1">
+            <img src="~/assets/img/inscricao/ico-segmento.png" class="img-responsive center-block" />
+        </div>
+        <div class="col-md-2 text-center inscri-title-data">
+            <strong>SEGMENTO</strong>
+        </div>
+        <div class="col-md-9 inscri-data">
+            Educação Profissional
+        </div>
+    </div>
+    <div class="col-md-12 pad-top-30">
+        <div class="col-md-1">
+            <img src="~/assets/img/inscricao/ico-endereco.png" class="img-responsive center-block" />
+        </div>
+        <div class="col-md-2 text-center inscri-title-data">
+            <strong>ENDEREÇO</strong>
+        </div>
+        <div class="col-md-9 inscri-data">
+            Rua Doutor Alberto Seabra, 1061. Vila Madalena - São Paulo, SP
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <hr />
+    </div>
+
+    <div class="col-md-12 zera-pad pad-top-20">
+        <div class="col-md-6">
+            <div>
+                CNPJ
+            </div>
+            <div>
+                <input type="text" id="CNPJ" value="" class="form-control inp-contato">
+            </div>
+        </div>
+        <div class="col-md-6 mtop-10">
+            <div>
+                Instituição
+            </div>
+            <div>
+                <input type="text" id="CNPJ" value="" class="form-control inp-contato">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 pad-top-30 title-geral-cadastro">
+        <p><span><img class="" src="/assets/img/ico-title.png" alt=""></span>Meus dados pessoais:</p>
+    </div>
+
+    <div class="col-md-12 zera-pad pad-top-20">
+        <div class="col-md-12">
+            <div>
+                Nome
+            </div>
+            <div class="">
+                <input type="text" name="Nome" class="form-control inp-contato">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 zera-pad pad-top-10">
+        <div class="col-md-6">
+            <div>
+                Celular
+            </div>
+            <div class="">
+                <input type="text" name="Celular" id="Celular" class="form-control inp-contato">
+            </div>
+        </div>
+        <div class="col-md-6 mtop-10">
+            <div>
+                E-mail
+            </div>
+            <div>
+                <input type="text" id="email" name="Email" class="form-control inp-contato">
+
+            </div>
+        </div>
+
+        <div class="col-md-12 pad-top-30 text-right">
+            <p><input type="submit" name="finalizar" value="Editar dados" class="btn btn-lg btn-primary btn-amarelo" role="button" id=""></p>
+        </div>
+
+        <div class="col-md-12">
+            <hr>
+        </div>
+
+    </div>
+    <div class="col-md-12 pad-top-20">
+        <span style="margin-right:20px;">Precisa de ajuda com hospedagem e passagem? </span>
+        <label class="radio-inline">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Sim
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Não
+        </label>
+    </div>
+    <div class="col-md-12">
+        <div class="col-md-12 qd-inscricao">
+            <strong>Atenção:</strong> sua participação neste treinamento só estará garantida se os critérios abaixo forem obedecidos:<br /><br />
+
+            - Você não deve ter participado deste mesmo treinamento nos últimos 12 meses;<br />
+            - O número total de inscritos da sua instituição não pode ter ultrapassado o limite permitido para este treinamento.<br />
+
+        </div>
+    </div>
+
+    <div class="col-md-12 pad-top-50 text-center">
+        <p><input type="submit" name="finalizar" value="Confirmar inscrição no treinamento" class="btn btn-lg btn-primary btn-azul" role="button" id=""></p>
+    </div>
+
+
+</div>
+
+@section Scripts {
+    <script>
+
+        $(function () {
+
+
+            $('#ulMenu > li').each(function () {
+
+                $(this).removeClass('active');
+
+            });
+
+            $('#liTreinamento').addClass('active');
+
+            /*=== Verifica Nacionalidade ===*/
+
+            var nacionalidade = $('input[name="nacionalidade"]').val();
+
+            if (nacionalidade == 2) {
+
+                if ($('input[name="nacionalidadeCNPJ"]').val() != '' && $('input[name="nacionalidadeCNPJ"]').val() != undefined) {
+
+                    $('#empresa').show();
+                }
+
+                $('#cadNacionalidadeEstrangeira').show();
+                $('#cadNacionalidadeBrasileira').hide();
+
+            }
+
+
+
+            var SPMaskBehavior = function (val) {
+                return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+            },
+                spOptions = {
+                    onKeyPress: function (val, e, field, options) {
+                        field.mask(SPMaskBehavior.apply({}, arguments), options);
+                    }
+                };
+
+            $('#Celular').mask(SPMaskBehavior, spOptions);
+            $('#CPF').mask('000.000.000-00', { reverse: true });
+            $('#CNPJ').mask('00.000.000/0000-00', { reverse: true });
+
+
+            /*====== Verifica Mensagem de retorno*/
+
+            var mensagem = $('input[name="mensagem"]').val();
+
+            if (mensagem != '') {
+
+                var titulo = $('input[name="mensagemTitulo"]').val();
+
+                //alert($('input[name="mensagem"]').val());
+                //alerta(mensagem, titulo);
+            }
+
+
+            $('input[type="checkbox"]').on("click", function () {
+
+                var isChecked = $('input[type="checkbox"]').is(':checked');
+
+                if (isChecked) {
+                    $('input[name="hospedagemPassagem"]').val(1);
+
+                } else {
+                    $('input[name="hospedagemPassagem"]').val(0);
+                }
+
+            });
+
+
+            var isHospedagem = $('input[name="hospedagemPassagem"]').val();
+
+            if (isHospedagem != 0) {
+
+                $('input[type="checkbox"]').attr('checked', true);
+                $('input[name="hospedagemPassagem"]').val(1);
+            }
+
+
+            $('#btFinaliza').on('click', function () {
+
+                $("#carregando").show();
+            });
+
+            $('#btAdicionaConvite').on('click', function () {
+                $("#carregando").show();
+            });
+        });
+
+    </script>
+
+
+}

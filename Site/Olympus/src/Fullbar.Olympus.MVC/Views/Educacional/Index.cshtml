@@ -1,0 +1,93 @@
+﻿@using Fullbar.Olympus.Dominio.Entidade;
+
+@{
+    ViewBag.Title = "";
+    var caminho = System.Web.Configuration.WebConfigurationManager.AppSettings["caminhoImg"];
+}
+
+<div class="col-md-9 pad-top-50 conteudo">
+    <!--  Conteúdo -->
+
+
+    <div class="col-md-12 title-geral">
+        <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.PaginaConteudoEducacional</p>
+    </div>
+
+    <div class="col-md-12">
+        <hr>
+    </div>
+
+    @if (ViewBag.Conteudo != null)
+    {
+        var listConteudo = (List<ConteudoEducacional>)ViewBag.Conteudo;
+
+        if (listConteudo.Count > 0)
+        {
+            <div class="col-md-12">
+                @foreach (var item in listConteudo.Where(x => x.idTipo == 1))
+                {
+                    <div class="col-md-6 col-sm-6 col-xs-12 pad-l pad-top-20 pad-mobile">
+                        @item.dsTitulo <a class="btn btn-lg btn-primary btn-amarelo" href="@Url.Content(@caminho + "/assets/file/conteudo/" + @item.dsArquivo)" download role="button">Download</a>
+                    </div>
+                }
+            </div>
+                                        
+            <div class="col-md-12">
+                <hr>
+            </div>
+            
+            <div class="col-md-12">
+                @foreach (var item in listConteudo.Where(x => x.idTipo != 1))
+                {
+                    <div class="col-md-6 col-sm-6 col-xs-12 pad-l pad-top-20 pad-mobile">
+                        <div class="embed-responsive embed-responsive-4by3">
+                            <iframe class="embed-responsive-item" src="@item.dsLink" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>                    
+                }
+            </div>
+        }
+    }
+
+    
+    @*<div class="col-md-12">
+        <div class="col-md-6 col-sm-6 col-xs-12 pad-l pad-top-20 pad-mobile">
+            <div class="embed-responsive embed-responsive-4by3">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Zb7InM563fQ" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 pad-r pad-top-20 pad-mobile">
+            <div class="embed-responsive embed-responsive-4by3">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/TZK4rGliSTE" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <div style="clear:both"></div>
+
+
+    </div>*@
+
+</div><!--  /Conteúdo -->
+
+
+@section Scripts{
+
+    <script>
+
+            $(function () {
+
+
+                $('#ulMenu > li').each(function () {
+
+                    $(this).removeClass('active');
+
+                });
+
+                $('#liEducacional').addClass('active')
+
+            });
+
+    </script>
+
+
+}

@@ -1,0 +1,46 @@
+
+@font-face {
+  font-family: 'Titillium-Regular';  
+  src: url('../fonts/Titillium-Regular.eot?#iefix') format('embedded-opentype'),
+  	   url('../fonts/Titillium-Regular.otf')  format('opentype'),
+	   url('../fonts/Titillium-Regular.woff') format('woff'),
+	   url('../fonts/Titillium-Regular.ttf')  format('truetype'),
+	   url('../fonts/Titillium-Regular.svg#Titillium-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Titillium-Bold';
+  src: url('../fonts/Titillium-Bold.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Titillium-Bold.otf')  format('opentype'),
+	   url('../fonts/Titillium-Bold.woff') format('woff'),
+	   url('../fonts/Titillium-Bold.ttf')  format('truetype'),
+	   url('../fonts/Titillium-Bold.svg#Titillium-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Webnar-Light';
+  src: url('../fonts/Webnar-Light.eot?#iefix') format('embedded-opentype'),  
+  	   url('../fonts/Webnar-Light.otf')  format('opentype'),
+	   url('../fonts/Webnar-Light.woff') format('woff'), 
+	   url('../fonts/Webnar-Light.ttf')  format('truetype'), 
+	   url('../fonts/Webnar-Light.svg#Webnar-Light') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Webnar-Bold';
+  src: url('../fonts/Webnar-Bold.eot?#iefix') format('embedded-opentype'),  
+  	   url('../fonts/Webnar-Bold.otf')  format('opentype'),
+	   url('../fonts/Webnar-Bold.woff') format('woff'), 
+	   url('../fonts/Webnar-Bold.ttf')  format('truetype'), 
+	   url('../fonts/Webnar-Bold.svg#Webnar-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

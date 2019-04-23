@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "";
+}
+
+<div class="col-md-9 pad-top-40 conteudo">
+    <div class="col-md-12 title-geral">
+        <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.PaginaBolsaEstudoTextoTitulo</p>
+    </div>
+
+    <div class="col-md-12 subtitle-geral">
+        @Html.Raw(@Fullbar.Olympus.MVC.Resource.PaginaBolsaEstudoTexto)
+
+    </div>
+</div>
+
+@section Scripts {
+
+    <script>
+
+        $(function () {
+
+            $('#ulMenu > li').each(function () {
+
+                $(this).removeClass('active');
+
+            });
+
+            $('#liCodigoConduta').addClass('active')
+
+        });
+
+    </script>
+
+
+}

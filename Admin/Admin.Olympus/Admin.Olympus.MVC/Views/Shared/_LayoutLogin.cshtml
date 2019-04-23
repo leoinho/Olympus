@@ -1,0 +1,73 @@
+﻿@{
+    /* RESOURCE */
+
+    //Arquivo de Resource
+    string resource = (string)Session["ArquivoResource"];
+
+    //Idioma
+    string idioma = (string)Session["CultureIdioma"];
+    System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo(idioma);
+}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@HttpContext.GetGlobalResourceObject(@resource, "Titulo", @ci)</title>
+
+    <!-- Core CSS - Include with every page -->
+    <script src="/assets/js/vendor/jquery-1.11.3.min.js"></script>
+    <link href="/assets/css/vendor/bootstrap.css" rel="stylesheet">
+    <link href="/assets/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- SB Admin CSS - Include with every page -->
+    <link href="/assets/css/vendor/sb-admin.css" rel="stylesheet">
+
+    <!-- Custom -->
+    <link href="/assets/css/main.css" rel="stylesheet">
+    <script src="/assets/js/main.js"></script>
+</head>
+<body>
+    @RenderBody()
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:350px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close fechar" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel"></h4>
+                </div>
+                <div class="modal-body" id="myModalTexto">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default fechar" data-dismiss="modal">@HttpContext.GetGlobalResourceObject(@resource, "ModalBotaoFechar", @ci)</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <!-- Core Scripts - Include with every page -->
+    <script src="/assets/js/vendor/bootstrap.min.js"></script>
+    <script src="/assets/js/vendor/jquery.metisMenu.js"></script>
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <script src="/assets/js/vendor/sb-admin.js"></script>
+
+    @if (@ViewBag.Alerta != null)
+    {
+        var msg = (Admin.Olympus.Dominio.Entidade.ModalMensagem)@ViewBag.Alerta;
+
+        <script type="text/javascript">
+
+            alerta('@msg.Titulo', '@msg.Mensagem');
+
+        </script>
+    }
+
+</body>
+</html>

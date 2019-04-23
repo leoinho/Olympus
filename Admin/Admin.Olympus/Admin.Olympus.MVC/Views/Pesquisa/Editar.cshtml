@@ -1,0 +1,221 @@
+﻿@model Admin.Olympus.Dominio.Entidade.Pesquisa
+@using Admin.Olympus.Dominio.Entidade;
+
+@{
+    /* RESOURCE */
+
+    //Arquivo de Resource
+    string arquivoResource = (string)Session["ArquivoResource"];
+
+    //Idioma
+    string idioma = (string)Session["CultureIdioma"];
+    System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo(idioma);
+
+    //Tipo de Perfil (idIdioma)
+    var usuario = (Admin.Olympus.Dominio.Entidade.Administrador)Session["Administrador"];
+    int idIdioma = usuario.idTipo;
+}
+
+<!-- TÍTULO -->
+<div class="row">
+    <div class="col-lg-12">
+        @Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaEditarPerguntaTitulo", @ci))
+    </div>
+</div>
+
+<!-- CONTEÚDO -->
+<div class="row">
+    <div class="col-lg-12">
+
+        @if (Model != null)
+        {
+            using(Html.BeginForm("EditarPergunta", "Pesquisa", FormMethod.Post))
+            {
+                @Html.HiddenFor(x => x.idTipo)
+                @Html.HiddenFor(x => x.idPergunta)
+                @Html.HiddenFor(x => x.idPesquisa)
+                @Html.HiddenFor(x => x.idTipoPergunta)
+                @Html.HiddenFor(x => x.idTreinamento)
+
+                <!-- DETALHES TREINAMENTO  -->
+                <h4><strong>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaTreinamentoSelecionado", @ci))</strong></h4>
+                <hr />
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaNomeEvento", @ci))</label><br />
+                        @Html.TextBoxFor(x => x.dsNome, new { @class = "form-control", @disabled = "disabled" })
+                    </div>
+                </div>
+                <br class="clear" />
+                <div class="row">
+                    <div class="col-lg-4">
+                        <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaCodigo", @ci))</label><br />
+                        @Html.TextBoxFor(x => x.dsCodigo, new { @class = "form-control", @disabled = "disabled" })
+                    </div>
+                    <div class="col-lg-4">
+                        <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaDataEvento", @ci))</label><br />
+                        @Html.TextBoxFor(x => x.dsDtTreinamento, new { @class = "form-control", @disabled = "disabled" })
+                    </div>
+                    <div class="col-lg-4">
+                        <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaTipo", @ci))</label><br />
+                        @Html.DropDownListFor(x => x.idTipo, (IEnumerable<SelectListItem>)ViewBag.Tipo, new { @class = "form-control", @disabled = "disabled" })
+                    </div>
+                </div>
+                <br class="clear" />
+                <br class="clear" />
+                <!-- FIM DETALHES TREINAMENTO  -->
+            
+                <h4><strong>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaPergunta", @ci))</strong></h4>
+                <hr />
+            
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaPergunta", @ci))</label><br />
+                        @Html.TextAreaFor(x => x.dsDescricao, new { @class = "form-control", @style = "resize: none; height: 100px;" })
+                    </div>
+                </div>
+                <br class="clear" />
+            
+                <!-- Alternativa -->
+                if (ViewBag.Alternativas != null)
+                {
+                    var listAlternativas = (List<Alternativa>)ViewBag.Alternativas;
+                
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <label>@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "PesquisaSinalizeAlternativaCorreta", @ci))</label><br />
+                        </div>
+                    </div>
+
+                    int alt = 1;
+                    string idAlternativa = string.Empty;
+                    string check = string.Empty;
+                    string text = string.Empty;
+                    string questao = string.Empty;
+
+                    foreach (var alternativa in listAlternativas)
+                    {
+                        if (alt == 1)
+                        {
+                            idAlternativa = "idAlternativaA";
+                            check = "btCorretaA";
+                            text = "dsAlternativaA";
+                            questao = "A";
+                        }
+                        else if (alt == 2)
+                        {
+                            idAlternativa = "idAlternativaB";
+                            check = "btCorretaB";
+                            text = "dsAlternativaB";
+                            questao = "B";
+                        }
+                        else if (alt == 3)
+                        {
+                            idAlternativa = "idAlternativaC";
+                            check = "btCorretaC";
+                            text = "dsAlternativaC";
+                            questao = "C";
+                        }
+                        else if (alt == 4)
+                        {
+                            idAlternativa = "idAlternativaD";
+                            check = "btCorretaD";
+                            text = "dsAlternativaD";
+                            questao = "D";
+                        }
+                        else if (alt == 5)
+                        {
+                            idAlternativa = "idAlternativaE";
+                            check = "btCorretaE";
+                            text = "dsAlternativaE";
+                            questao = "E";
+                        }
+
+                        if (alternativa.btCorreta)
+                        {
+                            <input type="hidden" name="@idAlternativa" id="@idAlternativa" value="@alternativa.idAlternativa" />
+
+                            <div class="row">                                
+                                <div class="col-lg-1 chkAlternativas">
+                                    <input type="checkbox" value="true" name="@check" id="@check" checked /> @questao
+                                </div>
+                                <div class="col-lg-11 iptAlternativas">
+                                    <input type="text" class="form-control" value="@alternativa.dsDescricao" name="@text" id="@text" />
+                                </div>
+                            </div>
+                            <br class="clear" />
+                        }
+                        else
+                        {
+                            <input type="hidden" name="@idAlternativa" id="@idAlternativa" value="@alternativa.idAlternativa" />
+
+                            <div class="row">
+                                <div class="col-lg-1 chkAlternativas">
+                                    <input type="checkbox" value="true" name="@check" id="@check" /> @questao
+                                </div>
+                                <div class="col-lg-11 iptAlternativas">
+                                    <input type="text" class="form-control" value="@alternativa.dsDescricao" name="@text" id="@text" />
+                                </div>
+                            </div>
+                            <br class="clear" />
+                        }
+            
+                        alt++;
+                    }
+                }
+            
+                <div class="row">
+                    <div class="col-lg-12" style="text-align: right">
+                        <input type="submit" class="btn btn-primary" value="@Html.Raw(@HttpContext.GetGlobalResourceObject(@arquivoResource, "BotaoSalvar", @ci))">
+                    </div>
+                </div>
+                <br class="clear" />
+            }
+        }
+        
+        <!-- PERGUNTAS CADASTRADAS -->
+        
+
+
+        <!-- FIM PERGUNTAS CADASTRADAS -->
+
+        <br class="clear" />
+        <br class="clear" />
+        <br class="clear" />
+        <br class="clear" />
+</div>
+</div>
+
+<script>
+
+    $(function () {
+
+        $("#dsCPF").mask("999.999.999-99");
+        $("#dsCNPJ").mask("99.999.999/9999-99");
+
+        $(".dsCPF").mask("999.999.999-99");
+        $(".dsCNPJ").mask("99.999.999/9999-99");
+
+        $("#dsCelular").mask("(99) 99999-9999");
+        $("#dsDtTreinamento").mask("99/99/9999");
+        $("#dataFim").mask("99/99/9999");
+        $(".dsTelefone").mask("(99) 9999-9999");
+        $(".dsCelular").mask("(99) 99999-9999");
+
+
+        $("body").on('click', '.btEditar', function (event) {
+            event.preventDefault();
+
+            var idPergunta = $(this).attr('id');
+            
+            $("#idPergunta").val(idPergunta);
+
+            $("#frmEditar").submit();
+
+            return false;
+        });
+
+    });
+
+</script>

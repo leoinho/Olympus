@@ -1,0 +1,8 @@
+
+@font-face {
+  font-family: 'Titillium-Regular';
+  src: url('Titillium-Regular.eot?#iefix') format('embedded-opentype'),  url('Titillium-Regular.otf')  format('opentype'),
+	     url('Titillium-Regular.woff') format('woff'), url('Titillium-Regular.ttf')  format('truetype'), url('Titillium-Regular.svg#Titillium-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

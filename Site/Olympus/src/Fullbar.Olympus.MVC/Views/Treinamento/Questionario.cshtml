@@ -1,0 +1,150 @@
+﻿@model IEnumerable<Fullbar.Olympus.MVC.Models.TreinamentoPrePerguntaViewModel>
+
+@{
+    ViewBag.Title = "Questionario";
+}
+
+<div class="col-md-9 pad-top-40 conteudo conteudo-mob">
+    <div class="col-md-12 title-geral">
+        @if (ViewBag.Tipo == 1) { 
+        <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.PaginaMeusTreinamentosBotaoQuestionarioPreTreinamento</p>
+        }
+        else
+        {
+           <p><span><img class="" src=@Url.Content("~/assets/img/ico-title.png") alt=""></span>@Fullbar.Olympus.MVC.Resource.PaginaMeusTreinamentosBotaoQuestionarioPosTreinamento</p> 
+        }
+    </div>    
+    
+
+    @using (Html.BeginForm("Questionario", "Treinamento", FormMethod.Post, new { @id = "frmQuestionario" }))
+    {
+        @Html.HiddenFor(x => x.FirstOrDefault().idTreinamento)
+        @Html.HiddenFor(x => x.FirstOrDefault().idInscricao)
+        @Html.HiddenFor(x => x.FirstOrDefault().idUsuario)
+        @Html.HiddenFor(x => x.FirstOrDefault().idTipo)
+                
+        <div class="col-md-12 modal-body mCustomScrollbar heid-questionario" data-mcs-theme="dark">
+            <!-- scroll-->
+            @Html.AntiForgeryToken()
+
+            @if (Model != null)
+            {
+                var id = 0;
+
+                foreach (var item in Model)
+                {
+                    if (item.idTipo == 1) //ALTERNATIVAS
+                    {
+                        var hdnPerguntaId = "Alternativas_" + id.ToString() + "__idPergunta";
+                        var hdnPerguntaName = "Alternativas[" + id.ToString() + "].idPergunta";
+                        
+                        <input type="hidden" name="@hdnPerguntaName" id="@hdnPerguntaId" value="@item.idPergunta" />
+                        
+                        <div class="col-md-12 pad-top-10">
+                            <div class="sub-tit-questionario">
+                                @Html.DisplayFor(modelItem => item.dsDescricao)
+                            </div>
+                            <div class="sub-tit-questionario pad-top-10">
+
+                                <div class="option-questionario rdbQuestionario">
+                                    @*@{ var perguntaId = "Alternativas_" + id.ToString() + "__idAlternativa"; }*@
+
+                                    @for (int i = 0; i < item.Alternativas.Count; i++)
+                                    {
+                                        var perguntaId = "Alternativas_" + id.ToString() + "__idPergunta";
+                                        var perguntaName = "Alternativas[" + id.ToString() + "].idAlternativa";
+                                        
+                                        <div>
+                                            <input id="@perguntaId" type="radio" name="@perguntaName" value="@item.Alternativas[i].idAlternativa" /> <label for="@perguntaId"><span><span></span></span>@item.Alternativas[i].dsDescricao</label>
+                                        </div>
+                                    }
+                                    
+                                    @{ id++; }
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else if (item.idTipo == 2) //DISSERTATIVA
+                    {
+                        var hdnPerguntaId = "Alternativas_" + id.ToString() + "__idPergunta";
+                        var hdnPerguntaName = "Alternativas[" + id.ToString() + "].idPergunta";
+
+                        var perguntaId = "Alternativas_" + id.ToString() + "__idPergunta";
+                        var perguntaName = "Alternativas[" + id.ToString() + "].dsDescricao";
+                        
+                        <input type="hidden" name="@hdnPerguntaName" id="@hdnPerguntaId" value="@item.idPergunta" />
+                        
+                        <div class="col-md-12 pad-top-10">
+                            <div class="sub-tit-questionario">
+                                @Html.DisplayFor(modelItem => item.dsDescricao)
+                            </div>
+                        </div>
+                        <div class="sub-tit-questionario pad-top-10">
+                            <div class="option-questionario txtQuestionario">
+                                <textarea id="@perguntaId" class="form-control inp-contato" name="@perguntaName" style="resize: none"></textarea>
+                            </div>
+                        </div>
+                
+                        id++;
+                    }
+                }
+            }
+        </div><!-- /scroll-->
+
+        <div class="col-md-12">
+            <div class="col-md-4 pad-top-10">
+                <input type="submit" value="Enviar" role="button" class="btn btn-lg btn-primary btn-entrar" id="entrar">
+            </div>
+        </div>
+    }
+
+    <input type="hidden" name="mensagem" value="@ViewBag.Mensagem" />
+    <input type="hidden" name="mensagemTitulo" value="@ViewBag.MensagemTitulo" id="mensagemTitulo" />
+
+</div>
+
+@section Scripts {
+    <script>
+
+        $(function () {
+
+            $("#frmQuestionario").submit(function () {
+
+                var mensagem = $('input[name="mensagem"]').val();
+                var titulo = $('input[name="mensagemTitulo"]').val();
+                var retorno = true;
+
+                $('div.option-questionario.rdbQuestionario').each(function () {
+
+                    if ($(this).find("input[type=radio]:checked").length <= 0) {
+                        retorno = false;
+                    }
+
+                })
+
+                $('div.option-questionario.txtQuestionario').each(function () {
+
+                    if ($(this).find("textarea").val().length <= 0) {
+                        retorno = false;
+                    }
+
+                })
+
+                if (retorno == false) {
+                    
+                    $("#carregando").hide();
+
+                    alerta(mensagem, titulo);
+
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            });
+
+        });
+
+    </script>
+}

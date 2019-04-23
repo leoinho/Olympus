@@ -1,0 +1,334 @@
+body
+{
+	background-color:#E9E9E9;	
+	padding-top:77px;
+	font-family: 'Titillium-Regular'; 
+	color:#6E7276;
+}
+
+.container
+{
+	max-width:1230px;
+}
+
+
+
+.bg-footer
+{	
+	height:45px;
+	background-color:#002A61;
+}
+
+
+.wrapper {
+	min-height: 100%;
+	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+	height: 100%;
+	margin: 0 auto -45px; /* the bottom margin is the negative value of the footer's height */
+    padding-bottom: 47px;;
+}
+.footer, .push {
+	 /* .push must be the same height as .footer */
+}
+
+
+.zera-pad{padding-left:0px; padding-right:0px;}
+.pad-l{padding-left:0px;}
+.pad-r{padding-right:0px;}
+
+.pad-top-80{padding-top:80px;}
+.pad-top-50{padding-top:50px;}
+.pad-top-40{padding-top:40px;}
+.pad-top-20{padding-top:20px;}
+.pad-top-30{padding-top:30px;}
+.pad-top-15{padding-top:15px;}
+.pad-top-10{padding-top:10px;}
+
+.pad-bot-50{padding-bottom:50px;}
+.pad-bot-20{padding-bottom:20px;}
+
+.pad-30{padding-left:30px; padding-right:30px;}
+
+.marg-r{margin-right:15px;}
+
+.wid-100
+{
+	width:100%;
+}
+
+
+/*---------------- Menu -------------- */
+
+.navbar {   
+ 
+ color:#757779;
+   
+}
+
+.navbar-default {
+    background-color: #FFFFFF;
+    border-color: #e7e7e7;
+}
+
+.navbar-nav>li>a {
+    padding-top: 27px;
+    padding-bottom: 28px;
+	font-size:15px;
+}
+
+	.risc-menu
+	{
+		padding-top: 23px;
+    	
+	}
+
+.navbar-brand {
+    
+    padding: 24px 15px;
+    margin-right:116px;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #555;
+    background-color: #FFFFFF;
+	border-bottom:solid 2px #0497D2;
+	background-image:url(../img/ico-menu.png);
+	background-repeat:no-repeat;
+	background-position:center bottom;
+}
+
+
+/*---------------- IDIOMA ---------------- */
+
+
+.idioma li a
+{
+	-webkit-box-shadow: -1px 3px 3px 0px rgba(50, 50, 50, 0.10);
+	-moz-box-shadow:    -1px 3px 3px 0px rgba(50, 50, 50, 0.10);
+	box-shadow:         -1px 3px 3px 0px rgba(50, 50, 50, 0.10);
+	border-bottom:solid 1px #D8D8D8;
+	padding:10px;
+	padding-top: 10px;
+    padding-bottom: 10px;
+	font-size:20px;
+	margin-right:6px;
+	margin-top:15px;
+}
+.idioma li:hover
+{
+	background-color:#CAE2F4;
+}
+
+
+/* ----------------- Conteudo ----------------------- */
+
+.title-geral p
+{
+	font-size:21px;
+	font-family: 'Titillium-Bold';
+	color:#0048A5;
+}
+	.title-geral p span
+	{
+		padding-right:10px;
+	}
+
+.subtitle-geral h1
+{
+	font-size:16px;	
+	color:#C87941;
+}
+.subtitle-geral p
+{
+	font-size:16px;	
+	color:#6E7276;
+}
+
+.bar-lateral
+{
+	background-color:#F7F9F8;
+	border-left:solid 1px #DDD7D9;
+	border-right:solid 1px #DDD7D9;
+	
+}
+
+.conteudo
+{
+	background-color:#FFFFFF;
+	padding:15px;
+	
+}
+
+	.carousel-indicators li {    
+		border: 1px solid #E9E9E9;   
+	}
+	
+	.carousel-indicators .active {    
+		background-color: #0C4DA2;
+	}
+	
+	.carousel-indicators {
+		position: relative;
+		bottom: 0px;
+		margin-top:10px;
+	
+		text-align: center;
+		list-style: none;
+	}
+	
+	.quad-treinamentos
+	{
+		border:solid 1px #DDD7D9;
+	}
+	
+	.btn-primary 
+	{
+		color: #fff;
+		background-color: #5FAEDD;
+		border-color: #5FAEDD;
+		border-radius:0px;
+		-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		font-size:14px;
+	}
+	
+	.btn-laranja
+	{
+		color: #fff;
+		background-color: #E8732F;
+		border-color: #E8732F;
+		border-radius:0px;
+		-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+	}
+		.btn-laranja:hover 
+		{
+			color: #fff;
+			background-color: #CE5C17;
+			border-color: #CE5C17;
+		}
+		
+	.btn-amarelo
+	{
+		color: #fff;
+		background-color: #F3B900;
+		border-color: #F3B900;
+		border-radius:0px;
+		-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.26);
+		padding:15px 50px 15px 50px;
+		
+	}
+		.btn-amarelo:hover 
+		{
+			color: #fff;
+			background-color: #D9A300;
+			border-color: #D9A300;
+		}
+
+
+/* --------------- Treinamentos ---------- */
+.banner-treinamentos
+{
+	border:solid 1px #D7D7D7;
+}
+
+.treinamento-data
+{
+	border:solid 1px #D7D7D7;
+	background-color:#97BEE6;
+	color:#FFFFFF;
+	text-align:center;
+}
+	.treinamento-data-div
+	{
+		font-size:40px;
+		
+	}
+	.treinamento-data hr
+	{		
+		border-top:solid 1px #86A4C5;
+		margin-top: 5px;
+    	margin-bottom: 10px
+	}
+	.treinamento-data p
+	{
+		font-size:14px;
+	}
+
+.treinamento-tipo
+{
+	border:solid 1px #D7D7D7;
+	background-color:#97BEE6;
+	color:#FFFFFF;
+	text-align:center;
+	padding-top: 16px;
+}
+
+
+.treinamento-endereco
+{
+	border:solid 1px #D7D7D7;
+	background-color:#97BEE6;
+	color:#FFFFFF;
+	padding-top: 19px;
+    padding-bottom: 19px;
+	min-height:105px;	
+}
+
+.treinamentos-tab-title
+{
+	color:#343F84;
+	font-family: 'Titillium-Bold';
+}
+
+/* --------------- CONTATO --------------- */
+.inp-contato
+{
+	border-radius:0px;
+}
+.wid-bt
+{
+	min-width:250px;
+}
+
+.email-contato span
+{
+	padding-right:20px;
+}
+/* --------------- FOOTER ---------------- */
+.text-footer
+{
+	padding-top:12px;
+	padding-left:30px;
+	color:#FFFFFF;
+}
+
+/* --------- Ajustes Mobile ---------------- */
+
+
+
+@media (max-width: 1800px){		
+		
+	
+}
+
+
+@media screen and (max-width: 1366px) and (max-height: 800px) { 
+		
+		
+}
+
+
+
+object[type="application/gas-events-uni"]
+{
+	position:fixed;
+	top:0;
+	left:0;
+	
+}
+
